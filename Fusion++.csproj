@@ -55,17 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFusionService.cs" />
-    <Compile Include="LogMode.cs" />
+    <Compile Include="Services\IFusionService.cs" />
+    <Compile Include="Services\ILogFileService.cs" />
+    <Compile Include="Model\LogItem.cs" />
+    <Compile Include="Parser\LogFileParser.cs" />
+    <Compile Include="Services\LogFileService.cs" />
+    <Compile Include="Model\LogMode.cs" />
+    <Compile Include="Model\LogSource.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parser\LogItemParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistryFusionService.cs" />
+    <Compile Include="Services\RegistryFusionService.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

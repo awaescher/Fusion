@@ -1,4 +1,4 @@
-﻿namespace FusionPlusPlus
+﻿namespace FusionPlusPlus.Model
 {
 	public enum LogMode
 	{
