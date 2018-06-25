@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Fusion__
+namespace FusionPlusPlus
 {
-	public partial class Form1 : Form
+	public partial class MainForm : XtraForm
 	{
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 		}
