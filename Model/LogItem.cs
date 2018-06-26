@@ -3,31 +3,33 @@
 namespace FusionPlusPlus.Model
 {
 	[System.Diagnostics.DebuggerDisplay("{DisplayName}")]
-	internal class LogItem
+	public class LogItem
 	{
-		internal string DisplayName { get; set; } = "";
+		public string DisplayName { get; set; } = "";
 
-		internal string AppName { get; set; } = "";
+		public string AppName { get; set; } = "";
 
-		internal string AppBase { get; set; } = "";
+		public string AppBase { get; set; } = "";
 
-		internal string PrivatePath { get; set; } = "";
+		public string PrivatePath { get; set; } = "";
 
-		internal string DynamicPath { get; set; } = "";
+		public string DynamicPath { get; set; } = "";
 
-		internal string CacheBase { get; set; } = "";
+		public string CacheBase { get; set; } = "";
 
-		internal string CallingAssembly { get; set; } = "";
+		public string CallingAssembly { get; set; } = "";
 
-		internal string FullMessage { get; set; } = "";
+		public string FullMessage { get; set; } = "";
 
-		internal State AccumulatedState { get; set; }
+		public State AccumulatedState { get; set; }
 
-		internal DateTime TimeStampUtc { get; set; }
+		public DateTime TimeStampUtc { get; set; }
 
-		internal bool IsValid => !string.IsNullOrEmpty(DisplayName);
+		public DateTime TimeStampLocal => TimeStampUtc.ToLocalTime();
 
-		internal enum State
+		public bool IsValid => !string.IsNullOrEmpty(DisplayName);
+
+		public enum State
 		{
 			Information,
 			Warning,

@@ -16,18 +16,25 @@ namespace FusionPlusPlus.Parser
 			FileReader = fileReader ?? throw new System.ArgumentNullException(nameof(fileReader));
 		}
 
+		internal List<LogItem> Parse(string[] files)
+		{
+			return files.SelectMany(Parse).ToList();
+		}
+
 		internal List<LogItem> Parse(string file)
 		{
 			var content = FileReader.Read(file);
-			var matches = Regex.Match(content, @"(?<=<html><pre>)(\n|\r|\r\n|.)*?(?=</pre></html>)"); // TODO does not match all entries in german logs
 
-			if (!matches.Success)
+			var logBlocks = Regex
+				.Split(content, "<meta.*<pre>|</pre>.*</html>", RegexOptions.Compiled)
+				.Where(s => s?.Length > 0);
+
+			if (!logBlocks.Any())
 				return new List<LogItem>();
 
-			return matches
-				.Groups.OfType<Group>()
-				.Select(g => ItemParser.Parse(g.Value))
-				.Where(l => l.IsValid)
+			return logBlocks
+				.Select(block => ItemParser.Parse(block))
+				.Where(log => log.IsValid)
 				.ToList();
 		}
 

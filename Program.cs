@@ -1,8 +1,5 @@
 ﻿using DevExpress.LookAndFeel;
-using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
-using FusionPlusPlus.Parser;
-using FusionPlusPlus.Services;
+
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,12 +15,6 @@ namespace FusionPlusPlus
 		static void Main()
 		{
 			UserLookAndFeel.Default.SetSkinStyle(SkinStyle.Bezier);
-
-			var fusionService = new RegistryFusionService();
-			var fileService = new LogFileService(fusionService);
-			var files = fileService.Get(LogSource.Default);
-			var parser = new LogFileParser(new LogItemParser(), new FileReader());
-			var parsed = parser.Parse(files.First());
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

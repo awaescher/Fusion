@@ -16,6 +16,9 @@ namespace FusionPlusPlus.Parser
 
 			foreach (var line in lines)
 			{
+				if (result.TimeStampUtc.Year == 1)
+					FindDate(line, d => result.TimeStampUtc = d.ToUniversalTime());
+
 				AddValueIfRelevant(line, "DisplayName", s => result.DisplayName = s);
 				AddValueIfRelevant(line, "AppName", s => result.AppName = s);
 				AddValueIfRelevant(line, "AppBase", s => result.AppBase = s);
@@ -27,7 +30,7 @@ namespace FusionPlusPlus.Parser
 				if (result.AccumulatedState == LogItem.State.Error)
 					continue;
 
-				if (line.StartsWith("WARN", StringComparison.OrdinalIgnoreCase))
+				if (line.StartsWith("WRN", StringComparison.OrdinalIgnoreCase))
 					result.AccumulatedState = LogItem.State.Warning;
 				else if (line.StartsWith("ERR", StringComparison.OrdinalIgnoreCase))
 					result.AccumulatedState = LogItem.State.Error;
@@ -48,6 +51,18 @@ namespace FusionPlusPlus.Parser
 					return;
 
 				setter(value);
+			}
+		}
+
+		private void FindDate(string content, Action<DateTime> setter)
+		{
+			var match = Regex.Match(content, @"(?<=\().*?@.*?(?=\))");
+			if (match.Success)
+			{
+				var value = match.Value.Trim().Replace("@", "");
+
+				if (DateTime.TryParse(value, out DateTime result))
+					setter(result);
 			}
 		}
 
