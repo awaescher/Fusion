@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Sparkline.v18.1.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Sparkline.ISparklineViewVisitor">
+
+            <summary>
+                <para>Interface implementing the <b>Visitor</b> pattern.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.ISparklineViewVisitor.Visit(DevExpress.Sparkline.LineSparklineView)">
+            <summary>
+                <para>Performs the operation as required by the Visitor and the View, as defined in the Visitor pattern.
+</para>
+            </summary>
+            <param name="view">
+		An <see cref="T:DevExpress.Sparkline.LineSparklineView"/> object for which the operation is performed.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.ISparklineViewVisitor.Visit(DevExpress.Sparkline.AreaSparklineView)">
+            <summary>
+                <para>Performs the operation as required by the Visitor and the View, as defined in the Visitor pattern.
+</para>
+            </summary>
+            <param name="view">
+		An <see cref="T:DevExpress.Sparkline.AreaSparklineView"/> object for which the operation is performed.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.ISparklineViewVisitor.Visit(DevExpress.Sparkline.BarSparklineView)">
+            <summary>
+                <para>Performs the operation as required by the Visitor and the View, as defined in the Visitor pattern.
+</para>
+            </summary>
+            <param name="view">
+		An <see cref="T:DevExpress.Sparkline.BarSparklineView"/> object for which the operation is performed.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.ISparklineViewVisitor.Visit(DevExpress.Sparkline.WinLossSparklineView)">
+            <summary>
+                <para>Performs the operation as required by the Visitor and the View, as defined in the Visitor pattern.
+</para>
+            </summary>
+            <param name="view">
+		An <see cref="T:DevExpress.Sparkline.WinLossSparklineView"/> object for which the operation is performed.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.LineSparklineView">
+
+            <summary>
+                <para>The <b>Line</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.LineSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the LineSparklineView class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualEndPointMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualLineWidth">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualMarkerColor">
+            <summary>
+                <para>Gets the actual color of a sparkline marker.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual marker color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualMaxPointMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualMinPointMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualNegativePointMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ActualStartPointMarkerSize">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.LineSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the LineSparklineView object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A LineSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.EnableAntialiasing">
+            <summary>
+                <para>Gets or sets whether anti-aliasing (smoothing) is applied to the line view.
+</para>
+            </summary>
+            <value><b>True</b> to apply anti-aliasing to the line view; <b>False</b> to disable anti-aliasing. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.EndPointMarkerSize">
+            <summary>
+                <para>Gets or sets the size of an end point's marker.
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.HighlightNegativePoints">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight all sparkline points that have negative values (less than 0).
+</para>
+            </summary>
+            <value><b>true</b>, to highlight points with negative values; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.LineWidth">
+            <summary>
+                <para>Specifies the width of a line in a LineSparklineView.
+
+</para>
+            </summary>
+            <value>An integer value specifying the line width (in pixels).
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.MarkerColor">
+            <summary>
+                <para>Gets or sets the color to draw line markers.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw line markers.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.MarkerSize">
+            <summary>
+                <para>Gets or sets the size of markers for data points in a line sparkline.
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.MaxPointMarkerSize">
+            <summary>
+                <para>Gets or sets the marker size of a data point that has the maximum value among all data points.
+
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.MinPointMarkerSize">
+            <summary>
+                <para>Gets or sets the marker size of a data point that has the minimum value among all data points.
+
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.NegativePointMarkerSize">
+            <summary>
+                <para>Gets or sets the marker size of all data points that have negative values (less than 0).
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ScaleFactor">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.LineSparklineView.SetSizeForAllMarkers(System.Int32)">
+            <summary>
+                <para>Sets size for all markers of a sparkline.
+</para>
+            </summary>
+            <param name="markerSize">
+		An integer value specifying the new size for sparkline markers (in pixels).
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.ShowMarkers">
+            <summary>
+                <para>Gets or sets a value specifying the visibility of point markers on a sparkline.
+</para>
+            </summary>
+            <value><b>true</b> to show markers for each data point; <b>false</b> to hide them.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.StartPointMarkerSize">
+            <summary>
+                <para>Gets or sets the size of a start point's marker.
+</para>
+            </summary>
+            <value>An integer value specifying the marker size, in pixels.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.LineSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Line"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.LineSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current LineSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.SparklineRange">
+
+            <summary>
+                <para>Represents a range to be used in DevExpress Sparkline controls.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineRange.#ctor(System.Double,System.Double)">
+            <summary>
+                <para>Initializes a new instance of the SparklineRange class with the specified minimum and maximum limits.
+
+</para>
+            </summary>
+            <param name="min">
+		A <see cref="T:System.Double"/> value, specifying the minimum limit. This value is assigned to the <see cref="P:DevExpress.Sparkline.SparklineRange.Limit1"/> property.
+
+            </param>
+            <param name="max">
+		A <see cref="T:System.Double"/> value, specifying the maximum limit. This value is assigned to the <see cref="P:DevExpress.Sparkline.SparklineRange.Limit2"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineRange.#ctor">
+            <summary>
+                <para>Initializes a new instance of the SparklineRange class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineRange.IsAuto">
+            <summary>
+                <para>Gets or sets a value indicating whether or not range limits should be calculated automatically.
+</para>
+            </summary>
+            <value><b>true</b> to calculate range limits automatically; <b>false</b> to use the <see cref="P:DevExpress.Sparkline.SparklineRange.Limit1"/> and <see cref="P:DevExpress.Sparkline.SparklineRange.Limit2"/> property values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineRange.Limit1">
+            <summary>
+                <para>Gets or sets a value specifying the first limit of the range.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Double"/> value that specifies the first limit.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineRange.Limit2">
+            <summary>
+                <para>Gets or sets a value specifying the second limit of the range.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Double"/> value that specifies the second limit.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Sparkline.SparklineRange.PropertiesChanged">
+            <summary>
+                <para>This event is hidden, because it is not appropriate for the SparklineRange class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineRange.ToString">
+            <summary>
+                <para>Returns the textual representation of the SparklineRange.
+</para>
+            </summary>
+            <returns>A <see cref="T:System.String"/> value which is the textual representation of the SparklineRange.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.WinLossSparklineView">
+
+            <summary>
+                <para>The <b>WinLoss</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.WinLossSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the WinLossSparklineView class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.WinLossSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.WinLoss"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.WinLossSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current WinLossSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.BarSparklineViewBase">
+
+            <summary>
+                <para>The base for <b>Bar</b> and <b>WinLoss</b> sparkline views.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineViewBase.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the BarSparklineViewBase object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A BarSparklineViewBase object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineViewBase.BarDistance">
+            <summary>
+                <para>Specifies the distance between two bars of a bar sparkline.
+</para>
+            </summary>
+            <value>An integer value (in pixels).
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.BarSparklineView">
+
+            <summary>
+                <para>The <b>Bar</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the BarSparklineView class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the BarSparklineView object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A BarSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineView.HighlightNegativePoints">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight all sparkline points that have negative values (less than 0).
+</para>
+            </summary>
+            <value><b>true</b>, to highlight points with negative values; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Bar"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current BarSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.AreaSparklineView">
+
+            <summary>
+                <para>The <b>Area</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the AreaSparklineView class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.AreaSparklineView.AreaOpacity">
+            <summary>
+                <para>Specifies the opacity (<b>0</b>-<b>255</b>) of the area sparkline.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Byte"/> value from <b>0</b> (transparent) to <b>255</b> (opaque).
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the AreaSparklineView object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A AreaSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.AreaSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Area"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current AreaSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.SparklineViewType">
+
+            <summary>
+                <para>Lists the values used to specify the available view types of a sparkline.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Area">
+            <summary>
+                <para>Sparkline data points are represented as <b>area</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Bar">
+            <summary>
+                <para>Sparkline data points are represented as <b>bars</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Line">
+            <summary>
+                <para>Sparkline data points are represented as a <b>line</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.WinLoss">
+            <summary>
+                <para>Sparkline data points are represented as <b>win</b> and <b>loss</b> squares.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.SparklineViewBase">
+
+            <summary>
+                <para>The base class for sparkline views.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualColor">
+            <summary>
+                <para>Gets the actual color of a sparkline.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual sparkline color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualEndPointColor">
+            <summary>
+                <para>Gets the actual color of a sparkline end point.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual point color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualMaxPointColor">
+            <summary>
+                <para>Gets the actual color of a sparkline maximum point.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual point color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualMinPointColor">
+            <summary>
+                <para>Gets the actual color of a sparkline minimum point.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual point color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualNegativePointColor">
+            <summary>
+                <para>Gets the actual color of sparkline negative points.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual point color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.ActualStartPointColor">
+            <summary>
+                <para>Gets the actual color of a sparkline start point.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that is the actual point color.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineViewBase.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the SparklineViewBase object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A SparklineViewBase object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.Color">
+            <summary>
+                <para>Gets or sets the color to draw a sparkline.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw a sparkline.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineViewBase.CreateView(DevExpress.Sparkline.SparklineViewType)">
+            <summary>
+                <para>Creates a sparkline view of the specified type.
+</para>
+            </summary>
+            <param name="viewType">
+		A <see cref="T:DevExpress.Sparkline.SparklineViewType"/> enumeration value specifying the type of view to create.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> class descendant.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.EndPointColor">
+            <summary>
+                <para>Gets or sets the color to draw the end point of a sparkline.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw the end point.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.HighlightEndPoint">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight the end point of a sparkline.
+</para>
+            </summary>
+            <value><b>true</b>, to highlight the end point; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.HighlightMaxPoint">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight a sparkline point that has the highest value among all points.
+
+</para>
+            </summary>
+            <value><b>true</b>, to highlight a point with the maximum value; otherwise, <b>false</b>.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.HighlightMinPoint">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight a sparkline point that has the lowest value among all points.
+
+</para>
+            </summary>
+            <value><b>true</b>, to highlight a point with the minimum value; otherwise, <b>false</b>.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.HighlightStartPoint">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight the start point of a sparkline.
+</para>
+            </summary>
+            <value><b>true</b>, to highlight the start point; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.MaxPointColor">
+            <summary>
+                <para>Gets or sets the color to draw a sparkline point that has the highest value among all data points.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw a data point with the maximum value.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.MinPointColor">
+            <summary>
+                <para>Gets or sets the color to draw a sparkline point that has the lowest value among all data points.
+
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw a data point with the minimum value.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.NegativePointColor">
+            <summary>
+                <para>Gets or sets the color to draw sparkline points that have negative values (less than 0).
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw data points with negative values.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Sparkline.SparklineViewBase.PropertiesChanged">
+            <summary>
+                <para>Occurs when any property of the SparklineViewBase object has changed its value.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.StartPointColor">
+            <summary>
+                <para>Gets or sets the color to draw the start point of a sparkline.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> that defines the color to draw the start point.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineViewBase.ToString">
+            <summary>
+                <para>Returns a human-readable string that represents the SparklineViewBase object.
+</para>
+            </summary>
+            <returns>A <see cref="T:System.String"/> value that represents the SparklineViewBase object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.SparklineViewBase.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Sparkline.SparklineViewType"/> enumeration value specifying the view type.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.SparklineViewBase.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current SparklineViewBase object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+    </members>
+</doc>

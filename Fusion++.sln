@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++", "Fusion++.csproj", "{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++", "Fusion++\Fusion++.csproj", "{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++.Tests", "..\Fusion++.Tests\Fusion++.Tests.csproj", "{967E8901-43DE-4AF1-86DF-BB18C8949C44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++.Tests", "Fusion++.Tests\Fusion++.Tests.csproj", "{967E8901-43DE-4AF1-86DF-BB18C8949C44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

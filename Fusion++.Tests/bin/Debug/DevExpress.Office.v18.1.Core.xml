@@ -1,0 +1,3077 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Office.v18.1.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Office.Options.DataSourceTypes">
+
+            <summary>
+                <para>Lists values used to specify the data source types available in the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.All">
+            <summary>
+                <para>Specifies that all data source types are available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.EntityFramework">
+            <summary>
+                <para>Specifies that an Entity Framework data source is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Excel">
+            <summary>
+                <para>Specifies that a data source used to extract data from Microsoft&#174; Excel&#174; documents is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Object">
+            <summary>
+                <para>Specifies that an object data source is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Sql">
+            <summary>
+                <para>Specifies that an SQL database is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Drawing.TileFlipType">
+
+            <summary>
+                <para>Lists values used to specify how to flip the tile contents. 
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Drawing.TileFlipType.Both">
+            <summary>
+                <para>Specifies that the tiles should be flipped both horizontally and vertically. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Drawing.TileFlipType.Horizontal">
+            <summary>
+                <para>Specifies that the tiles should be flipped horizontally. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Drawing.TileFlipType.None">
+            <summary>
+                <para>Specifies that the tiles should not be flipped. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Drawing.TileFlipType.Vertical">
+            <summary>
+                <para>Specifies that the tiles should be flipped vertically. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Localization.OfficeResLocalizer">
+
+            <summary>
+                <para>A default localizer to translate resources for DevExpress office products (e.g., Rich Text Editor, Spreadsheet).
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Localization.OfficeResLocalizer.#ctor">
+            <summary>
+                <para>Initializes a new instance of the OfficeResLocalizer class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Localization.OfficeLocalizer">
+
+            <summary>
+                <para>A base class that provides necessary functionality for custom localizers of elements which are common for office-inspired controls.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Localization.OfficeLocalizer.#ctor">
+            <summary>
+                <para>Initializes a new instance of the OfficeLocalizer class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Localization.OfficeLocalizer.CreateDefaultLocalizer">
+            <summary>
+                <para>Returns a localizer object, which provides resources based on the thread's language and regional settings (culture).
+</para>
+            </summary>
+            <returns>An <see cref="T:DevExpress.Utils.Localization.XtraLocalizer`1"/> object representing resources based on the thread's culture.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Localization.OfficeLocalizer.CreateResXLocalizer">
+            <summary>
+                <para>Returns a localizer object, which provides resources based on the thread's language and regional settings (culture).
+</para>
+            </summary>
+            <returns>A <see cref="T:DevExpress.Utils.Localization.XtraLocalizer`1"/> object, which provides resources based on the thread's culture.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Localization.OfficeLocalizer.GetString(DevExpress.Office.Localization.OfficeStringId)">
+            <summary>
+                <para>Returns a localized string for the given string identifier.
+</para>
+            </summary>
+            <param name="id">
+		An <see cref="T:DevExpress.Office.Localization.OfficeStringId"/> enumeration value identifying the string to localize.
+
+            </param>
+            <returns>A <see cref="T:System.String"/> corresponding to the specified identifier.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Office.DocumentLayoutUnit">
+
+            <summary>
+                <para>Lists measurement units used for the document layout.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentLayoutUnit.Document">
+            <summary>
+                <para>Specifies documents (one three-hundredths of an inch) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentLayoutUnit.Pixel">
+            <summary>
+                <para>Specifies pixels as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentLayoutUnit.Twip">
+            <summary>
+                <para>Specifies twips (1,440 twips equal one inch, and 567 twips equal one centimeter) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Export.Html.HtmlExporterBase">
+
+            <summary>
+                <para>Base class for objects used by Office-inspired controls to export the document content in HTML format.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Export.Html.HtmlExporterBase.Export">
+            <summary>
+                <para>Exports the document to a string in HTML format.
+</para>
+            </summary>
+            <returns>A string containing a document in HTML format.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Export.Html.HtmlExporterBase.Export(System.IO.TextWriter)">
+            <summary>
+                <para>Exports a document in HTML format using the specified writer to write exported data as a series of characters.
+</para>
+            </summary>
+            <param name="writer">
+		A <see cref="T:System.IO.TextWriter"/> descendant which writes exported data as a sequential series of characters.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Services.IUriProviderService">
+
+            <summary>
+                <para>Represents a service that calls the registered <see cref="T:DevExpress.Office.Services.IUriProvider"/> interface when required.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProviderService.CreateCssUri(System.String,System.String,System.String)">
+            <summary>
+                <para>Creates URI for CSS data.
+</para>
+            </summary>
+            <param name="url">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="styleText">
+		A string containing CSS definitions for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the URI of CSS data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProviderService.CreateImageUri(System.String,DevExpress.Office.Utils.OfficeImage,System.String)">
+            <summary>
+                <para>Provides the URI string for the specified image.
+</para>
+            </summary>
+            <param name="rootUri">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="image">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the image URI.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProviderService.RegisterProvider(DevExpress.Office.Services.IUriProvider)">
+            <summary>
+                <para>Registers the URI provider and makes it available to clients of the service.
+</para>
+            </summary>
+            <param name="provider">
+		An object which exposes the <see cref="T:DevExpress.Office.Services.IUriProvider"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProviderService.UnregisterProvider(DevExpress.Office.Services.IUriProvider)">
+            <summary>
+                <para>Cancels the registration of an URI provider, and makes it unavailable to the clients of the service.
+
+</para>
+            </summary>
+            <param name="provider">
+		An object which exposes the <see cref="T:DevExpress.Office.Services.IUriStreamProvider"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Office.DocumentUnit">
+
+            <summary>
+                <para>Lists measurement units used in the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentUnit.Centimeter">
+            <summary>
+                <para>Specifies centimeters as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentUnit.Document">
+            <summary>
+                <para>Specifies documents (one three-hundredths of an inch) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentUnit.Inch">
+            <summary>
+                <para>Specifies inches as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentUnit.Millimeter">
+            <summary>
+                <para>Specifies millimeters as measurement units. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.DocumentUnit.Point">
+            <summary>
+                <para>Specifies points as measurement units. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Services.IUriProvider">
+
+            <summary>
+                <para>Defines the provider of the locations for external objects in a document export.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProvider.CreateCssUri(System.String,System.String,System.String)">
+            <summary>
+                <para>Creates URI for CSS data.
+</para>
+            </summary>
+            <param name="rootUri">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="styleText">
+		A string containing CSS definitions for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the URI of CSS data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriProvider.CreateImageUri(System.String,DevExpress.Office.Utils.OfficeImage,System.String)">
+            <summary>
+                <para>Creates an image URI.
+</para>
+            </summary>
+            <param name="rootUri">
+		A string that specifies the root URI.
+
+            </param>
+            <param name="image">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object for which the URI is created.
+
+            </param>
+            <param name="relativeUri">
+		A string that specifies the relative part of the URI (path relative to the root).
+
+            </param>
+            <returns>A string that is the image URI.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Services.IUriStreamService">
+
+            <summary>
+                <para>Defines a service which is called to retrieve data from the URI specified in some types of document fields.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriStreamService.GetStream(System.String)">
+            <summary>
+                <para>Provides the data stream for the specified Uri.
+</para>
+            </summary>
+            <param name="url">
+		A string specifying the URI of the object that is the source of the stream.
+
+            </param>
+            <returns>A <see cref="T:System.IO.Stream"/> object specifying a data stream.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriStreamService.RegisterProvider(DevExpress.Office.Services.IUriStreamProvider)">
+            <summary>
+                <para>Registers the Uri data stream provider and makes it available to clients of the service.
+</para>
+            </summary>
+            <param name="provider">
+		An object which exposes the <see cref="T:DevExpress.Office.Services.IUriStreamProvider"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriStreamService.UnregisterProvider(DevExpress.Office.Services.IUriStreamProvider)">
+            <summary>
+                <para>Cancels the registration of an Uri data stream provider, and makes it unavailable to the clients of the service.
+
+</para>
+            </summary>
+            <param name="provider">
+		An object which exposes the <see cref="T:DevExpress.Office.Services.IUriStreamProvider"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Services.IUriStreamProvider">
+
+            <summary>
+                <para>Defines the data stream provider for the <see cref="T:DevExpress.Office.Services.IUriStreamService"/>.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Services.IUriStreamProvider.GetStream(System.String)">
+            <summary>
+                <para>Provides the data stream for the specified Uri.
+</para>
+            </summary>
+            <param name="uri">
+		A string specifying the URI of the object that is the source of the stream.
+
+            </param>
+            <returns>A <see cref="T:System.IO.Stream"/> object specifying a data stream or <b>null</b> (<b>Nothing</b> in Visual Basic).
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Utils.OfficeImage">
+
+            <summary>
+                <para>An image in the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.CanGetImageBytes(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Indicates whether the OfficeImage descendant can get image data as an array of bytes.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the format of the resulting image data.
+
+            </param>
+            <returns><b>true</b> if the <b>OfficeImage</b> descendant implements the <b>GetImageBytes</b> method; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.Clone(DevExpress.Office.IDocumentModel)">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <param name="target">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.CreateImage(System.Drawing.Image)">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <param name="nativeImage">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.CreateImage(System.IO.Stream)">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <param name="stream">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.CreateImage(DevExpress.Office.Utils.MemoryStreamBasedImage)">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <param name="streamBasedImage">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.CreateImage(System.IO.Stream,DevExpress.Office.Model.IUniqueImageId)">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <param name="stream">
+		 
+
+            </param>
+            <param name="id">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.DesiredSizeAfterLoad">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.DiscardCachedData">
+            <summary>
+                <para>Closes the current image stream and releases any resources associated with the current stream.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.Dispose">
+            <summary>
+                <para>Releases all resources used by this object.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.EncapsulatedOfficeNativeImage">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetContentType(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Static method used to get the MIME content type by the <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> value.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the image format.
+
+            </param>
+            <returns>A string indicating the mime content type.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetExtension(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Static method used to obtain an extension by the <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> value.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the image format.
+
+            </param>
+            <returns>A string specifying a file extension for a given image format.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetImageBytes(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Returns a byte array of image data encoded in the specified format.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the format of the resulting image data.
+
+            </param>
+            <returns>A <see cref="T:System.Byte"/> array that contains the image data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetImageBytesSafe(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Attempts to get image data as an array of bytes in specified format, and in case of failure gets the data in PNG format.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the format of the resulting image data.
+
+            </param>
+            <returns>An array of bytes containing image data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetImageBytesStreamSafe(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>Attempts to get image data as a stream in the specified format, and in case of a failure, gets the data in PNG format.
+</para>
+            </summary>
+            <param name="imageFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the format of the resulting image data.
+
+            </param>
+            <returns>A <see cref="T:System.IO.Stream"/> containing image data.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.GetResolution">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.HorizontalResolution">
+            <summary>
+                <para>Gets the horizontal resolution of the image in pixels per inch.
+</para>
+            </summary>
+            <value>The horizontal resolution of this image in pixels per inch.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.ImageCacheKey">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>An integer value that represents a cache key under which an image is stored in the cache. 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.OfficeImage.IsExportSupported(DevExpress.Office.Utils.OfficeImageFormat)">
+            <summary>
+                <para>This property is overridden in <b>OfficeImage</b> class descendants to indicate image formats not suitable for export.
+</para>
+            </summary>
+            <param name="rawFormat">
+		An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the image format to export.
+
+            </param>
+            <returns>Always <b>true</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.IsLoaded">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.NativeImage">
+            <summary>
+                <para>Provides access to the native <see cref="T:System.Drawing.Image"/> object.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Image"/> object specifying a native image.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Office.Utils.OfficeImage.NativeImageChanged">
+            <summary>
+                <para>Intended for internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Office.Utils.OfficeImage.NativeImageChanging">
+            <summary>
+                <para>Intended for internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.PaletteLength">
+            <summary>
+                <para>Gets the number of colors in the image palette.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Int32"/> value specifying the number of entries in the palette color table.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.PixelFormat">
+            <summary>
+                <para>Gets the pixel format of the image.
+
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Office.Utils.OfficePixelFormat"/> enumeration member specifying the pixel format.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.RawFormat">
+            <summary>
+                <para>Gets the file format of this image.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Office.Utils.OfficeImageFormat"/> enumeration member specifying the image file format.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.RootImage">
+            <summary>
+                <para>This property is overridden in <b>OfficeImage</b> descendants to point to a single instance of an image that can be incorporated in different objects.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object that is the image in the document.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.ShouldSetDesiredSizeAfterLoad">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.SizeInDocuments">
+            <summary>
+                <para>Gets the size of an image in <see cref="F:DevExpress.Office.DocumentUnit.Document"/> units.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> structure specifying the image size measured in documents.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.SizeInHundredthsOfMillimeter">
+            <summary>
+                <para>Gets the size of an image in hundredths of a millimeter.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> structure specifying the image size measured in hundredths of a millimeter.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.SizeInOriginalUnits">
+            <summary>
+                <para>This property is overridden in <b>OfficeImage</b> descendants to get the size of a native image measured in original units.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> structure specifying the image size measured in original units.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.SizeInPixels">
+            <summary>
+                <para>Gets the size of an image in pixels.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> structure specifying the image size measured in pixels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.SizeInTwips">
+            <summary>
+                <para>Gets the size of an image in twips (1,440 twips equals one inch, and 567 twips equals one centimeter).
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> structure specifying the image size measured in twips.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.Uri">
+            <summary>
+                <para>This property is overridden in <b>OfficeImage</b> class descendants to get the URI of the image.
+</para>
+            </summary>
+            <value>A string specifying the URI of an image.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Office.Utils.OfficeImage.VerticalResolution">
+            <summary>
+                <para>Gets the horizontal resolution of the image in pixels per inch.
+</para>
+            </summary>
+            <value>The horizontal resolution of this image in pixels per inch.
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Utils.OfficePixelFormat">
+
+            <summary>
+                <para>Lists formats of the color data for each pixel in the image.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Alpha">
+            <summary>
+                <para>The pixel data contains alpha values that are not premultiplied.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Canonical">
+            <summary>
+                <para>The default pixel format of 32 bits per pixel. The format specifies 24-bit color depth and an 8-bit alpha channel.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.DontCare">
+            <summary>
+                <para>No pixel format is specified.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Extended">
+            <summary>
+                <para>Reserved.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format16bppArgb1555">
+            <summary>
+                <para>The pixel format is 16 bits per pixel. The color information specifies 32,768 shades of color, of which 5 bits are red, 5 bits are green, 5 bits are blue, and 1 bit is alpha.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format16bppGrayScale">
+            <summary>
+                <para>The pixel format is 16 bits per pixel. The color information specifies 65536 shades of gray.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format16bppRgb555">
+            <summary>
+                <para>Specifies that the format is 16 bits per pixel; 5 bits each are used for the red, green, and blue components. The remaining bit is not used.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format16bppRgb565">
+            <summary>
+                <para>Specifies that the format is 16 bits per pixel; 5 bits are used for the red component, 6 bits are used for the green component, and 5 bits are used for the blue component.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format1bppIndexed">
+            <summary>
+                <para>Specifies that the pixel format is 1 bit per pixel and that it uses indexed color. The color table therefore has two colors in it.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format24bppRgb">
+            <summary>
+                <para>Specifies that the format is 24 bits per pixel; 8 bits each are used for the red, green, and blue components.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format32bppArgb">
+            <summary>
+                <para>Specifies that the format is 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format32bppPArgb">
+            <summary>
+                <para>Specifies that the format is 32 bits per pixel; 8 bits each are used for the alpha, red, green, and blue components. The red, green, and blue components are premultiplied, according to the alpha component.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format32bppRgb">
+            <summary>
+                <para>Specifies that the format is 32 bits per pixel; 8 bits each are used for the red, green, and blue components. The remaining 8 bits are not used.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format48bppRgb">
+            <summary>
+                <para>Specifies that the format is 48 bits per pixel; 16 bits each are used for the red, green, and blue components.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format4bppIndexed">
+            <summary>
+                <para>Specifies that the format is 4 bits per pixel, indexed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format64bppArgb">
+            <summary>
+                <para>Specifies that the format is 64 bits per pixel; 16 bits each are used for the alpha, red, green, and blue components.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format64bppPArgb">
+            <summary>
+                <para>Specifies that the format is 64 bits per pixel; 16 bits each are used for the alpha, red, green, and blue components. The red, green, and blue components are premultiplied according to the alpha component.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Format8bppIndexed">
+            <summary>
+                <para>Specifies that the format is 8 bits per pixel, indexed. The color table therefore has 256 colors in it.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Gdi">
+            <summary>
+                <para>The pixel data contains GDI colors.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Indexed">
+            <summary>
+                <para>The pixel data contains color-indexed values, which means the values are an index to colors in the system color table, as opposed to individual color values.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Max">
+            <summary>
+                <para>The maximum value for this enumeration.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.PAlpha">
+            <summary>
+                <para>The pixel format contains premultiplied alpha values.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficePixelFormat.Undefined">
+            <summary>
+                <para>The pixel format is undefined.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Utils.OfficeImageFormat">
+
+            <summary>
+                <para>Lists supported image formats.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Bmp">
+            <summary>
+                <para>Specifies the bitmap (BMP) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Emf">
+            <summary>
+                <para>Specifies the enhanced metafile (EMF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Exif">
+            <summary>
+                <para>Specifies the Exchangeable Image File (Exif) format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Gif">
+            <summary>
+                <para>Specifies the Graphics Interchange Format (GIF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Icon">
+            <summary>
+                <para>Specifies the Windows icon image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Jpeg">
+            <summary>
+                <para>Specifies the Joint Photographic Experts Group (JPEG) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.MemoryBmp">
+            <summary>
+                <para>Specifies a memory bitmap image format. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.None">
+            <summary>
+                <para>Unspecified format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Png">
+            <summary>
+                <para>Specifies the W3C Portable Network Graphics (PNG) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Tiff">
+            <summary>
+                <para>Specifies the Tagged Image File Format (TIFF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Utils.OfficeImageFormat.Wmf">
+            <summary>
+                <para>Specifies the Windows metafile (WMF) image format.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Import.IImporterOptions">
+
+            <summary>
+                <para>Defines options for the document being imported. 
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.Import.IImporterOptions.SourceUri">
+            <summary>
+                <para>Gets or sets the URI of the document being imported. 
+</para>
+            </summary>
+            <value>A string representing the document URI. 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Export.IExporterOptions">
+
+            <summary>
+                <para>Defines options for the document being exported. 
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.Export.IExporterOptions.TargetUri">
+            <summary>
+                <para>Gets or sets the URI of the document being exported. 
+</para>
+            </summary>
+            <value>A string representing the document URI. 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Utils.Units">
+
+            <summary>
+                <para>Helper class with static methods used for unit conversion.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.CentimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from centimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> centimeter value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.CentimetersToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from centimeters to twips. Returns the converted measurement as a <see cref="T:System.Single"/>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> value measured in centimeters to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToCentimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to centimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to centimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToEmu(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to EMUs (English Metric Unit).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in documents.
+
+            </param>
+            <returns>An integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToEmuD(System.Single)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents (double-precision floating point value).
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in EMUs. 
+
+            </param>
+            <returns>A <see cref="T:System.Double"/> value that is the value in documents. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToEmuF(System.Single)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents represented by 64-bit integers.
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in EMUs.
+
+            </param>
+            <returns>A 64-bit integer that is the value in documents.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToEmuL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from document units (documents) to EMUs (English Metric Unit) represented by 64-bit integers.
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in documents.
+
+
+            </param>
+            <returns>A 64-bit integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfInch(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from documents to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> values in documents to be converted to hundredths of an inch.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfInch(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in documents to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToInchesF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to inches. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to inches.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToMillimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to millimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to millimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPicasF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to picas. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to picas.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Point"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from documents to pixels.
+
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		 A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts rectangle coordinates from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in documents, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts height and width from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.Size"/> structure with values in documents to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure that contains height and width in pixels.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixelsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as a <see cref="T:System.Double"/>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Double"/> centimeters value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Double"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPointsFRound(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points and rounds the result. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.RectangleF)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.RectangleF"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.Rectangle)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> value measured in documents to be converted to twips.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwipsL(System.Int64)">
+            <summary>
+                <para>Converts measurements from 64-bit signed integers to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Int64"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents.
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>An integer that is the value in documents.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToDocumentsD(System.Double)">
+            <summary>
+                <para>Converts a measurement from EMUs (double-precision floating point value) to documents (floating point value). 
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Double"/> that is the value in EMUs.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value in documents. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToDocumentsF(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents (floating point value).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value in documents.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToDocumentsL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents represented by 64-bit integers.
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in EMUs.
+
+            </param>
+            <returns>A 64-bit integer that is the value in documents.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to twips.
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>An integer that is the value in twips.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToTwipsD(System.Double)">
+            <summary>
+                <para>Converts a measurement from EMUs (double-precision floating point value) to twips (floating point value).
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Double"/> that is the value in EMUs. 
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value in twips. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToTwipsF(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to twips (floating point value).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value in twips.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToTwipsL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to twips represented by 64-bit integers.
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in EMUs.
+
+            </param>
+            <returns>A 64-bit integer that is the value in twips.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from hundredths of an inch to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of an inch to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of an inch value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from hundredths of an inch to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of an inch to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of an inch value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of millimeter value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocumentsRound(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to documents and rounds them to the nearest whole value.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of a millimeter value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		The dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of millimeter value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwipsRound(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to twips and rounds them to the whole number nearest to the twip value.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> inches value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> inches value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> inches value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> millimeters value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from millimeters to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Integer</b> millimeters value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		A <b>Single</b> value in millimeters to be converted to points.
+
+            </param>
+            <returns>A <b>Single</b> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> millimeters value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MulDiv(System.Int32,System.Single,System.Int32)">
+            <summary>
+                <para>Multiplies two integer values and then divides the result by another integer value. The final result is cast to an integer (rounded to the nearest integer dropping the values after the decimal place).
+
+</para>
+            </summary>
+            <param name="value">
+		An integer that is the multiplicand.
+
+            </param>
+            <param name="mul">
+		An integer that is the multiplier.
+
+            </param>
+            <param name="div">
+		An integer that is the number by which the result of the previous multiplication operation is divided.
+
+            </param>
+            <returns>An integer that is the final result of the operation.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MulDiv(System.Int32,System.Int32,System.Single)">
+            <summary>
+                <para>Multiplies two integer values and then divides the result by a floating point value. The final result is cast to an integer (rounded to the nearest integer dropping the values after the decimal place).
+</para>
+            </summary>
+            <param name="value">
+		An integer that is the multiplicand.
+
+            </param>
+            <param name="mul">
+		An integer that is the multiplier.
+
+            </param>
+            <param name="div">
+		A floating point value that is the number by which the result of the previous multiplication operation is divided.
+
+            </param>
+            <returns>An integer that is the final result of the operation.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MulDivD(System.Double,System.Double,System.Double)">
+            <summary>
+                <para>Multiplies two double-precision floating-point values and then divides the result by another double-precision floating-point value. The final result is cast to a <b>Double</b> (rounded to the nearest integer dropping the values after the decimal place). 
+</para>
+            </summary>
+            <param name="value">
+		A double that is the multiplicand.
+
+            </param>
+            <param name="mul">
+		A double that is the multiplier. 
+
+            </param>
+            <param name="div">
+		A double-precision floating-point value that is the number by which the result of the previous multiplication operation is divided. 
+
+            </param>
+            <returns>A double-precision floating-point value that is the final result of the operation. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MulDivF(System.Single,System.Single,System.Single)">
+            <summary>
+                <para>Multiplies two floating point values and then divides the result by another floating point value.
+</para>
+            </summary>
+            <param name="value">
+		A floating point value that is the multiplicand.
+
+            </param>
+            <param name="mul">
+		A floating point value that is the multiplier.
+
+            </param>
+            <param name="div">
+		A floating point value that is the number by which the result of the previous multiplication operation is divided.
+
+            </param>
+            <returns>A floating point value that is the final result of the operation.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PicasToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from picas to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> picas value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PicasToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from picas to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> picas value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to documents.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> structure in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+                <para>Converts rectangle coordinates from pixels to documents.
+</para>
+            </summary>
+            <param name="rect">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in pixels, to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from pixels to documents.
+</para>
+            </summary>
+            <param name="rect">
+		The <see cref="T:System.Drawing.Rectangle"/> with measurements in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Double,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from pixels to documents.
+</para>
+            </summary>
+            <param name="point">
+		The <see cref="T:System.Drawing.Point"/> to be converted from pixels to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocumentsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocumentsRound(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to documents and rounds them to the nearest whole number.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> structure in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfInch(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of an inch.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfInch(System.Drawing.Size,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to hundredths of an inch.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfMillimeter(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to hundredths of a millimeter. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of a millimeter.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfMillimeter(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to hundredths of a millimeter.
+
+            </param>
+            <param name="dpiX">
+		A dpi value to be used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value to be used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToPoints(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToPointsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from pixels to twips.
+</para>
+            </summary>
+            <param name="rect">
+		The <see cref="T:System.Drawing.Rectangle"/> with measurements in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to twips.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to twips.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of a millimeter,
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsL(System.Int64,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b><see cref="T:System.Int64"/></b> pixels value to be converted to twips.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b><see cref="T:System.Int64"/></b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsRound(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to twips and rounds their values to the nearest whole number.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to twips.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> points value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> points value to be converted to documents.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from points to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> points value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		 A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToPixelsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from points to pixels. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> points value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		 A dpi value used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from points to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Integer</b> points value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from points to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> points value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToCentimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to centimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to centimeters.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> twips value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from twips to documents.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.Size"/> structure with values in twips to be converted to documents.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.RectangleF)">
+            <summary>
+                <para>Converts rectangle coordinates from twips to documents.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in twips, to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.Rectangle)">
+            <summary>
+                <para>Converts a rectangle from documents to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in twips, to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocumentsL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> twips value to be converted to documents.
+
+            </param>
+            <returns>An <see cref="T:System.Int64"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToEmu(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to EMUs (English Metric Unit).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in twips.
+
+            </param>
+            <returns>An integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToEmuD(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips (floating point value) to EMUs (double-precision floating point value).
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Single"/> value in twips. 
+
+            </param>
+            <returns>A <see cref="T:System.Double"/> that is the value in EMUs. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToEmuF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips (floating point value) to EMUs (English Metric Unit).
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Single"/> value in twips.
+
+            </param>
+            <returns>An integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToEmuL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from twips to EMUs (English Metric Unit) represented by 64-bit integers.
+</para>
+            </summary>
+            <param name="val">
+		A 64-bit integer that is the value in twips.
+
+            </param>
+            <returns>A 64-bit integer that is the value in EMUs.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfInch(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> twips value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfInch(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from twips to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> values in twips to be converted to hundredths of an inch.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfMillimeter(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from twips to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in twips to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToInchesF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to inches. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to inches.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToMillimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to millimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to millimeters.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from twips to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Point"/> with values in twips, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from twips to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in twips, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts height and width from twips to pixels.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.Size"/> structure with values in twips to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure that contains height and width in pixels.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixelsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixelsL(System.Int64,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> twips value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		The <see cref="T:System.Int64"/> twips value to be converted to pixels.
+
+
+            </param>
+            <returns>An <see cref="T:System.Int64"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPointsFRound(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to points and rounds the result. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Office.AzureCompatibility">
+
+            <summary>
+                <para>Hidden. Use the <see cref="T:DevExpress.Utils.AzureCompatibility"/> class instead.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.AzureCompatibility.Enable">
+            <summary>
+                <para>Use the <see cref="P:DevExpress.Utils.AzureCompatibility.Enable"/> property instead. 
+</para>
+            </summary>
+            <value><b>true</b> if the document export is Azure-compatible; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+    </members>
+</doc>

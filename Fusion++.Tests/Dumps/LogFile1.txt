@@ -1,0 +1,169 @@
+﻿<meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:20) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : (Unknown).
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Found assembly by looking in the GAC.
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html><meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:20) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : (Unknown).
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Found assembly by looking in the GAC.
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html><meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:20) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html><meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:20) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html><meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:21) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html><meta http-equiv="Content-Type" content="charset=unicode-1-1-utf-8"><!-- saved from url=(0015)assemblybinder: --><html><pre>
+*** Assembly Binder Log Entry  (26.06.2018 @ 09:09:21) ***
+
+The operation was successful.
+Bind result: hr = 0x0. The operation completed successfully.
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.30319\clr.dll
+Running under executable  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: DisplayName = System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ (Fully-specified)
+LOG: Appbase = file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = MSBuild.exe
+Calling assembly : System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe.Config
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+LOG: Binding succeeds. Returns assembly from C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll.
+LOG: Assembly is loaded in default load context.
+
+</pre></html>
