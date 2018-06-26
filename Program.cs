@@ -1,4 +1,5 @@
 ﻿using DevExpress.LookAndFeel;
+using FusionPlusPlus.IO;
 using FusionPlusPlus.Model;
 using FusionPlusPlus.Parser;
 using FusionPlusPlus.Services;
@@ -21,7 +22,7 @@ namespace FusionPlusPlus
 			var fusionService = new RegistryFusionService();
 			var fileService = new LogFileService(fusionService);
 			var files = fileService.Get(LogSource.Default);
-			var parser = new LogFileParser(new LogItemParser());
+			var parser = new LogFileParser(new LogItemParser(), new FileReader());
 			var parsed = parser.Parse(files.First());
 
 			Application.EnableVisualStyles();

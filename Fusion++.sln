@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++", "Fusion++.csproj", "{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion++.Tests", "..\Fusion++.Tests\Fusion++.Tests.csproj", "{967E8901-43DE-4AF1-86DF-BB18C8949C44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A82F3B70-B2E4-4EA5-A2DF-77751A9816C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967E8901-43DE-4AF1-86DF-BB18C8949C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967E8901-43DE-4AF1-86DF-BB18C8949C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967E8901-43DE-4AF1-86DF-BB18C8949C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967E8901-43DE-4AF1-86DF-BB18C8949C44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
