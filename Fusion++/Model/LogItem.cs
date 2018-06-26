@@ -23,6 +23,8 @@ namespace FusionPlusPlus.Model
 
 		public State AccumulatedState { get; set; }
 
+		public int Count { get; } = 1; // TODO Remove me
+
 		public DateTime TimeStampUtc { get; set; }
 
 		public DateTime TimeStampLocal => TimeStampUtc.ToLocalTime();

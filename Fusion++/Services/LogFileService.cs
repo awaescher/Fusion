@@ -14,6 +14,10 @@ namespace FusionPlusPlus.Services
 		public string[] Get(LogSource source, string filter = "")
 		{
 			var path = Path.Combine(FusionService.LogPath, source == LogSource.NativeImage ? "NativeImage" : "Default");
+
+			if (!Directory.Exists(path))
+				return new string[0];
+
 			return Directory.GetFiles(path, "*.htm", SearchOption.AllDirectories);
 		}
 
