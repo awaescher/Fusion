@@ -53,6 +53,7 @@
 			// 
 			// rangeData
 			// 
+			this.rangeData.AllowDrop = true;
 			this.rangeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.rangeData.Client = this.dateTimeChartRangeControlClient1;
@@ -63,11 +64,13 @@
 			rangeControlRange1.Owner = this.rangeData;
 			this.rangeData.SelectedRange = rangeControlRange1;
 			this.rangeData.SelectionType = DevExpress.XtraEditors.RangeControlSelectionType.ThumbAndFlag;
-			this.rangeData.Size = new System.Drawing.Size(995, 120);
+			this.rangeData.Size = new System.Drawing.Size(1299, 120);
 			this.rangeData.TabIndex = 2;
 			this.rangeData.Text = "rangeControl1";
 			this.rangeData.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
 			this.rangeData.RangeChanged += new DevExpress.XtraEditors.RangeChangedEventHandler(this.rangeData_RangeChanged);
+			this.rangeData.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+			this.rangeData.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
 			// 
 			// colState
 			// 
@@ -82,6 +85,7 @@
 			// 
 			// gridLog
 			// 
+			this.gridLog.AllowDrop = true;
 			this.gridLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -90,10 +94,12 @@
 			this.gridLog.MainView = this.viewLog;
 			this.gridLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridLog.Name = "gridLog";
-			this.gridLog.Size = new System.Drawing.Size(1143, 456);
+			this.gridLog.Size = new System.Drawing.Size(1447, 760);
 			this.gridLog.TabIndex = 0;
 			this.gridLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewLog});
+			this.gridLog.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+			this.gridLog.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
 			// 
 			// viewLog
 			// 
@@ -184,17 +190,23 @@
 			// 
 			// MainForm
 			// 
+			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1171, 614);
+			this.ClientSize = new System.Drawing.Size(1475, 918);
 			this.Controls.Add(this.labelControl1);
 			this.Controls.Add(this.rangeData);
 			this.Controls.Add(this.toggleLog);
 			this.Controls.Add(this.gridLog);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.KeyPreview = true;
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "MainForm";
-			this.Text = "MainForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Fusion++";
+			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).EndInit();

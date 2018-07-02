@@ -8,6 +8,7 @@ using DevExpress.XtraGrid.Columns;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace FusionPlusPlus
 {
@@ -15,28 +16,49 @@ namespace FusionPlusPlus
 	{
 		private bool _loading = false;
 		private RegistryFusionService _fusionService;
+		private string _originalFormText;
 		private List<LogItem> _logs;
+		private string _lastUsedFilePath;
 
 		public MainForm()
 		{
 			InitializeComponent();
+
+			_fusionService = new RegistryFusionService();
+			_originalFormText = this.Text;
 		}
 
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
+			LoadLogs();
+		}
 
+		private List<LogItem> ReadLogs(IFusionService fusionService)
+		{
 			_loading = true;
 
-			_fusionService = new RegistryFusionService();
-			var fileService = new LogFileService(_fusionService);
+			var fileService = new LogFileService(fusionService);
 			var files = fileService.Get(LogSource.Default);
 			var parser = new LogFileParser(new LogItemParser(), new FileReader());
 
 			toggleLog.EditValue = _fusionService.Mode == LogMode.All;
 
 			var sw = Stopwatch.StartNew();
-			_logs = parser.Parse(files);
+			var logs = parser.Parse(files);
+
+			_loading = false;
+
+			return logs;
+		}
+
+		private void LoadLogs() => LoadLogs(_fusionService);
+
+		private void LoadLogs(IFusionService fusionService)
+		{
+			var sw = Stopwatch.StartNew();
+
+			_logs = ReadLogs(fusionService);
 
 			// Generate a data table and bind the date-time client to it.
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
@@ -47,10 +69,9 @@ namespace FusionPlusPlus
 			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(LogItem.AppName);
 
 			gridLog.DataSource = _logs;
-			sw.Stop();
-			this.Text += " (" + sw.ElapsedMilliseconds + " milliseconds)";
 
-			_loading = false;
+			sw.Stop();
+			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
@@ -68,6 +89,36 @@ namespace FusionPlusPlus
 
 			_fusionService.Mode = (bool)toggleLog.EditValue ? LogMode.All : LogMode.Disabled;
 		}
-	}
 
+		private void MainForm_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent(DataFormats.FileDrop))
+				e.Effect = DragDropEffects.Copy;
+		}
+
+		private void MainForm_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+			if (files.Length == 1)
+			{
+				_lastUsedFilePath = files[0];
+				LoadLogs(new DiskReadOnlyFusionService(files[0]));
+			}
+		}
+
+		private void MainForm_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.O && e.Control)
+			{
+				var dialog = new FolderBrowserDialog();
+				dialog.SelectedPath = _lastUsedFilePath ?? _fusionService.LogPath ?? "";
+				if (dialog.ShowDialog() == DialogResult.OK)
+				{
+					_lastUsedFilePath = dialog.SelectedPath;
+					LoadLogs(new DiskReadOnlyFusionService(dialog.SelectedPath));
+				}
+			}
+		}
+	}
 }
