@@ -235,7 +235,7 @@
 			this.treeLog.KeyFieldName = "Item.UniqueId";
 			this.treeLog.Location = new System.Drawing.Point(0, 0);
 			this.treeLog.Name = "treeLog";
-			this.treeLog.ParentFieldName = "Parent";
+			this.treeLog.ParentFieldName = "Parent.UniqueId";
 			this.treeLog.Size = new System.Drawing.Size(1447, 730);
 			this.treeLog.TabIndex = 0;
 			// 

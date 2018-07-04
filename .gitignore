@@ -2,5 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Fusion++/v15
+/.vs*
 /packages
+/_NCrunch*

@@ -17,7 +17,7 @@ namespace FusionPlusPlus
 		private bool _loading = false;
 		private RegistryFusionService _fusionService;
 		private string _originalFormText;
-		private List<LogItem> _logs;
+		private List<AggregateLogItem> _logs;
 		private string _lastUsedFilePath;
 
 		public MainForm()
@@ -44,12 +44,11 @@ namespace FusionPlusPlus
 			var files = fileService.Get(LogSource.Default);
 			var parser = new LogFileParser(new LogItemParser(), new FileReader());
 
+
 			toggleLog.EditValue = _fusionService.Mode == LogMode.All;
 
 			var sw = Stopwatch.StartNew();
 			var logs = parser.Parse(files);
-
-
 
 			_loading = false;
 
@@ -62,7 +61,7 @@ namespace FusionPlusPlus
 		{
 			var sw = Stopwatch.StartNew();
 
-			_logs = ReadLogs(fusionService);
+			var logs = ReadLogs(fusionService);
 
 			// Generate a data table and bind the date-time client to it.
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
@@ -72,9 +71,13 @@ namespace FusionPlusPlus
 			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(LogItem.Count);
 			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(LogItem.AppName);
 
-			gridLog.DataSource = _logs;
 
 			var treeBuilder = new LogTreeBuilder();
+
+			var aggregator = new LogAggregator();
+			_logs = aggregator.Aggregate(logs);
+
+			gridLog.DataSource = _logs;
 			treeLog.DataSource = treeBuilder.Build(_logs);
 
 			sw.Stop();
@@ -83,10 +86,10 @@ namespace FusionPlusPlus
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
 		{
-			DateTime from = (DateTime)range.Range.Minimum;
-			DateTime till = (DateTime)range.Range.Maximum;
+			DateTime from = ((DateTime)range.Range.Minimum).ToUniversalTime();
+			DateTime till = ((DateTime)range.Range.Maximum).ToUniversalTime();
 
-			gridLog.DataSource = _logs?.Where(l => l.TimeStampLocal >= from && l.TimeStampLocal <= till).ToList();
+			gridLog.DataSource = _logs?.Where(l => l.TimeStampUtc >= from && l.TimeStampUtc <= till).ToList();
 		}
 
 		private void toggleLog_Toggled(object sender, EventArgs e)

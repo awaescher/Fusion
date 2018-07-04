@@ -31,7 +31,7 @@ namespace FusionPlusPlus.Model
 
 		public bool IsValid => !string.IsNullOrEmpty(DisplayName);
 
-		public string UniqueId => DisplayName + "@" + TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK");
+		public string UniqueId => DisplayName + " @ " + TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK");
 
 		public enum State
 		{

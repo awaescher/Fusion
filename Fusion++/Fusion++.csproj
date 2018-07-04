@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="IO\FileReader.cs" />
     <Compile Include="IO\IFileReader.cs" />
+    <Compile Include="Services\LogAggregator.cs" />
     <Compile Include="Services\IFusionService.cs" />
     <Compile Include="Services\ILogFileService.cs" />
     <Compile Include="Model\LogItem.cs" />
