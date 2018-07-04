@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			DevExpress.XtraEditors.RangeControlRange rangeControlRange1 = new DevExpress.XtraEditors.RangeControlRange();
 			DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
 			DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
@@ -48,6 +49,9 @@
 			this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.treeLog = new DevExpress.XtraTreeList.TreeList();
+			this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+			this.diagramLog = new DevExpress.XtraDiagram.DiagramControl();
+			this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -58,6 +62,10 @@
 			this.tabNavigationPage1.SuspendLayout();
 			this.tabNavigationPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.treeLog)).BeginInit();
+			this.tabNavigationPage3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// rangeData
@@ -66,14 +74,15 @@
 			this.rangeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.rangeData.Client = this.dateTimeChartRangeControlClient1;
-			this.rangeData.Location = new System.Drawing.Point(162, 20);
+			this.rangeData.Location = new System.Drawing.Point(139, 16);
+			this.rangeData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.rangeData.Name = "rangeData";
 			rangeControlRange1.Maximum = new System.DateTime(2018, 7, 5, 0, 0, 0, 0);
 			rangeControlRange1.Minimum = new System.DateTime(2018, 6, 26, 0, 0, 0, 0);
 			rangeControlRange1.Owner = this.rangeData;
 			this.rangeData.SelectedRange = rangeControlRange1;
 			this.rangeData.SelectionType = DevExpress.XtraEditors.RangeControlSelectionType.ThumbAndFlag;
-			this.rangeData.Size = new System.Drawing.Size(1299, 120);
+			this.rangeData.Size = new System.Drawing.Size(1113, 98);
 			this.rangeData.TabIndex = 2;
 			this.rangeData.Text = "rangeControl1";
 			this.rangeData.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
@@ -85,12 +94,11 @@
 			// 
 			this.colState.Caption = "State";
 			this.colState.FieldName = "AccumulatedState";
-			this.colState.MinWidth = 23;
 			this.colState.Name = "colState";
 			this.colState.OptionsColumn.FixedWidth = true;
 			this.colState.Visible = true;
 			this.colState.VisibleIndex = 1;
-			this.colState.Width = 117;
+			this.colState.Width = 100;
 			// 
 			// gridLog
 			// 
@@ -101,7 +109,7 @@
 			this.gridLog.MainView = this.viewLog;
 			this.gridLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridLog.Name = "gridLog";
-			this.gridLog.Size = new System.Drawing.Size(1447, 730);
+			this.gridLog.Size = new System.Drawing.Size(1240, 591);
 			this.gridLog.TabIndex = 0;
 			this.gridLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewLog});
@@ -115,6 +123,7 @@
             this.colState,
             this.colAppName,
             this.colDisplayName});
+			this.viewLog.DetailHeight = 284;
 			gridFormatRule1.ApplyToRow = true;
 			gridFormatRule1.Column = this.colState;
 			gridFormatRule1.Name = "Highlight Warnings";
@@ -147,41 +156,38 @@
 			this.colTimeStamp.DisplayFormat.FormatString = "G";
 			this.colTimeStamp.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colTimeStamp.FieldName = "TimeStampLocal";
-			this.colTimeStamp.MinWidth = 23;
 			this.colTimeStamp.Name = "colTimeStamp";
 			this.colTimeStamp.OptionsColumn.FixedWidth = true;
 			this.colTimeStamp.Visible = true;
 			this.colTimeStamp.VisibleIndex = 0;
-			this.colTimeStamp.Width = 175;
+			this.colTimeStamp.Width = 150;
 			// 
 			// colAppName
 			// 
 			this.colAppName.FieldName = "AppName";
-			this.colAppName.MinWidth = 23;
 			this.colAppName.Name = "colAppName";
 			this.colAppName.OptionsColumn.FixedWidth = true;
 			this.colAppName.Visible = true;
 			this.colAppName.VisibleIndex = 2;
-			this.colAppName.Width = 233;
+			this.colAppName.Width = 200;
 			// 
 			// colDisplayName
 			// 
 			this.colDisplayName.FieldName = "DisplayName";
-			this.colDisplayName.MinWidth = 23;
 			this.colDisplayName.Name = "colDisplayName";
 			this.colDisplayName.Visible = true;
 			this.colDisplayName.VisibleIndex = 3;
-			this.colDisplayName.Width = 651;
+			this.colDisplayName.Width = 558;
 			// 
 			// toggleLog
 			// 
-			this.toggleLog.Location = new System.Drawing.Point(30, 80);
+			this.toggleLog.Location = new System.Drawing.Point(26, 65);
 			this.toggleLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.toggleLog.Name = "toggleLog";
 			this.toggleLog.Properties.OffText = "Off";
 			this.toggleLog.Properties.OnText = "On";
 			this.toggleLog.Properties.ShowText = false;
-			this.toggleLog.Size = new System.Drawing.Size(83, 28);
+			this.toggleLog.Size = new System.Drawing.Size(71, 24);
 			this.toggleLog.TabIndex = 1;
 			this.toggleLog.Toggled += new System.EventHandler(this.toggleLog_Toggled);
 			// 
@@ -189,9 +195,10 @@
 			// 
 			this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelControl1.Appearance.Options.UseFont = true;
-			this.labelControl1.Location = new System.Drawing.Point(30, 51);
+			this.labelControl1.Location = new System.Drawing.Point(26, 41);
+			this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Size = new System.Drawing.Size(70, 24);
+			this.labelControl1.Size = new System.Drawing.Size(55, 19);
 			this.labelControl1.TabIndex = 3;
 			this.labelControl1.Text = "Capture";
 			// 
@@ -203,14 +210,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tabPane1.Controls.Add(this.tabNavigationPage1);
 			this.tabPane1.Controls.Add(this.tabNavigationPage2);
-			this.tabPane1.Location = new System.Drawing.Point(14, 146);
+			this.tabPane1.Controls.Add(this.tabNavigationPage3);
+			this.tabPane1.Location = new System.Drawing.Point(12, 119);
+			this.tabPane1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tabPane1.Name = "tabPane1";
 			this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
-            this.tabNavigationPage2});
-			this.tabPane1.RegularSize = new System.Drawing.Size(1447, 760);
+            this.tabNavigationPage2,
+            this.tabNavigationPage3});
+			this.tabPane1.RegularSize = new System.Drawing.Size(1240, 618);
 			this.tabPane1.SelectedPage = this.tabNavigationPage2;
-			this.tabPane1.Size = new System.Drawing.Size(1447, 760);
+			this.tabPane1.Size = new System.Drawing.Size(1240, 618);
 			this.tabPane1.TabIndex = 4;
 			this.tabPane1.Text = "Linear";
 			// 
@@ -218,15 +228,17 @@
 			// 
 			this.tabNavigationPage1.Caption = "Linear";
 			this.tabNavigationPage1.Controls.Add(this.gridLog);
+			this.tabNavigationPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tabNavigationPage1.Name = "tabNavigationPage1";
-			this.tabNavigationPage1.Size = new System.Drawing.Size(1447, 730);
+			this.tabNavigationPage1.Size = new System.Drawing.Size(1240, 591);
 			// 
 			// tabNavigationPage2
 			// 
 			this.tabNavigationPage2.Caption = "Hierarchical";
 			this.tabNavigationPage2.Controls.Add(this.treeLog);
+			this.tabNavigationPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tabNavigationPage2.Name = "tabNavigationPage2";
-			this.tabNavigationPage2.Size = new System.Drawing.Size(1447, 730);
+			this.tabNavigationPage2.Size = new System.Drawing.Size(1240, 591);
 			// 
 			// treeLog
 			// 
@@ -234,17 +246,61 @@
 			this.treeLog.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeLog.KeyFieldName = "Item.UniqueId";
 			this.treeLog.Location = new System.Drawing.Point(0, 0);
+			this.treeLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.treeLog.Name = "treeLog";
 			this.treeLog.ParentFieldName = "Parent.UniqueId";
-			this.treeLog.Size = new System.Drawing.Size(1447, 730);
+			this.treeLog.Size = new System.Drawing.Size(1240, 591);
 			this.treeLog.TabIndex = 0;
+			// 
+			// tabNavigationPage3
+			// 
+			this.tabNavigationPage3.Caption = "Flow";
+			this.tabNavigationPage3.Controls.Add(this.diagramLog);
+			this.tabNavigationPage3.Name = "tabNavigationPage3";
+			this.tabNavigationPage3.Size = new System.Drawing.Size(1240, 591);
+			// 
+			// diagramLog
+			// 
+			this.diagramLog.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.diagramLog.Location = new System.Drawing.Point(0, 0);
+			this.diagramLog.Name = "diagramLog";
+			this.diagramLog.OptionsBehavior.EnableProportionalResizing = false;
+			this.diagramLog.OptionsBehavior.ScrollMode = DevExpress.Diagram.Core.DiagramScrollMode.Content;
+			this.diagramLog.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
+            "BasicShapes",
+            "BasicFlowchartShapes"});
+			this.diagramLog.OptionsView.CanvasSizeMode = DevExpress.Diagram.Core.CanvasSizeMode.Fill;
+			this.diagramLog.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
+			this.diagramLog.OptionsView.ShowPageBreaks = false;
+			this.diagramLog.Size = new System.Drawing.Size(1240, 591);
+			this.diagramLog.TabIndex = 0;
+			this.diagramLog.Text = "diagramControl1";
+			// 
+			// diagramDataBindingController1
+			// 
+			this.diagramDataBindingController1.ConnectorFromMember = "";
+			this.diagramDataBindingController1.ConnectorsSource = null;
+			this.diagramDataBindingController1.ConnectorToMember = "";
+			this.diagramDataBindingController1.Diagram = this.diagramLog;
+			this.diagramDataBindingController1.KeyMember = "";
+			// 
+			// 
+			// 
+			this.diagramDataBindingController1.TemplateDiagram.Location = new System.Drawing.Point(0, 0);
+			this.diagramDataBindingController1.TemplateDiagram.Name = "";
+			this.diagramDataBindingController1.TemplateDiagram.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
+            "TemplateDesigner"});
+			this.diagramDataBindingController1.TemplateDiagram.OptionsView.CanvasSizeMode = DevExpress.Diagram.Core.CanvasSizeMode.Fill;
+			this.diagramDataBindingController1.TemplateDiagram.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
+			this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
+			this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
 			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1475, 918);
+			this.ClientSize = new System.Drawing.Size(1264, 746);
 			this.Controls.Add(this.tabPane1);
 			this.Controls.Add(this.labelControl1);
 			this.Controls.Add(this.rangeData);
@@ -268,6 +324,10 @@
 			this.tabNavigationPage1.ResumeLayout(false);
 			this.tabNavigationPage2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.treeLog)).EndInit();
+			this.tabNavigationPage3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -289,6 +349,9 @@
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
 		private DevExpress.XtraTreeList.TreeList treeLog;
+		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
+		private DevExpress.XtraDiagram.DiagramControl diagramLog;
+		private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
 	}
 }
 

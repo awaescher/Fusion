@@ -78,7 +78,13 @@ namespace FusionPlusPlus
 			_logs = aggregator.Aggregate(logs);
 
 			gridLog.DataSource = _logs;
-			treeLog.DataSource = treeBuilder.Build(_logs);
+
+			var diagramModel = new DiagramViewModel(treeBuilder.Build(_logs));
+			diagramDataBindingController1.KeyMember = "Item.UniqueId";
+			diagramDataBindingController1.ConnectorFromMember = "From";
+			diagramDataBindingController1.ConnectorToMember = "To";
+			diagramDataBindingController1.DataSource = diagramModel.Items;
+			diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
 
 			sw.Stop();
 			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";
