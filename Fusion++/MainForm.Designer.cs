@@ -52,6 +52,11 @@
 			this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.diagramLog = new DevExpress.XtraDiagram.DiagramControl();
 			this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
+			this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
+			this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
+			this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
+			this.diagramShape3 = new DevExpress.XtraDiagram.DiagramShape();
+			this.diagramShape4 = new DevExpress.XtraDiagram.DiagramShape();
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -286,6 +291,8 @@
 			// 
 			// 
 			// 
+			this.diagramDataBindingController1.TemplateDiagram.Items.AddRange(new DevExpress.XtraDiagram.DiagramItem[] {
+            this.diagramContainer1});
 			this.diagramDataBindingController1.TemplateDiagram.Location = new System.Drawing.Point(0, 0);
 			this.diagramDataBindingController1.TemplateDiagram.Name = "";
 			this.diagramDataBindingController1.TemplateDiagram.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
@@ -294,6 +301,132 @@
 			this.diagramDataBindingController1.TemplateDiagram.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
 			this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
 			this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
+			// 
+			// diagramContainer1
+			// 
+			this.diagramContainer1.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+			this.diagramContainer1.BackgroundId = DevExpress.Diagram.Core.DiagramThemeColorId.White;
+			this.diagramContainer1.CanAddItems = false;
+			this.diagramContainer1.CanCopyWithoutParent = true;
+			this.diagramContainer1.ConnectionPoints = new DevExpress.XtraDiagram.PointCollection(new DevExpress.Utils.PointFloat[] {
+            new DevExpress.Utils.PointFloat(0.5F, 0F),
+            new DevExpress.Utils.PointFloat(1F, 0.5F),
+            new DevExpress.Utils.PointFloat(0.5F, 1F),
+            new DevExpress.Utils.PointFloat(0F, 0.5F)});
+			this.diagramContainer1.DragMode = DevExpress.Diagram.Core.ContainerDragMode.ByAnyPoint;
+			this.diagramContainer1.Items.AddRange(new DevExpress.XtraDiagram.DiagramItem[] {
+            this.diagramShape1,
+            this.diagramShape2,
+            this.diagramShape3,
+            this.diagramShape4});
+			this.diagramContainer1.ItemsCanAttachConnectorBeginPoint = false;
+			this.diagramContainer1.ItemsCanAttachConnectorEndPoint = false;
+			this.diagramContainer1.ItemsCanChangeParent = false;
+			this.diagramContainer1.ItemsCanCopyWithoutParent = false;
+			this.diagramContainer1.ItemsCanDeleteWithoutParent = false;
+			this.diagramContainer1.ItemsCanEdit = false;
+			this.diagramContainer1.ItemsCanMove = false;
+			this.diagramContainer1.ItemsCanResize = false;
+			this.diagramContainer1.ItemsCanRotate = false;
+			this.diagramContainer1.ItemsCanSelect = false;
+			this.diagramContainer1.ItemsCanSnapToOtherItems = false;
+			this.diagramContainer1.ItemsCanSnapToThisItem = false;
+			this.diagramContainer1.MoveWithSubordinates = true;
+			this.diagramContainer1.Position = new DevExpress.Utils.PointFloat(-80F, 170F);
+			this.diagramContainer1.Size = new System.Drawing.SizeF(380F, 146F);
+			this.diagramContainer1.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
+			// 
+			// diagramShape1
+			// 
+			this.diagramShape1.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right)));
+			this.diagramShape1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
+			this.diagramShape1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.diagramShape1.Appearance.BorderSize = 0;
+			this.diagramShape1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+			this.diagramShape1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.diagramShape1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.diagramShape1.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Item.DisplayName"));
+			this.diagramShape1.CanCopy = false;
+			this.diagramShape1.CanCopyWithoutParent = false;
+			this.diagramShape1.CanEdit = false;
+			this.diagramShape1.CanMove = false;
+			this.diagramShape1.CanResize = false;
+			this.diagramShape1.CanRotate = false;
+			this.diagramShape1.CanSelect = false;
+			this.diagramShape1.CanSnapToOtherItems = false;
+			this.diagramShape1.CanSnapToThisItem = false;
+			this.diagramShape1.Position = new DevExpress.Utils.PointFloat(10F, 15F);
+			this.diagramShape1.Size = new System.Drawing.SizeF(370F, 54F);
+			this.diagramShape1.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
+			// 
+			// diagramShape2
+			// 
+			this.diagramShape2.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
+			this.diagramShape2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.diagramShape2.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Item.AppName"));
+			this.diagramShape2.CanCopy = false;
+			this.diagramShape2.CanCopyWithoutParent = false;
+			this.diagramShape2.CanEdit = false;
+			this.diagramShape2.CanMove = false;
+			this.diagramShape2.CanResize = false;
+			this.diagramShape2.CanRotate = false;
+			this.diagramShape2.CanSelect = false;
+			this.diagramShape2.CanSnapToOtherItems = false;
+			this.diagramShape2.CanSnapToThisItem = false;
+			this.diagramShape2.Position = new DevExpress.Utils.PointFloat(0F, 116F);
+			this.diagramShape2.Size = new System.Drawing.SizeF(380F, 30F);
+			this.diagramShape2.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
+			this.diagramShape2.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
+			// 
+			// diagramShape3
+			// 
+			this.diagramShape3.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right)));
+			this.diagramShape3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
+			this.diagramShape3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.diagramShape3.Appearance.BorderSize = 0;
+			this.diagramShape3.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.diagramShape3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.diagramShape3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.diagramShape3.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Item.TimeStampLocal"));
+			this.diagramShape3.CanCopy = false;
+			this.diagramShape3.CanCopyWithoutParent = false;
+			this.diagramShape3.CanEdit = false;
+			this.diagramShape3.CanMove = false;
+			this.diagramShape3.CanResize = false;
+			this.diagramShape3.CanRotate = false;
+			this.diagramShape3.CanSelect = false;
+			this.diagramShape3.CanSnapToOtherItems = false;
+			this.diagramShape3.CanSnapToThisItem = false;
+			this.diagramShape3.Position = new DevExpress.Utils.PointFloat(10F, 70F);
+			this.diagramShape3.Size = new System.Drawing.SizeF(370F, 20F);
+			this.diagramShape3.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
+			// 
+			// diagramShape4
+			// 
+			this.diagramShape4.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right)));
+			this.diagramShape4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
+			this.diagramShape4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.diagramShape4.Appearance.BorderSize = 0;
+			this.diagramShape4.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.diagramShape4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+			this.diagramShape4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.diagramShape4.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Item.AccumulatedState"));
+			this.diagramShape4.CanCopy = false;
+			this.diagramShape4.CanCopyWithoutParent = false;
+			this.diagramShape4.CanEdit = false;
+			this.diagramShape4.CanMove = false;
+			this.diagramShape4.CanResize = false;
+			this.diagramShape4.CanRotate = false;
+			this.diagramShape4.CanSelect = false;
+			this.diagramShape4.CanSnapToOtherItems = false;
+			this.diagramShape4.CanSnapToThisItem = false;
+			this.diagramShape4.Position = new DevExpress.Utils.PointFloat(10F, 90F);
+			this.diagramShape4.Size = new System.Drawing.SizeF(370F, 20F);
+			this.diagramShape4.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
 			// 
 			// MainForm
 			// 
@@ -352,6 +485,11 @@
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
 		private DevExpress.XtraDiagram.DiagramControl diagramLog;
 		private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
+		private DevExpress.XtraDiagram.DiagramContainer diagramContainer1;
+		private DevExpress.XtraDiagram.DiagramShape diagramShape1;
+		private DevExpress.XtraDiagram.DiagramShape diagramShape2;
+		private DevExpress.XtraDiagram.DiagramShape diagramShape3;
+		private DevExpress.XtraDiagram.DiagramShape diagramShape4;
 	}
 }
 

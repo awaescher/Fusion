@@ -25,6 +25,9 @@ namespace FusionPlusPlus.Services
 				itemWithCaller.Parent = ordered.FirstOrDefault(p =>
 					string.Equals(p.Item.DisplayName, itemWithCaller.Item.CallingAssembly, StringComparison.OrdinalIgnoreCase)
 					&& p.Item.TimeStampUtc >= itemWithCaller.Item.TimeStampUtc);
+
+				if (itemWithCaller.Parent == null)
+					System.Diagnostics.Debug.WriteLine($"Could not find parent \"{itemWithCaller.Item.CallingAssembly}\" for assembly \"{itemWithCaller.Item.DisplayName}\"");
 			}
 
 			return ordered;
