@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace FusionPlusPlus
 {
@@ -130,6 +131,31 @@ namespace FusionPlusPlus
 					LoadLogs(new DiskReadOnlyFusionService(dialog.SelectedPath));
 				}
 			}
+		}
+
+		private void viewLog_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+		{
+			if (!viewLog.IsDataRow(e.RowHandle))
+				return;
+
+			if (e.Clicks == 2)
+			{
+				var item = (AggregateLogItem)viewLog.GetRow(e.RowHandle);
+				ShowDetailForm(item);
+			}
+		}
+
+		private void ShowDetailForm(AggregateLogItem item)
+		{
+			const int FORM_Y_OFFSET = 30;
+
+			var form = new ItemDetailForm();
+			form.Item = item;
+			form.Height = this.Height - FORM_Y_OFFSET;
+			form.Top = this.Top + FORM_Y_OFFSET;
+			form.Left = this.Left + ((this.Width - form.Width) / 2);
+
+			form.Show(this);
 		}
 	}
 }

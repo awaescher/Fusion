@@ -65,6 +65,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemDetailForm.Designer.cs">
+      <DependentUpon>ItemDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DiagramViewModel.cs" />
     <Compile Include="IO\FileReader.cs" />
     <Compile Include="IO\IFileReader.cs" />
@@ -90,6 +96,9 @@
     <Compile Include="Services\LogTreeBuilder.cs" />
     <Compile Include="Services\RegistryFusionService.cs" />
     <Compile Include="Model\TreeLogItem.cs" />
+    <EmbeddedResource Include="ItemDetailForm.resx">
+      <DependentUpon>ItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

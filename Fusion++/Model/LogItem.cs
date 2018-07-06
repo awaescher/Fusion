@@ -50,9 +50,7 @@ namespace FusionPlusPlus.Model
 
 		public string UniqueId => DisplayName
 			+ " @ "
-			+ TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK")
-			+ " : "
-			+ Source.ToString();
+			+ TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK");
 
 		public LogSource Source { get; set; }
 
