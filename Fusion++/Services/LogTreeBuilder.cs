@@ -17,35 +17,20 @@ namespace FusionPlusPlus.Services
 				.ToList();
 
 			var itemsWithCallers = ordered
-				.Where(i => !string.IsNullOrEmpty(i.Item.CallingAssembly))
-				.OrderBy(i => i.Item.CallingAssembly);
+				.Where(i => !string.IsNullOrEmpty(i.CallingAssembly))
+				.OrderBy(i => i.CallingAssembly);
 
 			foreach (var itemWithCaller in itemsWithCallers)
 			{
 				itemWithCaller.Parent = ordered.FirstOrDefault(p =>
-					string.Equals(p.Item.DisplayName, itemWithCaller.Item.CallingAssembly, StringComparison.OrdinalIgnoreCase)
-					&& p.Item.TimeStampUtc >= itemWithCaller.Item.TimeStampUtc);
+					string.Equals(p.DisplayName, itemWithCaller.CallingAssembly, StringComparison.OrdinalIgnoreCase)
+					&& p.TimeStampUtc >= itemWithCaller.TimeStampUtc);
 
 				if (itemWithCaller.Parent == null)
-					System.Diagnostics.Debug.WriteLine($"Could not find parent \"{itemWithCaller.Item.CallingAssembly}\" for assembly \"{itemWithCaller.Item.DisplayName}\"");
+					System.Diagnostics.Debug.WriteLine($"Could not find parent \"{itemWithCaller.CallingAssembly}\" for assembly \"{itemWithCaller.DisplayName}\"");
 			}
 
 			return ordered;
 		}
-	}
-
-	[System.Diagnostics.DebuggerDisplay("{Item.DisplayName}; HasParent: {HasParent}")]
-	public class TreeLogItem
-	{
-		public TreeLogItem(AggregateLogItem item)
-		{
-			Item = item;
-		}
-
-		public AggregateLogItem Item { get; }
-
-		public TreeLogItem Parent { get; internal set; }
-
-		public bool HasParent => Parent != null;
 	}
 }

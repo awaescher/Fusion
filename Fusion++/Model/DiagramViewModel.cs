@@ -1,7 +1,7 @@
 ﻿using FusionPlusPlus.Services;
 using System.Collections.Generic;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Model
 {
 	public class DiagramViewModel
 	{
@@ -14,7 +14,7 @@ namespace FusionPlusPlus
 			foreach (var log in logs)
 			{
 				if (log.HasParent)
-					Connections.Add(new DiagramLink() { From = log.Parent.Item.UniqueId, To = log.Item.UniqueId });
+					Connections.Add(new DiagramLink() { From = log.Parent.UniqueId, To = log.UniqueId });
 			}
 		}
 

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FusionPlusPlus.Model;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Services
 {
 	internal class LogAggregator
 	{
-		public LogAggregator()
-		{
-		}
-
 		internal List<AggregateLogItem> Aggregate(List<LogItem> logs)
 		{
 			var result = new List<AggregateLogItem>();
@@ -36,37 +31,5 @@ namespace FusionPlusPlus
 
 			return result;
 		}
-	}
-
-	[System.Diagnostics.DebuggerDisplay("{Item.DisplayName}; ItemCount: {Items.Count}")]
-	public class AggregateLogItem
-	{
-		public AggregateLogItem(LogItem item)
-		{
-			Items = new List<LogItem>();
-			Items.Add(item);
-		}
-
-		public void AppendSame(LogItem item)
-		{
-			Items.Add(item);
-		}
-
-		public string UniqueId => Items.Count > 0 ? Items[0].UniqueId : "";
-
-		public string DisplayName => Items.Count > 0 ? Items[0].DisplayName : "";
-
-		public string AppName => Items.Count > 0 ? Items[0].AppName : "";
-
-		public LogItem.State AccumulatedState => Items.Count > 0 ? Items[0].AccumulatedState : LogItem.State.Information;
-
-		public DateTime TimeStampUtc => Items.Count > 0 ? Items[0].TimeStampUtc : DateTime.MinValue;
-
-		public DateTime TimeStampLocal => Items.Count > 0 ? Items[0].TimeStampLocal : DateTime.MinValue;
-
-		public string CallingAssembly => Items.Count > 0 ? Items[0].CallingAssembly : "";
-		
-
-		public List<LogItem> Items { get; }
 	}
 }

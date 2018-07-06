@@ -68,6 +68,7 @@
     <Compile Include="Model\DiagramViewModel.cs" />
     <Compile Include="IO\FileReader.cs" />
     <Compile Include="IO\IFileReader.cs" />
+    <Compile Include="Model\AggregateLogItem.cs" />
     <Compile Include="Services\LogAggregator.cs" />
     <Compile Include="Services\IFusionService.cs" />
     <Compile Include="Services\ILogFileService.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Services\DiskReadOnlyFusionService.cs" />
     <Compile Include="Services\LogTreeBuilder.cs" />
     <Compile Include="Services\RegistryFusionService.cs" />
+    <Compile Include="Model\TreeLogItem.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
