@@ -76,11 +76,11 @@ namespace FusionPlusPlus
 
 			gridLog.DataSource = _logs;
 
-			diagramDataBindingController1.KeyMember = "UniqueId";
-			diagramDataBindingController1.ConnectorFromMember = "From";
-			diagramDataBindingController1.ConnectorToMember = "To";
-			diagramDataBindingController1.DataSource = diagramModel.Items;
-			diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
+			//diagramDataBindingController1.KeyMember = "UniqueId";
+			//diagramDataBindingController1.ConnectorFromMember = "From";
+			//diagramDataBindingController1.ConnectorToMember = "To";
+			//diagramDataBindingController1.DataSource = diagramModel.Items;
+			//diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
 
 			sw.Stop();
 			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";

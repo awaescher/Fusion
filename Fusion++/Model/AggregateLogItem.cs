@@ -12,13 +12,29 @@ namespace FusionPlusPlus.Model
 		public AggregateLogItem(LogItem item)
 		{
 			_representative = item;
+			AccumulatedState = item.AccumulatedState;
 
 			Items = new List<LogItem>();
 			Items.Add(item);
 		}
 
-		public void AppendSame(LogItem item)
+		public bool CanAggregate(LogItem other)
 		{
+			if (_representative == null || other == null)
+				return false;
+
+			bool sameName = string.Equals(_representative.DisplayName, other.DisplayName, StringComparison.OrdinalIgnoreCase);
+			bool sameCaller = string.Equals(_representative.CallingAssembly, other.CallingAssembly, StringComparison.OrdinalIgnoreCase);
+			bool sameTime = Math.Abs((_representative.TimeStampUtc - other.TimeStampUtc).TotalSeconds) <= 3;
+
+			return sameName && sameCaller && sameTime;
+		}
+
+		public void AddItem(LogItem item)
+		{
+			if (AccumulatedState < item.AccumulatedState)
+				AccumulatedState = item.AccumulatedState;
+
 			Items.Add(item);
 		}
 
@@ -30,7 +46,7 @@ namespace FusionPlusPlus.Model
 
 		public string AppName => _representative?.AppName;
 
-		public LogItem.State? AccumulatedState => _representative?.AccumulatedState;
+		public LogItem.State AccumulatedState { get; private set; }
 
 		public DateTime? TimeStampUtc => _representative?.TimeStampUtc;
 

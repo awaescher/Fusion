@@ -19,9 +19,9 @@ namespace FusionPlusPlus.Services
 
 			foreach (var log in orderedLogs)
 			{
-				if (string.Equals(aggregate?.UniqueId, log.UniqueId))
+				if (aggregate?.CanAggregate(log) ?? false)
 				{
-					aggregate.AppendSame(log);
+					aggregate.AddItem(log);
 					continue;
 				}
 
