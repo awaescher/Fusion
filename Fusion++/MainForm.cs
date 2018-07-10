@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace FusionPlusPlus
 {
@@ -17,7 +18,7 @@ namespace FusionPlusPlus
 		private bool _loading = false;
 		private RegistryFusionService _fusionService;
 		private string _originalFormText;
-		private List<LogItem> _logs;
+		private List<AggregateLogItem> _logs;
 		private string _lastUsedFilePath;
 
 		public MainForm()
@@ -38,14 +39,14 @@ namespace FusionPlusPlus
 		{
 			_loading = true;
 
-			var fileService = new LogFileService(fusionService);
-			var files = fileService.Get(LogSource.Default);
-			var parser = new LogFileParser(new LogItemParser(), new FileReader());
+			var parser = new LogFileParser(new LogFileService(fusionService), new LogItemParser(), new FileReader());
+
 
 			toggleLog.EditValue = _fusionService.Mode == LogMode.All;
 
 			var sw = Stopwatch.StartNew();
-			var logs = parser.Parse(files);
+
+			var logs = parser.Parse();
 
 			_loading = false;
 
@@ -58,7 +59,12 @@ namespace FusionPlusPlus
 		{
 			var sw = Stopwatch.StartNew();
 
-			_logs = ReadLogs(fusionService);
+			var aggregator = new LogAggregator();
+			var treeBuilder = new LogTreeBuilder();
+
+			var logs = ReadLogs(fusionService);
+			_logs = aggregator.Aggregate(logs);
+			var diagramModel = new DiagramViewModel(treeBuilder.Build(_logs));
 
 			// Generate a data table and bind the date-time client to it.
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
@@ -70,16 +76,22 @@ namespace FusionPlusPlus
 
 			gridLog.DataSource = _logs;
 
+			//diagramDataBindingController1.KeyMember = "UniqueId";
+			//diagramDataBindingController1.ConnectorFromMember = "From";
+			//diagramDataBindingController1.ConnectorToMember = "To";
+			//diagramDataBindingController1.DataSource = diagramModel.Items;
+			//diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
+
 			sw.Stop();
 			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
 		{
-			DateTime from = (DateTime)range.Range.Minimum;
-			DateTime till = (DateTime)range.Range.Maximum;
+			DateTime from = ((DateTime)range.Range.Minimum).ToUniversalTime();
+			DateTime till = ((DateTime)range.Range.Maximum).ToUniversalTime();
 
-			gridLog.DataSource = _logs?.Where(l => l.TimeStampLocal >= from && l.TimeStampLocal <= till).ToList();
+			gridLog.DataSource = _logs?.Where(l => l.TimeStampUtc >= from && l.TimeStampUtc <= till).ToList();
 		}
 
 		private void toggleLog_Toggled(object sender, EventArgs e)
@@ -119,6 +131,31 @@ namespace FusionPlusPlus
 					LoadLogs(new DiskReadOnlyFusionService(dialog.SelectedPath));
 				}
 			}
+		}
+
+		private void viewLog_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+		{
+			if (!viewLog.IsDataRow(e.RowHandle))
+				return;
+
+			if (e.Clicks == 2)
+			{
+				var item = (AggregateLogItem)viewLog.GetRow(e.RowHandle);
+				ShowDetailForm(item);
+			}
+		}
+
+		private void ShowDetailForm(AggregateLogItem item)
+		{
+			const int FORM_Y_OFFSET = 30;
+
+			var form = new ItemDetailForm();
+			form.Item = item;
+			form.Height = this.Height - FORM_Y_OFFSET;
+			form.Top = this.Top + FORM_Y_OFFSET;
+			form.Left = this.Left + ((this.Width - form.Width) / 2);
+
+			form.Show(this);
 		}
 	}
 }

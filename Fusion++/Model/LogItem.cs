@@ -5,7 +5,24 @@ namespace FusionPlusPlus.Model
 	[System.Diagnostics.DebuggerDisplay("{DisplayName}")]
 	public class LogItem
 	{
-		public string DisplayName { get; set; } = "";
+		private string _displayName = "";
+
+		public string DisplayName
+		{
+			get { return _displayName; }
+			set
+			{
+				_displayName = value;
+
+				var comma = value?.IndexOf(',') ?? -1;
+				if (comma == -1)
+					comma = value?.Length ?? -1;
+
+				ShortAssemblyName = comma > -1 ? value.Substring(0, comma) : "";
+			}
+		}
+
+		public string ShortAssemblyName { get; private set; }
 
 		public string AppName { get; set; } = "";
 
@@ -30,6 +47,12 @@ namespace FusionPlusPlus.Model
 		public DateTime TimeStampLocal => TimeStampUtc.ToLocalTime();
 
 		public bool IsValid => !string.IsNullOrEmpty(DisplayName);
+
+		public string UniqueId => DisplayName
+			+ " @ "
+			+ TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK");
+
+		public LogSource Source { get; set; }
 
 		public enum State
 		{

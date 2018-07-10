@@ -8,6 +8,8 @@ namespace FusionPlusPlus.Parser
 	{
 		internal LogItem Parse(string value)
 		{
+			value = value.Trim(new char[] { '\r', '\n' });
+
 			var result = new LogItem();
 			result.FullMessage = value;
 			result.AccumulatedState = LogItem.State.Information;
@@ -26,6 +28,7 @@ namespace FusionPlusPlus.Parser
 				AddValueIfRelevant(line, "DynamicPath", s => result.DynamicPath = s);
 				AddValueIfRelevant(line, "CacheBase", s => result.CacheBase = s);
 				AddValueIfRelevant(line, "Calling Assembly", s => result.CallingAssembly = s);
+				AddValueIfRelevant(line, "Aufruf von Assembly", s => result.CallingAssembly = s);
 
 				if (result.AccumulatedState == LogItem.State.Error)
 					continue;
@@ -41,11 +44,11 @@ namespace FusionPlusPlus.Parser
 
 		private void AddValueIfRelevant(string content, string keyword, Action<string> setter)
 		{
-			var match = Regex.Match(content, $@"(?<={keyword}\s*=).*?$", RegexOptions.IgnoreCase);
+			var match = Regex.Match(content, $@"(?<={keyword}\s*[=|:]).*?$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
 
 			if (match.Success)
 			{
-				var value = match.Value.Trim();
+				var value = match.Value.Trim().TrimEnd('.');
 
 				if (string.Equals(value, "NULL", StringComparison.OrdinalIgnoreCase))
 					return;

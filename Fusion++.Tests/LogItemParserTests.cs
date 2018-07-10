@@ -6,7 +6,7 @@ using System;
 
 namespace FusionPlusPlus.Tests
 {
-	class LogItemParserTests
+	internal class LogItemParserTests
 	{
 		protected LogItemParser _parser;
 
@@ -16,7 +16,7 @@ namespace FusionPlusPlus.Tests
 			_parser = new LogItemParser();
 		}
 
-		public class ParseMethod : LogItemParserTests
+		internal class ParseMethod : LogItemParserTests
 		{
 			[Test]
 			public void Interprets_LOG_As_Information()
@@ -67,10 +67,10 @@ namespace FusionPlusPlus.Tests
 				item.AppBase.Should().Be("file:///C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/");
 				item.AppName.Should().Be("MSBuild.exe");
 				item.CacheBase.Should().Be("");
-				item.CallingAssembly.Should().Be("");
+				item.CallingAssembly.Should().Be("(Unknown)");
 				item.DisplayName.Should().Be("System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL");
 				item.DynamicPath.Should().Be("");
-				item.FullMessage.Length.Should().Be(1426);
+				item.FullMessage.Length.Should().Be(1424);
 				item.IsValid.Should().Be(true);
 				item.PrivatePath.Should().Be("");
 				item.TimeStampUtc.ToLocalTime().Should().Be(new DateTime(2018, 06, 26, 18, 09, 20));
