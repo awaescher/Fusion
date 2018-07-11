@@ -43,7 +43,6 @@
 			this.colTimeStamp = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colAppName = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.colSource = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.toggleLog = new DevExpress.XtraEditors.ToggleSwitch();
 			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
 			this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
@@ -129,8 +128,7 @@
             this.colTimeStamp,
             this.colState,
             this.colAppName,
-            this.colDisplayName,
-            this.colSource});
+            this.colDisplayName});
 			this.viewLog.DetailHeight = 284;
 			gridFormatRule1.ApplyToRow = true;
 			gridFormatRule1.Column = this.colState;
@@ -187,13 +185,6 @@
 			this.colDisplayName.Visible = true;
 			this.colDisplayName.VisibleIndex = 3;
 			this.colDisplayName.Width = 558;
-			// 
-			// colSource
-			// 
-			this.colSource.FieldName = "Source";
-			this.colSource.Name = "colSource";
-			this.colSource.Visible = true;
-			this.colSource.VisibleIndex = 4;
 			// 
 			// toggleLog
 			// 
@@ -516,7 +507,6 @@
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
 		private DevExpress.XtraDiagram.DiagramControl diagramLog;
 		private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
-		private DevExpress.XtraGrid.Columns.GridColumn colSource;
 		private DevExpress.XtraDiagram.DiagramContainer diagramContainer1;
 		private DevExpress.XtraDiagram.DiagramShape diagramShape1;
 		private DevExpress.XtraDiagram.DiagramShape diagramShape2;

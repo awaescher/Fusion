@@ -57,5 +57,7 @@ namespace FusionPlusPlus.Model
 		public string CallingAssembly => _representative?.CallingAssembly;
 
 		public List<LogItem> Items { get; }
+
+		public int ItemCount => Items?.Count ?? 0;
 	}
 }

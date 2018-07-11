@@ -6,14 +6,14 @@ namespace FusionPlusPlus.Services
 {
 	internal class LogFileService : ILogFileService
 	{
-		public LogFileService(IFusionService fusionService)
+		public LogFileService(ILogStore store)
 		{
-			FusionService = fusionService ?? throw new ArgumentNullException(nameof(fusionService));
+			Store = store ?? throw new ArgumentNullException(nameof(store));
 		}
 
 		public string[] Get(LogSource source, string filter = "")
 		{
-			var path = Path.Combine(FusionService.LogPath, source == LogSource.NativeImage ? "NativeImage" : "Default");
+			var path = Path.Combine(Store.Path, source == LogSource.NativeImage ? "NativeImage" : "Default");
 
 			if (!Directory.Exists(path))
 				return new string[0];
@@ -21,6 +21,6 @@ namespace FusionPlusPlus.Services
 			return Directory.GetFiles(path, "*.htm", SearchOption.AllDirectories);
 		}
 
-		public IFusionService FusionService { get; }
+		public ILogStore Store { get; }
 	}
 }

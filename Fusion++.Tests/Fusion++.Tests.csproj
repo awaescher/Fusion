@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateLogItemTests.cs" />
+    <Compile Include="FusionSessionSpecs.cs" />
     <Compile Include="LogItemTests.cs" />
     <Compile Include="PathAsContentRoutingFileReader.cs" />
     <Compile Include="DumpReader.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="LogItemParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringAsFileService.cs" />
+    <Compile Include="TransparentFusionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fusion++\Fusion++.csproj">

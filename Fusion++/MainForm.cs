@@ -20,6 +20,7 @@ namespace FusionPlusPlus
 		private string _originalFormText;
 		private List<AggregateLogItem> _logs;
 		private string _lastUsedFilePath;
+		private FusionSession _session;
 
 		public MainForm()
 		{
@@ -32,17 +33,17 @@ namespace FusionPlusPlus
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
+
 			LoadLogs();
 		}
 
-		private List<LogItem> ReadLogs(IFusionService fusionService)
+		private List<LogItem> ReadLogs(ILogStore store)
 		{
 			_loading = true;
 
-			var parser = new LogFileParser(new LogFileService(fusionService), new LogItemParser(), new FileReader());
+			var parser = new LogFileParser(new LogFileService(store), new LogItemParser(), new FileReader());
 
-
-			toggleLog.EditValue = _fusionService.Mode == LogMode.All;
+			//toggleLog.EditValue = _fusionService.Mode == LogMode.All;
 
 			var sw = Stopwatch.StartNew();
 
@@ -53,16 +54,20 @@ namespace FusionPlusPlus
 			return logs;
 		}
 
-		private void LoadLogs() => LoadLogs(_fusionService);
+		private void ClearLogs() => LoadLogs("");
 
-		private void LoadLogs(IFusionService fusionService)
+		private void LoadLogs() => LoadLogs(_fusionService.LogPath);
+
+		private void LoadLogs(string path) => LoadLogs(new TransparentLogStore(path));
+
+		private void LoadLogs(ILogStore logStore)
 		{
 			var sw = Stopwatch.StartNew();
 
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
 
-			var logs = ReadLogs(fusionService);
+			var logs = ReadLogs(logStore);
 			_logs = aggregator.Aggregate(logs);
 			var diagramModel = new DiagramViewModel(treeBuilder.Build(_logs));
 
@@ -70,17 +75,17 @@ namespace FusionPlusPlus
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
 
 			// Specify data members to bind the client.
-			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(LogItem.TimeStampLocal);
-			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(LogItem.Count);
-			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(LogItem.AppName);
+			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(AggregateLogItem.TimeStampLocal);
+			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(AggregateLogItem.ItemCount);
+			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(AggregateLogItem.AppName);
 
 			gridLog.DataSource = _logs;
 
 			//diagramDataBindingController1.KeyMember = "UniqueId";
-			//diagramDataBindingController1.ConnectorFromMember = "From";
-			//diagramDataBindingController1.ConnectorToMember = "To";
-			//diagramDataBindingController1.DataSource = diagramModel.Items;
-			//diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
+			diagramDataBindingController1.ConnectorFromMember = "From";
+			diagramDataBindingController1.ConnectorToMember = "To";
+			diagramDataBindingController1.DataSource = diagramModel.Items;
+			diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
 
 			sw.Stop();
 			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";
@@ -99,7 +104,20 @@ namespace FusionPlusPlus
 			if (_fusionService == null || _loading)
 				return;
 
-			_fusionService.Mode = (bool)toggleLog.EditValue ? LogMode.All : LogMode.Disabled;
+			if (_session == null)
+			{
+				ClearLogs();
+
+				_session = new FusionSession(_fusionService);
+				_session.Start();
+			}
+			else
+			{
+				_session.End();
+				LoadLogs(_session.Store.Path);
+				_session = null;
+
+			}
 		}
 
 		private void MainForm_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
@@ -115,7 +133,7 @@ namespace FusionPlusPlus
 			if (files.Length == 1)
 			{
 				_lastUsedFilePath = files[0];
-				LoadLogs(new DiskReadOnlyFusionService(files[0]));
+				LoadLogs(files[0]);
 			}
 		}
 
@@ -124,11 +142,11 @@ namespace FusionPlusPlus
 			if (e.KeyCode == Keys.O && e.Control)
 			{
 				var dialog = new FolderBrowserDialog();
-				dialog.SelectedPath = _lastUsedFilePath ?? _fusionService.LogPath ?? "";
+				dialog.SelectedPath = _lastUsedFilePath ?? new TemporaryLogStore().TopLevelPath ?? "";
 				if (dialog.ShowDialog() == DialogResult.OK)
 				{
 					_lastUsedFilePath = dialog.SelectedPath;
-					LoadLogs(new DiskReadOnlyFusionService(dialog.SelectedPath));
+					LoadLogs(dialog.SelectedPath);
 				}
 			}
 		}
