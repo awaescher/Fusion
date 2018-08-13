@@ -43,12 +43,8 @@
 			this.colTimeStamp = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colAppName = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.toggleLog = new DevExpress.XtraEditors.ToggleSwitch();
-			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
 			this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
 			this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-			this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-			this.treeLog = new DevExpress.XtraTreeList.TreeList();
 			this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.diagramLog = new DevExpress.XtraDiagram.DiagramControl();
 			this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
@@ -58,20 +54,28 @@
 			this.diagramShape3 = new DevExpress.XtraDiagram.DiagramShape();
 			this.diagramShape4 = new DevExpress.XtraDiagram.DiagramShape();
 			this.diagramShape5 = new DevExpress.XtraDiagram.DiagramShape();
+			this.btnCapture = new DevExpress.XtraEditors.SimpleButton();
+			this.btnOpen = new DevExpress.XtraEditors.DropDownButton();
+			this.popupLastSessions = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+			this.btnSave = new DevExpress.XtraEditors.SimpleButton();
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.viewLog)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleLog.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
 			this.tabPane1.SuspendLayout();
 			this.tabNavigationPage1.SuspendLayout();
-			this.tabNavigationPage2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.treeLog)).BeginInit();
 			this.tabNavigationPage3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupLastSessions)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// rangeData
@@ -80,7 +84,7 @@
 			this.rangeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.rangeData.Client = this.dateTimeChartRangeControlClient1;
-			this.rangeData.Location = new System.Drawing.Point(139, 16);
+			this.rangeData.Location = new System.Drawing.Point(127, 16);
 			this.rangeData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.rangeData.Name = "rangeData";
 			rangeControlRange1.Maximum = new System.DateTime(2018, 7, 5, 0, 0, 0, 0);
@@ -88,7 +92,7 @@
 			rangeControlRange1.Owner = this.rangeData;
 			this.rangeData.SelectedRange = rangeControlRange1;
 			this.rangeData.SelectionType = DevExpress.XtraEditors.RangeControlSelectionType.ThumbAndFlag;
-			this.rangeData.Size = new System.Drawing.Size(1113, 98);
+			this.rangeData.Size = new System.Drawing.Size(1125, 98);
 			this.rangeData.TabIndex = 2;
 			this.rangeData.Text = "rangeControl1";
 			this.rangeData.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
@@ -152,6 +156,7 @@
 			this.viewLog.Name = "viewLog";
 			this.viewLog.OptionsBehavior.Editable = false;
 			this.viewLog.OptionsBehavior.ReadOnly = true;
+			this.viewLog.OptionsDetail.EnableMasterViewMode = false;
 			this.viewLog.OptionsMenu.ShowConditionalFormattingItem = true;
 			this.viewLog.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colTimeStamp, DevExpress.Data.ColumnSortOrder.Ascending)});
@@ -186,29 +191,6 @@
 			this.colDisplayName.VisibleIndex = 3;
 			this.colDisplayName.Width = 558;
 			// 
-			// toggleLog
-			// 
-			this.toggleLog.Location = new System.Drawing.Point(26, 65);
-			this.toggleLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.toggleLog.Name = "toggleLog";
-			this.toggleLog.Properties.OffText = "Off";
-			this.toggleLog.Properties.OnText = "On";
-			this.toggleLog.Properties.ShowText = false;
-			this.toggleLog.Size = new System.Drawing.Size(71, 24);
-			this.toggleLog.TabIndex = 1;
-			this.toggleLog.Toggled += new System.EventHandler(this.toggleLog_Toggled);
-			// 
-			// labelControl1
-			// 
-			this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelControl1.Appearance.Options.UseFont = true;
-			this.labelControl1.Location = new System.Drawing.Point(26, 41);
-			this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Size = new System.Drawing.Size(55, 19);
-			this.labelControl1.TabIndex = 3;
-			this.labelControl1.Text = "Capture";
-			// 
 			// tabPane1
 			// 
 			this.tabPane1.AllowCollapse = DevExpress.Utils.DefaultBoolean.Default;
@@ -216,14 +198,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tabPane1.Controls.Add(this.tabNavigationPage1);
-			this.tabPane1.Controls.Add(this.tabNavigationPage2);
 			this.tabPane1.Controls.Add(this.tabNavigationPage3);
 			this.tabPane1.Location = new System.Drawing.Point(12, 119);
 			this.tabPane1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tabPane1.Name = "tabPane1";
 			this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabNavigationPage1,
-            this.tabNavigationPage2,
             this.tabNavigationPage3});
 			this.tabPane1.RegularSize = new System.Drawing.Size(1240, 618);
 			this.tabPane1.SelectedPage = this.tabNavigationPage1;
@@ -233,35 +213,15 @@
 			// 
 			// tabNavigationPage1
 			// 
-			this.tabNavigationPage1.Caption = "Linear";
+			this.tabNavigationPage1.Caption = "List";
 			this.tabNavigationPage1.Controls.Add(this.gridLog);
 			this.tabNavigationPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tabNavigationPage1.Name = "tabNavigationPage1";
 			this.tabNavigationPage1.Size = new System.Drawing.Size(1240, 591);
 			// 
-			// tabNavigationPage2
-			// 
-			this.tabNavigationPage2.Caption = "Hierarchical";
-			this.tabNavigationPage2.Controls.Add(this.treeLog);
-			this.tabNavigationPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.tabNavigationPage2.Name = "tabNavigationPage2";
-			this.tabNavigationPage2.Size = new System.Drawing.Size(1240, 591);
-			// 
-			// treeLog
-			// 
-			this.treeLog.DataSource = typeof(FusionPlusPlus.Model.TreeLogItem);
-			this.treeLog.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.treeLog.KeyFieldName = "UniqueId";
-			this.treeLog.Location = new System.Drawing.Point(0, 0);
-			this.treeLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.treeLog.Name = "treeLog";
-			this.treeLog.ParentFieldName = "Parent.UniqueId";
-			this.treeLog.Size = new System.Drawing.Size(1240, 591);
-			this.treeLog.TabIndex = 0;
-			// 
 			// tabNavigationPage3
 			// 
-			this.tabNavigationPage3.Caption = "Flow";
+			this.tabNavigationPage3.Caption = "Flow diagram";
 			this.tabNavigationPage3.Controls.Add(this.diagramLog);
 			this.tabNavigationPage3.Name = "tabNavigationPage3";
 			this.tabNavigationPage3.Size = new System.Drawing.Size(1240, 591);
@@ -450,16 +410,103 @@
 			this.diagramShape5.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
 			this.diagramShape5.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
 			// 
+			// btnCapture
+			// 
+			this.btnCapture.AllowFocus = false;
+			this.btnCapture.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+			this.btnCapture.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Capture;
+			this.btnCapture.Location = new System.Drawing.Point(12, 16);
+			this.btnCapture.Name = "btnCapture";
+			this.btnCapture.Size = new System.Drawing.Size(109, 72);
+			this.btnCapture.TabIndex = 5;
+			this.btnCapture.Text = "Capture";
+			this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
+			// 
+			// btnOpen
+			// 
+			this.btnOpen.AllowFocus = false;
+			this.btnOpen.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.SplitButton;
+			this.btnOpen.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
+			this.btnOpen.DropDownControl = this.popupLastSessions;
+			this.btnOpen.Location = new System.Drawing.Point(12, 89);
+			this.btnOpen.Name = "btnOpen";
+			this.btnOpen.Size = new System.Drawing.Size(60, 25);
+			this.btnOpen.TabIndex = 5;
+			this.btnOpen.Text = "Import";
+			this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+			// 
+			// popupLastSessions
+			// 
+			this.popupLastSessions.Manager = this.barManager1;
+			this.popupLastSessions.Name = "popupLastSessions";
+			this.popupLastSessions.BeforePopup += new System.ComponentModel.CancelEventHandler(this.popupLastSessions_BeforePopup);
+			// 
+			// barManager1
+			// 
+			this.barManager1.DockControls.Add(this.barDockControlTop);
+			this.barManager1.DockControls.Add(this.barDockControlBottom);
+			this.barManager1.DockControls.Add(this.barDockControlLeft);
+			this.barManager1.DockControls.Add(this.barDockControlRight);
+			this.barManager1.Form = this;
+			this.barManager1.MaxItemId = 0;
+			// 
+			// barDockControlTop
+			// 
+			this.barDockControlTop.CausesValidation = false;
+			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+			this.barDockControlTop.Manager = this.barManager1;
+			this.barDockControlTop.Size = new System.Drawing.Size(1264, 0);
+			// 
+			// barDockControlBottom
+			// 
+			this.barDockControlBottom.CausesValidation = false;
+			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 746);
+			this.barDockControlBottom.Manager = this.barManager1;
+			this.barDockControlBottom.Size = new System.Drawing.Size(1264, 0);
+			// 
+			// barDockControlLeft
+			// 
+			this.barDockControlLeft.CausesValidation = false;
+			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+			this.barDockControlLeft.Manager = this.barManager1;
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 746);
+			// 
+			// barDockControlRight
+			// 
+			this.barDockControlRight.CausesValidation = false;
+			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+			this.barDockControlRight.Location = new System.Drawing.Point(1264, 0);
+			this.barDockControlRight.Manager = this.barManager1;
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 746);
+			// 
+			// btnSave
+			// 
+			this.btnSave.AllowFocus = false;
+			this.btnSave.Location = new System.Drawing.Point(73, 89);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(48, 25);
+			this.btnSave.TabIndex = 5;
+			this.btnSave.Text = "Export";
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1264, 746);
+			this.Controls.Add(this.btnSave);
+			this.Controls.Add(this.btnOpen);
+			this.Controls.Add(this.btnCapture);
 			this.Controls.Add(this.tabPane1);
-			this.Controls.Add(this.labelControl1);
 			this.Controls.Add(this.rangeData);
-			this.Controls.Add(this.toggleLog);
+			this.Controls.Add(this.barDockControlLeft);
+			this.Controls.Add(this.barDockControlRight);
+			this.Controls.Add(this.barDockControlBottom);
+			this.Controls.Add(this.barDockControlTop);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -473,16 +520,15 @@
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.viewLog)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleLog.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
 			this.tabPane1.ResumeLayout(false);
 			this.tabNavigationPage1.ResumeLayout(false);
-			this.tabNavigationPage2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.treeLog)).EndInit();
 			this.tabNavigationPage3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupLastSessions)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -492,18 +538,14 @@
 
 		private DevExpress.XtraGrid.GridControl gridLog;
 		private DevExpress.XtraGrid.Views.Grid.GridView viewLog;
-		private DevExpress.XtraEditors.ToggleSwitch toggleLog;
 		private DevExpress.XtraGrid.Columns.GridColumn colTimeStamp;
 		private DevExpress.XtraGrid.Columns.GridColumn colState;
 		private DevExpress.XtraGrid.Columns.GridColumn colAppName;
 		private DevExpress.XtraGrid.Columns.GridColumn colDisplayName;
 		private DevExpress.XtraEditors.RangeControl rangeData;
 		private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
-		private DevExpress.XtraEditors.LabelControl labelControl1;
 		private DevExpress.XtraBars.Navigation.TabPane tabPane1;
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
-		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
-		private DevExpress.XtraTreeList.TreeList treeLog;
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
 		private DevExpress.XtraDiagram.DiagramControl diagramLog;
 		private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
@@ -513,6 +555,15 @@
 		private DevExpress.XtraDiagram.DiagramShape diagramShape3;
 		private DevExpress.XtraDiagram.DiagramShape diagramShape4;
 		private DevExpress.XtraDiagram.DiagramShape diagramShape5;
+		private DevExpress.XtraEditors.SimpleButton btnCapture;
+		private DevExpress.XtraEditors.DropDownButton btnOpen;
+		private DevExpress.XtraEditors.SimpleButton btnSave;
+		private DevExpress.XtraBars.PopupMenu popupLastSessions;
+		private DevExpress.XtraBars.BarManager barManager1;
+		private DevExpress.XtraBars.BarDockControl barDockControlTop;
+		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+		private DevExpress.XtraBars.BarDockControl barDockControlRight;
 	}
 }
 

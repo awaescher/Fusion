@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
+using DevExpress.XtraBars;
 
 namespace FusionPlusPlus
 {
@@ -17,7 +19,6 @@ namespace FusionPlusPlus
 	{
 		private bool _loading = false;
 		private RegistryFusionService _fusionService;
-		private string _originalFormText;
 		private List<AggregateLogItem> _logs;
 		private string _lastUsedFilePath;
 		private FusionSession _session;
@@ -27,7 +28,6 @@ namespace FusionPlusPlus
 			InitializeComponent();
 
 			_fusionService = new RegistryFusionService();
-			_originalFormText = this.Text;
 		}
 
 		protected override void OnShown(EventArgs e)
@@ -42,8 +42,6 @@ namespace FusionPlusPlus
 			_loading = true;
 
 			var parser = new LogFileParser(new LogFileService(store), new LogItemParser(), new FileReader());
-
-			//toggleLog.EditValue = _fusionService.Mode == LogMode.All;
 
 			var sw = Stopwatch.StartNew();
 
@@ -62,7 +60,8 @@ namespace FusionPlusPlus
 
 		private void LoadLogs(ILogStore logStore)
 		{
-			var sw = Stopwatch.StartNew();
+			Controls.OfType<EmptyOverlay>().ToList().ForEach(o => o.Remove());
+			var overlay = LoadingOverlay.PutOn(this);
 
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
@@ -87,8 +86,17 @@ namespace FusionPlusPlus
 			diagramDataBindingController1.DataSource = diagramModel.Items;
 			diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
 
-			sw.Stop();
-			this.Text = _originalFormText + " (" + sw.ElapsedMilliseconds + " milliseconds)";
+			overlay.Remove();
+
+			var hasData = _logs.Any();
+			tabPane1.Visible = hasData;
+			rangeData.Visible = hasData;
+			btnOpen.Enabled = true;
+			btnSave.Enabled = hasData && !string.IsNullOrEmpty(logStore.Path);
+			btnSave.Tag = logStore.Path;
+
+			if (!hasData)
+				EmptyOverlay.PutOn(this).SendToBack();
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
@@ -97,27 +105,6 @@ namespace FusionPlusPlus
 			DateTime till = ((DateTime)range.Range.Maximum).ToUniversalTime();
 
 			gridLog.DataSource = _logs?.Where(l => l.TimeStampUtc >= from && l.TimeStampUtc <= till).ToList();
-		}
-
-		private void toggleLog_Toggled(object sender, EventArgs e)
-		{
-			if (_fusionService == null || _loading)
-				return;
-
-			if (_session == null)
-			{
-				ClearLogs();
-
-				_session = new FusionSession(_fusionService);
-				_session.Start();
-			}
-			else
-			{
-				_session.End();
-				LoadLogs(_session.Store.Path);
-				_session = null;
-
-			}
 		}
 
 		private void MainForm_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
@@ -139,16 +126,8 @@ namespace FusionPlusPlus
 
 		private void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.O && e.Control)
-			{
-				var dialog = new FolderBrowserDialog();
-				dialog.SelectedPath = _lastUsedFilePath ?? new TemporaryLogStore().TopLevelPath ?? "";
-				if (dialog.ShowDialog() == DialogResult.OK)
-				{
-					_lastUsedFilePath = dialog.SelectedPath;
-					LoadLogs(dialog.SelectedPath);
-				}
-			}
+			if (e.KeyCode == Keys.I && e.Control)
+				ImportWithDirectoryDialog();
 		}
 
 		private void viewLog_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -174,6 +153,88 @@ namespace FusionPlusPlus
 			form.Left = this.Left + ((this.Width - form.Width) / 2);
 
 			form.Show(this);
+		}
+
+		private void btnCapture_Click(object sender, EventArgs e)
+		{
+			if (_fusionService == null || _loading)
+				return;
+
+			if (_session == null)
+			{
+				ClearLogs();
+
+				_session = new FusionSession(_fusionService);
+				_session.Start();
+			}
+			else
+			{
+				_session.End();
+				LoadLogs(_session.Store.Path);
+				_session = null;
+
+			}
+
+			btnCapture.Text = _session == null ? "Capture" : "Stop";
+			btnCapture.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
+		}
+
+		private void btnOpen_Click(object sender, EventArgs e)
+		{
+			ImportWithDirectoryDialog();
+		}
+
+		private void ImportWithDirectoryDialog()
+		{
+			using (var dialog = new FolderBrowserDialog())
+			{
+				dialog.SelectedPath = _lastUsedFilePath ?? new TemporaryLogStore().TopLevelPath ?? "";
+				if (dialog.ShowDialog() == DialogResult.OK)
+					ImportFromDirectory(dialog.SelectedPath);
+			}
+		}
+
+		private void ImportFromDirectory(string directory)
+		{
+			_lastUsedFilePath = directory;
+			LoadLogs(directory);
+		}
+
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			var currentPath = btnSave.Tag.ToString();
+
+			if (!Directory.Exists(currentPath))
+				return;
+
+			using (var dialog = new FolderBrowserDialog())
+			{
+				if (dialog.ShowDialog() == DialogResult.OK)
+					DirectoryCloner.Clone(currentPath, dialog.SelectedPath);
+			}
+		}
+
+		private void popupLastSessions_BeforePopup(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			PopulateLastSessions();
+		}
+
+		private void PopulateLastSessions()
+		{
+			popupLastSessions.ClearLinks();
+
+			var topLevelPath = new TemporaryLogStore().TopLevelPath;
+
+			if (!Directory.Exists(topLevelPath))
+				return;
+
+			foreach (var sessionPath in Directory.GetDirectories(topLevelPath).OrderByDescending(dir => dir))
+			{
+				var button = new BarButtonItem();
+				button.Caption = Path.GetFileName(sessionPath);
+				button.ItemClick += (s, e) => ImportFromDirectory(sessionPath);
+				popupLastSessions.AddItem(button);
+			}
 		}
 	}
 }
