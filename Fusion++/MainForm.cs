@@ -32,6 +32,9 @@ namespace FusionPlusPlus
 
 		protected override void OnShown(EventArgs e)
 		{
+			var name = this.GetType().Assembly.GetName();
+			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}";
+
 			base.OnShown(e);
 
 			LoadLogs();
