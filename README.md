@@ -1,5 +1,3 @@
-# Fusion++
-
 Just trying to get rid of this complicated thing ...
 
 ![Microsoft Fusion Viewer](_doc/MSFusionViewer.png)
