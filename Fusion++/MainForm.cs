@@ -85,7 +85,7 @@ namespace FusionPlusPlus
 			overlay.Remove();
 
 			var hasData = _logs.Any();
-			tabPane1.Visible = hasData;
+			gridLog.Visible = hasData;
 			rangeData.Visible = hasData;
 			btnOpen.Enabled = true;
 			btnSave.Enabled = hasData && !string.IsNullOrEmpty(logStore.Path);
