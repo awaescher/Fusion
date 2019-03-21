@@ -46,14 +46,6 @@
 			this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
 			this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
 			this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-			this.diagramLog = new DevExpress.XtraDiagram.DiagramControl();
-			this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
-			this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
-			this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
-			this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
-			this.diagramShape3 = new DevExpress.XtraDiagram.DiagramShape();
-			this.diagramShape4 = new DevExpress.XtraDiagram.DiagramShape();
-			this.diagramShape5 = new DevExpress.XtraDiagram.DiagramShape();
 			this.btnCapture = new DevExpress.XtraEditors.SimpleButton();
 			this.btnOpen = new DevExpress.XtraEditors.DropDownButton();
 			this.popupLastSessions = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -71,9 +63,6 @@
 			this.tabPane1.SuspendLayout();
 			this.tabNavigationPage1.SuspendLayout();
 			this.tabNavigationPage3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupLastSessions)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			this.SuspendLayout();
@@ -222,193 +211,8 @@
 			// tabNavigationPage3
 			// 
 			this.tabNavigationPage3.Caption = "Flow diagram";
-			this.tabNavigationPage3.Controls.Add(this.diagramLog);
 			this.tabNavigationPage3.Name = "tabNavigationPage3";
 			this.tabNavigationPage3.Size = new System.Drawing.Size(1240, 591);
-			// 
-			// diagramLog
-			// 
-			this.diagramLog.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.diagramLog.Location = new System.Drawing.Point(0, 0);
-			this.diagramLog.Name = "diagramLog";
-			this.diagramLog.OptionsBehavior.EnableProportionalResizing = false;
-			this.diagramLog.OptionsBehavior.ScrollMode = DevExpress.Diagram.Core.DiagramScrollMode.Content;
-			this.diagramLog.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
-            "BasicShapes",
-            "BasicFlowchartShapes"});
-			this.diagramLog.OptionsView.CanvasSizeMode = DevExpress.Diagram.Core.CanvasSizeMode.Fill;
-			this.diagramLog.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
-			this.diagramLog.OptionsView.ShowPageBreaks = false;
-			this.diagramLog.Size = new System.Drawing.Size(1240, 591);
-			this.diagramLog.TabIndex = 0;
-			this.diagramLog.Text = "diagramControl1";
-			// 
-			// diagramDataBindingController1
-			// 
-			this.diagramDataBindingController1.ConnectorFromMember = "";
-			this.diagramDataBindingController1.ConnectorsSource = null;
-			this.diagramDataBindingController1.ConnectorToMember = "";
-			this.diagramDataBindingController1.Diagram = this.diagramLog;
-			this.diagramDataBindingController1.KeyMember = "";
-			// 
-			// 
-			// 
-			this.diagramDataBindingController1.TemplateDiagram.Items.AddRange(new DevExpress.XtraDiagram.DiagramItem[] {
-            this.diagramContainer1});
-			this.diagramDataBindingController1.TemplateDiagram.Location = new System.Drawing.Point(0, 0);
-			this.diagramDataBindingController1.TemplateDiagram.Name = "";
-			this.diagramDataBindingController1.TemplateDiagram.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[] {
-            "TemplateDesigner"});
-			this.diagramDataBindingController1.TemplateDiagram.OptionsView.CanvasSizeMode = DevExpress.Diagram.Core.CanvasSizeMode.Fill;
-			this.diagramDataBindingController1.TemplateDiagram.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
-			this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
-			this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
-			// 
-			// diagramContainer1
-			// 
-			this.diagramContainer1.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-			this.diagramContainer1.BackgroundId = DevExpress.Diagram.Core.DiagramThemeColorId.White;
-			this.diagramContainer1.CanAddItems = false;
-			this.diagramContainer1.CanCopyWithoutParent = true;
-			this.diagramContainer1.ConnectionPoints = new DevExpress.XtraDiagram.PointCollection(new DevExpress.Utils.PointFloat[] {
-            new DevExpress.Utils.PointFloat(0.5F, 0F),
-            new DevExpress.Utils.PointFloat(1F, 0.5F),
-            new DevExpress.Utils.PointFloat(0.5F, 1F),
-            new DevExpress.Utils.PointFloat(0F, 0.5F)});
-			this.diagramContainer1.DragMode = DevExpress.Diagram.Core.ContainerDragMode.ByAnyPoint;
-			this.diagramContainer1.Items.AddRange(new DevExpress.XtraDiagram.DiagramItem[] {
-            this.diagramShape1,
-            this.diagramShape2,
-            this.diagramShape3,
-            this.diagramShape4,
-            this.diagramShape5});
-			this.diagramContainer1.ItemsCanAttachConnectorBeginPoint = false;
-			this.diagramContainer1.ItemsCanAttachConnectorEndPoint = false;
-			this.diagramContainer1.ItemsCanChangeParent = false;
-			this.diagramContainer1.ItemsCanCopyWithoutParent = false;
-			this.diagramContainer1.ItemsCanDeleteWithoutParent = false;
-			this.diagramContainer1.ItemsCanEdit = false;
-			this.diagramContainer1.ItemsCanMove = false;
-			this.diagramContainer1.ItemsCanResize = false;
-			this.diagramContainer1.ItemsCanRotate = false;
-			this.diagramContainer1.ItemsCanSelect = false;
-			this.diagramContainer1.ItemsCanSnapToOtherItems = false;
-			this.diagramContainer1.ItemsCanSnapToThisItem = false;
-			this.diagramContainer1.MoveWithSubordinates = true;
-			this.diagramContainer1.Position = new DevExpress.Utils.PointFloat(-80F, 170F);
-			this.diagramContainer1.Size = new System.Drawing.SizeF(380F, 146F);
-			this.diagramContainer1.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
-			// 
-			// diagramShape1
-			// 
-			this.diagramShape1.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
-            | DevExpress.Diagram.Core.Sides.Right)));
-			this.diagramShape1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
-			this.diagramShape1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.diagramShape1.Appearance.BorderSize = 0;
-			this.diagramShape1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-			this.diagramShape1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.diagramShape1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-			this.diagramShape1.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "DisplayName"));
-			this.diagramShape1.CanCopy = false;
-			this.diagramShape1.CanCopyWithoutParent = false;
-			this.diagramShape1.CanEdit = false;
-			this.diagramShape1.CanMove = false;
-			this.diagramShape1.CanResize = false;
-			this.diagramShape1.CanRotate = false;
-			this.diagramShape1.CanSelect = false;
-			this.diagramShape1.CanSnapToOtherItems = false;
-			this.diagramShape1.CanSnapToThisItem = false;
-			this.diagramShape1.Position = new DevExpress.Utils.PointFloat(10F, 39F);
-			this.diagramShape1.Size = new System.Drawing.SizeF(370F, 30F);
-			this.diagramShape1.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
-			// 
-			// diagramShape2
-			// 
-			this.diagramShape2.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
-            | DevExpress.Diagram.Core.Sides.Bottom)));
-			this.diagramShape2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.diagramShape2.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "AppName"));
-			this.diagramShape2.CanCopy = false;
-			this.diagramShape2.CanCopyWithoutParent = false;
-			this.diagramShape2.CanEdit = false;
-			this.diagramShape2.CanMove = false;
-			this.diagramShape2.CanResize = false;
-			this.diagramShape2.CanRotate = false;
-			this.diagramShape2.CanSelect = false;
-			this.diagramShape2.CanSnapToOtherItems = false;
-			this.diagramShape2.CanSnapToThisItem = false;
-			this.diagramShape2.Position = new DevExpress.Utils.PointFloat(0F, 116F);
-			this.diagramShape2.Size = new System.Drawing.SizeF(380F, 30F);
-			this.diagramShape2.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-			this.diagramShape2.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
-			// 
-			// diagramShape3
-			// 
-			this.diagramShape3.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
-            | DevExpress.Diagram.Core.Sides.Right)));
-			this.diagramShape3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
-			this.diagramShape3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.diagramShape3.Appearance.BorderSize = 0;
-			this.diagramShape3.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.diagramShape3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.diagramShape3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-			this.diagramShape3.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "TimeStampLocal"));
-			this.diagramShape3.CanCopy = false;
-			this.diagramShape3.CanCopyWithoutParent = false;
-			this.diagramShape3.CanEdit = false;
-			this.diagramShape3.CanMove = false;
-			this.diagramShape3.CanResize = false;
-			this.diagramShape3.CanRotate = false;
-			this.diagramShape3.CanSelect = false;
-			this.diagramShape3.CanSnapToOtherItems = false;
-			this.diagramShape3.CanSnapToThisItem = false;
-			this.diagramShape3.Position = new DevExpress.Utils.PointFloat(10F, 70F);
-			this.diagramShape3.Size = new System.Drawing.SizeF(370F, 20F);
-			this.diagramShape3.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
-			// 
-			// diagramShape4
-			// 
-			this.diagramShape4.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
-            | DevExpress.Diagram.Core.Sides.Right)));
-			this.diagramShape4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
-			this.diagramShape4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.diagramShape4.Appearance.BorderSize = 0;
-			this.diagramShape4.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.diagramShape4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-			this.diagramShape4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-			this.diagramShape4.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "AccumulatedState"));
-			this.diagramShape4.CanCopy = false;
-			this.diagramShape4.CanCopyWithoutParent = false;
-			this.diagramShape4.CanEdit = false;
-			this.diagramShape4.CanMove = false;
-			this.diagramShape4.CanResize = false;
-			this.diagramShape4.CanRotate = false;
-			this.diagramShape4.CanSelect = false;
-			this.diagramShape4.CanSnapToOtherItems = false;
-			this.diagramShape4.CanSnapToThisItem = false;
-			this.diagramShape4.Position = new DevExpress.Utils.PointFloat(10F, 90F);
-			this.diagramShape4.Size = new System.Drawing.SizeF(370F, 20F);
-			this.diagramShape4.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Subtle1;
-			// 
-			// diagramShape5
-			// 
-			this.diagramShape5.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
-            | DevExpress.Diagram.Core.Sides.Right)));
-			this.diagramShape5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.diagramShape5.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "ShortAssemblyName"));
-			this.diagramShape5.CanCopy = false;
-			this.diagramShape5.CanCopyWithoutParent = false;
-			this.diagramShape5.CanEdit = false;
-			this.diagramShape5.CanMove = false;
-			this.diagramShape5.CanResize = false;
-			this.diagramShape5.CanRotate = false;
-			this.diagramShape5.CanSelect = false;
-			this.diagramShape5.CanSnapToOtherItems = false;
-			this.diagramShape5.CanSnapToThisItem = false;
-			this.diagramShape5.Size = new System.Drawing.SizeF(380F, 30F);
-			this.diagramShape5.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-			this.diagramShape5.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
 			// 
 			// btnCapture
 			// 
@@ -524,9 +328,6 @@
 			this.tabPane1.ResumeLayout(false);
 			this.tabNavigationPage1.ResumeLayout(false);
 			this.tabNavigationPage3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.diagramLog)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupLastSessions)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			this.ResumeLayout(false);
@@ -547,14 +348,6 @@
 		private DevExpress.XtraBars.Navigation.TabPane tabPane1;
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
 		private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
-		private DevExpress.XtraDiagram.DiagramControl diagramLog;
-		private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
-		private DevExpress.XtraDiagram.DiagramContainer diagramContainer1;
-		private DevExpress.XtraDiagram.DiagramShape diagramShape1;
-		private DevExpress.XtraDiagram.DiagramShape diagramShape2;
-		private DevExpress.XtraDiagram.DiagramShape diagramShape3;
-		private DevExpress.XtraDiagram.DiagramShape diagramShape4;
-		private DevExpress.XtraDiagram.DiagramShape diagramShape5;
 		private DevExpress.XtraEditors.SimpleButton btnCapture;
 		private DevExpress.XtraEditors.DropDownButton btnOpen;
 		private DevExpress.XtraEditors.SimpleButton btnSave;

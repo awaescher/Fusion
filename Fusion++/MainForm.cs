@@ -71,7 +71,6 @@ namespace FusionPlusPlus
 
 			var logs = ReadLogs(logStore);
 			_logs = aggregator.Aggregate(logs);
-			var diagramModel = new DiagramViewModel(treeBuilder.Build(_logs));
 
 			// Generate a data table and bind the date-time client to it.
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
@@ -82,12 +81,6 @@ namespace FusionPlusPlus
 			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(AggregateLogItem.AppName);
 
 			gridLog.DataSource = _logs;
-
-			//diagramDataBindingController1.KeyMember = "UniqueId";
-			diagramDataBindingController1.ConnectorFromMember = "From";
-			diagramDataBindingController1.ConnectorToMember = "To";
-			diagramDataBindingController1.DataSource = diagramModel.Items;
-			diagramDataBindingController1.ConnectorsSource = diagramModel.Connections;
 
 			overlay.Remove();
 
