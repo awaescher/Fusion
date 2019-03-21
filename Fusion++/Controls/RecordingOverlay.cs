@@ -8,27 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Controls
 {
-	public partial class EmptyOverlay : UserControl
+	public partial class RecordingOverlay : UserControl
 	{
-		public EmptyOverlay()
+		public RecordingOverlay()
 		{
 			InitializeComponent();
 		}
 
-		public static EmptyOverlay PutOn(Control parent)
+		public static RecordingOverlay PutOn(Control parent)
 		{
-			var overlay = new EmptyOverlay();
+			var overlay = new RecordingOverlay();
 
 			overlay.Parent = parent;
 			parent.Controls.Add(overlay);
 
 			overlay.Dock = DockStyle.Fill;
-			overlay.BringToFront();
-			overlay.Show();
-
-			parent.Refresh();
+			overlay.SendToBack();
 
 			return overlay;
 		}

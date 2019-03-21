@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using DevExpress.XtraBars;
+using FusionPlusPlus.Controls;
 
 namespace FusionPlusPlus
 {
@@ -22,6 +23,7 @@ namespace FusionPlusPlus
 		private List<AggregateLogItem> _logs;
 		private string _lastUsedFilePath;
 		private FusionSession _session;
+        private Dictionary<OverlayState, Control> _overlays;
 
 		public MainForm()
 		{
@@ -32,7 +34,12 @@ namespace FusionPlusPlus
 
 		protected override void OnShown(EventArgs e)
 		{
-			var name = this.GetType().Assembly.GetName();
+            _overlays = new Dictionary<OverlayState, Control>();
+            _overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
+            _overlays[OverlayState.Recording] = RecordingOverlay.PutOn(this);
+            _overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
+
+            var name = this.GetType().Assembly.GetName();
 			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}";
 
 			base.OnShown(e);
@@ -61,10 +68,27 @@ namespace FusionPlusPlus
 
 		private void LoadLogs(string path) => LoadLogs(new TransparentLogStore(path));
 
+        private enum OverlayState
+        {
+            None,
+            Empty,
+            Recording,
+            Loading
+        }
+
+        private void SetOverlayState(OverlayState state)
+        {
+            foreach (var pair in _overlays)
+                pair.Value.Visible = pair.Key == state;
+
+            this.Refresh();
+        }
+
 		private void LoadLogs(ILogStore logStore)
 		{
-			Controls.OfType<EmptyOverlay>().ToList().ForEach(o => o.Remove());
-			var overlay = LoadingOverlay.PutOn(this);
+            var hasPath = !string.IsNullOrEmpty(logStore.Path);
+            if (hasPath)
+                SetOverlayState(OverlayState.Loading);
 
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
@@ -82,7 +106,6 @@ namespace FusionPlusPlus
 
 			gridLog.DataSource = _logs;
 
-			overlay.Remove();
 
 			var hasData = _logs.Any();
 			gridLog.Visible = hasData;
@@ -91,8 +114,10 @@ namespace FusionPlusPlus
 			btnSave.Enabled = hasData && !string.IsNullOrEmpty(logStore.Path);
 			btnSave.Tag = logStore.Path;
 
-			if (!hasData)
-				EmptyOverlay.PutOn(this).SendToBack();
+            if (hasData)
+                SetOverlayState(OverlayState.None);
+            else
+                SetOverlayState(OverlayState.Empty);
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
@@ -158,10 +183,15 @@ namespace FusionPlusPlus
 
 			if (_session == null)
 			{
-				ClearLogs();
+                ClearLogs();
+
+                SetOverlayState(OverlayState.Recording);
 
 				_session = new FusionSession(_fusionService);
 				_session.Start();
+
+                btnOpen.Enabled = false;
+                btnSave.Enabled = false;
 			}
 			else
 			{

@@ -98,15 +98,12 @@
             this.gridLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
             this.gridLog.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridLog.Location = new System.Drawing.Point(12, 120);
             this.gridLog.MainView = this.viewLog;
             this.gridLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridLog.Name = "gridLog";
-            this.gridLog.Size = new System.Drawing.Size(1240, 591);
+            this.gridLog.Size = new System.Drawing.Size(1240, 615);
             this.gridLog.TabIndex = 0;
             this.gridLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewLog});

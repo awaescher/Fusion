@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Controls
 {
 	public partial class LoadingOverlay : UserControl
 	{
@@ -26,9 +26,6 @@ namespace FusionPlusPlus
 
 			overlay.Dock = DockStyle.Fill;
 			overlay.BringToFront();
-			overlay.Show();
-
-			parent.Refresh();
 
 			return overlay;
 		}

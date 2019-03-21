@@ -123,16 +123,22 @@
     <Compile Include="ItemDetailForm.Designer.cs">
       <DependentUpon>ItemDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmptyOverlay.cs">
+    <Compile Include="Controls\EmptyOverlay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EmptyOverlay.Designer.cs">
+    <Compile Include="Controls\EmptyOverlay.Designer.cs">
       <DependentUpon>EmptyOverlay.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadingOverlay.cs">
+    <Compile Include="Controls\RecordingOverlay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LoadingOverlay.Designer.cs">
+    <Compile Include="Controls\RecordingOverlay.Designer.cs">
+      <DependentUpon>RecordingOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoadingOverlay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LoadingOverlay.Designer.cs">
       <DependentUpon>LoadingOverlay.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\FileReader.cs" />
@@ -163,10 +169,13 @@
     <EmbeddedResource Include="ItemDetailForm.resx">
       <DependentUpon>ItemDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmptyOverlay.resx">
+    <EmbeddedResource Include="Controls\EmptyOverlay.resx">
       <DependentUpon>EmptyOverlay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingOverlay.resx">
+    <EmbeddedResource Include="Controls\RecordingOverlay.resx">
+      <DependentUpon>RecordingOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LoadingOverlay.resx">
       <DependentUpon>LoadingOverlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
