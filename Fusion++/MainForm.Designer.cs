@@ -43,7 +43,7 @@
             this.colTimeStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAppName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnCapture = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRecord = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpen = new DevExpress.XtraEditors.DropDownButton();
             this.popupLastSessions = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -175,17 +175,17 @@
             this.colDisplayName.VisibleIndex = 3;
             this.colDisplayName.Width = 558;
             // 
-            // btnCapture
+            // btnRecord
             // 
-            this.btnCapture.AllowFocus = false;
-            this.btnCapture.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnCapture.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Capture;
-            this.btnCapture.Location = new System.Drawing.Point(12, 16);
-            this.btnCapture.Name = "btnCapture";
-            this.btnCapture.Size = new System.Drawing.Size(109, 72);
-            this.btnCapture.TabIndex = 5;
-            this.btnCapture.Text = "Capture";
-            this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
+            this.btnRecord.AllowFocus = false;
+            this.btnRecord.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnRecord.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Capture;
+            this.btnRecord.Location = new System.Drawing.Point(12, 16);
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(109, 72);
+            this.btnRecord.TabIndex = 5;
+            this.btnRecord.Text = "Record";
+            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // btnOpen
             // 
@@ -264,7 +264,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 746);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
-            this.Controls.Add(this.btnCapture);
+            this.Controls.Add(this.btnRecord);
             this.Controls.Add(this.gridLog);
             this.Controls.Add(this.rangeData);
             this.Controls.Add(this.barDockControlLeft);
@@ -301,7 +301,7 @@
 		private DevExpress.XtraGrid.Columns.GridColumn colDisplayName;
 		private DevExpress.XtraEditors.RangeControl rangeData;
 		private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
-		private DevExpress.XtraEditors.SimpleButton btnCapture;
+		private DevExpress.XtraEditors.SimpleButton btnRecord;
 		private DevExpress.XtraEditors.DropDownButton btnOpen;
 		private DevExpress.XtraEditors.SimpleButton btnSave;
 		private DevExpress.XtraBars.PopupMenu popupLastSessions;

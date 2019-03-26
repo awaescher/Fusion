@@ -38,7 +38,7 @@ namespace FusionPlusPlus
             _overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
 			_overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
 			var recordingOverlay = RecordingOverlay.PutOn(this);
-			recordingOverlay.StopRequested += btnCapture_Click;
+			recordingOverlay.StopRequested += btnRecord_Click;
 			_overlays[OverlayState.Recording] = recordingOverlay;
 
 			_overlays[OverlayState.Empty].SendToBack();
@@ -188,7 +188,7 @@ namespace FusionPlusPlus
 			form.Show(this);
 		}
 
-		private void btnCapture_Click(object sender, EventArgs e)
+		private void btnRecord_Click(object sender, EventArgs e)
 		{
 			if (_fusionService == null || _loading)
 				return;
@@ -213,8 +213,8 @@ namespace FusionPlusPlus
 
 			}
 
-			btnCapture.Text = _session == null ? "Capture" : "Stop";
-			btnCapture.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
+			btnRecord.Text = _session == null ? "Record" : "Stop";
+			btnRecord.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
 		}
 
 		private void btnOpen_Click(object sender, EventArgs e)
