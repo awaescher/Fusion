@@ -81,6 +81,12 @@ namespace FusionPlusPlus
             foreach (var pair in _overlays)
                 pair.Value.Visible = pair.Key == state;
 
+            var loadingOverlay = (_overlays[OverlayState.Recording] as RecordingOverlay);
+            if (state == OverlayState.Recording)
+                loadingOverlay.StartTimer();
+            else
+                loadingOverlay.StopTimer();
+
             this.Refresh();
         }
 

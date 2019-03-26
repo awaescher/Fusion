@@ -7,32 +7,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace FusionPlusPlus.Controls
 {
-	public partial class RecordingOverlay : UserControl
-	{
-		public RecordingOverlay()
-		{
-			InitializeComponent();
-		}
+    public partial class RecordingOverlay : UserControl
+    {
+        public event EventHandler StopRequested;
 
-		public static RecordingOverlay PutOn(Control parent)
-		{
-			var overlay = new RecordingOverlay();
+        private DateTime _timerStarted;
+        private Timer _timer;
 
-			overlay.Parent = parent;
-			parent.Controls.Add(overlay);
+        public RecordingOverlay()
+        {
+            InitializeComponent();
+        }
 
-			overlay.Dock = DockStyle.Fill;
-			overlay.SendToBack();
+        public static RecordingOverlay PutOn(Control parent)
+        {
+            var overlay = new RecordingOverlay();
 
-			return overlay;
-		}
+            overlay.Parent = parent;
+            parent.Controls.Add(overlay);
 
-		public void Remove()
-		{
-			Parent.Controls.Remove(this);
-		}
-	}
+            overlay.Dock = DockStyle.Fill;
+            overlay.SendToBack();
+
+            return overlay;
+        }
+
+        public void StartTimer()
+        {
+            WriteElapsedTime(TimeSpan.Zero);
+
+            if (_timer == null)
+            {
+                _timer = new Timer() { Interval = 1000 };
+                _timer.Tick += (s, e) => WriteElapsedTime(DateTime.Now - _timerStarted);
+            }
+
+            _timerStarted = DateTime.Now;
+            _timer.Start();
+            lblStop.Show();
+        }
+
+        public void StopTimer()
+        {
+            WriteElapsedTime(TimeSpan.Zero);
+            _timer?.Stop();
+            lblStop.Hide();
+        }
+
+        private void WriteElapsedTime(TimeSpan span)
+        {
+            lblDuration.Text = span.ToString("hh\\:mm\\:ss");
+        }
+
+        public void Remove()
+        {
+            Parent.Controls.Remove(this);
+        }
+
+        private void LblStop_Click(object sender, EventArgs e)
+        {
+            StopRequested?.Invoke(this, EventArgs.Empty);
+        }
+    }
 }
