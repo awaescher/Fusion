@@ -36,10 +36,16 @@ namespace FusionPlusPlus
 		{
             _overlays = new Dictionary<OverlayState, Control>();
             _overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
-            _overlays[OverlayState.Recording] = RecordingOverlay.PutOn(this);
-            _overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
+			_overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
+			var recordingOverlay = RecordingOverlay.PutOn(this);
+			recordingOverlay.StopRequested += btnCapture_Click;
+			_overlays[OverlayState.Recording] = recordingOverlay;
 
-            var name = this.GetType().Assembly.GetName();
+			_overlays[OverlayState.Empty].SendToBack();
+			_overlays[OverlayState.Loading].BringToFront();
+			_overlays[OverlayState.Recording].BringToFront();
+
+			var name = this.GetType().Assembly.GetName();
 			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}";
 
 			base.OnShown(e);

@@ -25,7 +25,6 @@ namespace FusionPlusPlus.Controls
 			parent.Controls.Add(overlay);
 
 			overlay.Dock = DockStyle.Fill;
-			overlay.BringToFront();
 
 			return overlay;
 		}

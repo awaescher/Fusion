@@ -31,22 +31,21 @@ namespace FusionPlusPlus.Controls
             parent.Controls.Add(overlay);
 
             overlay.Dock = DockStyle.Fill;
-            overlay.SendToBack();
 
             return overlay;
         }
 
         public void StartTimer()
         {
+            _timerStarted = DateTime.Now;
             WriteElapsedTime(TimeSpan.Zero);
 
-            if (_timer == null)
+			if (_timer == null)
             {
                 _timer = new Timer() { Interval = 1000 };
                 _timer.Tick += (s, e) => WriteElapsedTime(DateTime.Now - _timerStarted);
             }
 
-            _timerStarted = DateTime.Now;
             _timer.Start();
             lblStop.Show();
         }
