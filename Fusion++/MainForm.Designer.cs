@@ -138,8 +138,13 @@
             this.viewLog.FormatRules.Add(gridFormatRule2);
             this.viewLog.GridControl = this.gridLog;
             this.viewLog.Name = "viewLog";
+			this.viewLog.OptionsView.ShowGroupPanel = false;
             this.viewLog.OptionsBehavior.Editable = false;
-            this.viewLog.OptionsBehavior.ReadOnly = true;
+			this.viewLog.OptionsBehavior.AllowIncrementalSearch = true;
+			this.viewLog.OptionsFind.AllowFindPanel = true;
+			this.viewLog.OptionsFind.AlwaysVisible = true;
+			this.viewLog.OptionsFind.Behavior = DevExpress.XtraEditors.FindPanelBehavior.Search;
+			this.viewLog.OptionsBehavior.ReadOnly = true;
             this.viewLog.OptionsDetail.EnableMasterViewMode = false;
             this.viewLog.OptionsMenu.ShowConditionalFormattingItem = true;
             this.viewLog.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
