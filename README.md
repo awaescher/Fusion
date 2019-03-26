@@ -9,7 +9,7 @@ Did you ever **forget to disable the log again** and wondered why every .NET app
 
 ![Fusion++](_doc/Fusion++.png)
 
-#### Forget all the setup upfront - just hit "Capture" to capture your assembly logs. If you are done, click "Stop" again. That's it.
+#### Forget all the setup upfront - just hit "Record" to capture your assembly logs. If you are done, click "Stop" again. That's it.
 
 Fusion++ then parses all the log files for you. There's no need to go hunting for the "custom log path" at all. Fusion++ logs it's sessions to the Windows TEMP folders so that it can be cleaned up with the default Windows tools.
 
