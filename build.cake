@@ -1,10 +1,8 @@
 #addin "Cake.FileHelpers"
 #addin "Cake.Git"
-#tool "nsis"
 #tool "nuget:?package=OpenCover"
 #tool "nuget:?package=NUnit.ConsoleRunner"
 #tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -20,6 +18,7 @@ var configuration = Argument<string>("configuration", "Release");
 var _solution = $"./Fusion++.sln";
 var _appVersion = "";
 var _outputDir = Directory($"_output");
+var _testOutputDir = Directory($"_testOutput");
 	
 ///////////////////////////////////////////////////////////////////////////////
 // TASK DEFINITIONS
@@ -29,6 +28,8 @@ Setup(context =>
 {
 	EnsureDirectoryExists(_outputDir);
 	CleanDirectory(_outputDir);
+	EnsureDirectoryExists(_testOutputDir);
+	CleanDirectory(_testOutputDir);
 });
 
 Task("Clean")
@@ -56,7 +57,7 @@ Task("SetVersion")
 			// UpdateAssemblyInfo = false
 		// });
 
-		// _appVersion = $"{gitVersion.Major}.{gitVersion.Minor}";
+		// _appVersion = $"{gitVersion.Major}.{gitVersion.Minor}"; + Build if not 0?
 		// var fullVersion = gitVersion.AssemblySemVer;
 		
 		// TODO
@@ -86,121 +87,79 @@ Task("Build")
 			.SetConfiguration(configuration));
 });
 
-// Task("Test")
-	// .IsDependentOn("Build")
-	// .Does(() => 
-// {
-	// if (system == "mac")
-		// return;
-
-	// var assemblies = new[] 
-	// {
-		// $"./Tests/bin/{configuration}/Tests.dll",
-		// $"./Specs/bin/{configuration}/Specs.dll"
-	// };
+Task("Test")
+	.IsDependentOn("Build")
+	.Does(() => 
+{
+	var assemblies = new[] 
+	{
+		$"./Fusion++.Tests/bin/{configuration}/Fusion++.Tests.dll"
+	};
 	
-	// var testResultsFile = MakeAbsolute(File($"{_outputDir}/TestResults.xml")).FullPath;
-	// var testCoverageFile = MakeAbsolute(File($"{_outputDir}/TestCoverage.xml")).FullPath;
+	var testResultsFile = MakeAbsolute(File($"{_testOutputDir}/TestResults.xml")).FullPath;
+	var testCoverageFile = MakeAbsolute(File($"{_testOutputDir}/TestCoverage.xml")).FullPath;
 	
-	// Information("Test results xml:  " + testResultsFile);
-	// Information("Test coverage xml: " + testCoverageFile);
+	Information("Test results xml:  " + testResultsFile);
+	Information("Test coverage xml: " + testCoverageFile);
 	
-	// var openCoverSettings = new OpenCoverSettings()
-		// .WithFilter("+[*]*")
-		// .WithFilter("-[Specs]*")
-		// .WithFilter("-[Tests]*")
-		// .WithFilter("-[FluentAssertions*]*")
-		// .WithFilter("-[Moq*]*")
-		// .WithFilter("-[LibGit2Sharp*]*");
+	var openCoverSettings = new OpenCoverSettings()
+		.WithFilter("+[*]*")
+		.WithFilter("-[Specs]*")
+		.WithFilter("-[Tests]*")
+		.WithFilter("-[FluentAssertions*]*")
+		.WithFilter("-[Moq*]*");
 		
-	// openCoverSettings.ReturnTargetCodeOffset = 0;
+	openCoverSettings.ReturnTargetCodeOffset = 0;
 
-	// var nunitSettings = new NUnit3Settings
-	// {
-		// Results = new[]
-		// {
-			// new NUnit3Result { FileName = testResultsFile }
-		// },
-		// NoHeader = true,
-		// Configuration = "Default"             
-	// };
+	var nunitSettings = new NUnit3Settings
+	{
+		Results = new[]
+		{
+			new NUnit3Result { FileName = testResultsFile }
+		},
+		NoHeader = true,
+		Configuration = "Default"             
+	};
 	
-	// OpenCover(tool => tool.NUnit3(assemblies, nunitSettings),
-		// new FilePath(testCoverageFile),
-		// openCoverSettings
-	// );
-// });
+	OpenCover(tool => tool.NUnit3(assemblies, nunitSettings),
+		new FilePath(testCoverageFile),
+		openCoverSettings
+	);
+});
 
-// Task("Publish")
-	// .IsDependentOn("Build")
-	// .IsDependentOn("Test")
-	// .Does(() => 
-// {
-	// // copy RepoZ main app files
-	// CopyFiles($"RepoZ.App.{system}/bin/" + configuration + "/**/*", _assemblyDir, true);
+Task("Publish")
+	.IsDependentOn("Build")
+	.IsDependentOn("Test")
+	.Does(() => 
+{
+	CopyFiles($"./Fusion++/bin/{configuration}/**/*", _outputDir, true);
 	
-	// // publish netcore apps
-	// var settings = new DotNetCorePublishSettings
-	// {
-		// Framework = netcoreTargetFramework,
-		// Configuration = configuration,
-		// Runtime = netcoreTargetRuntime,
-		// SelfContained = true
-	// };
-	// DotNetCorePublish("./grr/grr.csproj", settings);
-	// DotNetCorePublish("./grrui/grrui.csproj", settings);
+	foreach (var extension in new string[]{"pdb", "config", "xml"})
+		DeleteFiles(_outputDir.Path + "/*." + extension);
+});
+
+Task("Pack")
+	.IsDependentOn("Publish")
+	.Does(() => 
+{	
+	// get the app files BEFORE adding additional packed ones
+	var appFiles = GetFiles($"{_outputDir}/**/*");
+
+	ReplaceTextInFiles("_choco/fusionplusplus.nuspec", "{PRODUCT_VERSION}", _appVersion);
 	
-	// // on macOS, we need to put the "tools" grr & grrui to another location, so deploy them to a subfolder here.
-	// // the RepoZ.app file has to be copied to "Applications" whereas the tools might go to "Application Support".
-	// if (system == "mac")
-	// {
-		// _assemblyDir = Directory($"{_assemblyDir}/RepoZ-CLI");
-		// EnsureDirectoryExists(_assemblyDir);
-	// }
-
-	// CopyFiles($"grr/bin/{configuration}/{netcoreTargetFramework}/{netcoreTargetRuntime}/publish/*", _assemblyDir, true);
-	// CopyFiles($"grrui/bin/{configuration}/{netcoreTargetFramework}/{netcoreTargetRuntime}/publish/*", _assemblyDir, true);
+	var settings = new ChocolateyPackSettings()
+	{
+		OutputDirectory = _outputDir,
+		Authors = { "Andreas Wäscher" },
+		Tags = { "fusion", "assembly", "FUSLOGVW", "binding", "foss", "utilities", "productivity" },
+		Version = _appVersion
+	};
 	
-	// foreach (var extension in new string[]{"pdb", "config", "xml"})
-		// DeleteFiles(_assemblyDir.Path + "/*." + extension);
-// });
+	ChocolateyPack("_choco/fusionplusplus.nuspec", settings);
+	
+	Zip(_outputDir.Path, _outputDir.Path + $"/Fusion++ {_appVersion}.zip", appFiles);
 
-// Task("CompileSetup")
-	// .IsDependentOn("Publish")
-	// .Does(() => 
-// {	
-	// if (system == "win")
-	// {
-		// // NSIS Windows Setup
-		// MakeNSIS("_setup/RepoZ.nsi", new MakeNSISSettings
-		// {
-			// Defines = new Dictionary<string, string>
-			// {
-				// { "PRODUCT_VERSION", _appVersion }
-			// }
-		// });
-
-		// // Chocolatey
-		// ReplaceTextInFiles("_setup/choco/RepoZ.nuspec", "{PRODUCT_VERSION}", _appVersion);
-		// ReplaceTextInFiles("_setup/choco/tools/chocolateyinstall.ps1", "{PRODUCT_VERSION}", _appVersion);
-		
-		// var settings = new ChocolateyPackSettings()
-		// {
-			// OutputDirectory = _outputDir,
-			// Authors = { "Andreas Wäscher" },
-			// Tags = { "repoz", "git", "repository", "development", "foss", "utilities", "productivity" },
-			// Version = _appVersion
-		// };
-
-		// ChocolateyPack("_setup/choco/RepoZ.nuspec", settings);
-	// }
-	// else
-	// {
-		// // update the pkgproj file and run packagesbuild
-		// ReplaceTextInFiles("_setup/RepoZ.pkgproj", "{PRODUCT_VERSION}", _appVersion);
-		// StartProcess("packagesbuild", "--verbose _setup/RepoZ.pkgproj");
-	// }
-// });
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // TARGETS
@@ -208,7 +167,7 @@ Task("Build")
 
 Task("Default")
     .Description("This is the default task which will be ran if no specific target is passed in.")
-    .IsDependentOn("Build");
+    .IsDependentOn("Pack");
 
 ///////////////////////////////////////////////////////////////////////////////
 // EXECUTION
