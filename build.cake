@@ -70,21 +70,21 @@ Task("SetVersion")
 		ReplaceRegexInFiles("./**/AssemblyInfo.cs", @"(?<=AssemblyFileVersion\s?\(\s?\"").*?(?=\"")", fullVersion);
 	});
 
-// Task("Build")
-    // .Description("Builds all the different parts of the project.")
-    // .IsDependentOn("Clean")
-    // .IsDependentOn("Restore")
-	// .IsDependentOn("SetVersion")
-    // .Does(() =>
-// {
-	// // build the solution
-	// Information("Building {0}", _solution);
-	// MSBuild(_solution, settings =>
-		// settings.SetPlatformTarget(PlatformTarget.MSIL)
-			// .WithProperty("TreatWarningsAsErrors","true")
-			// .WithTarget("Build")
-			// .SetConfiguration(configuration));
-// });
+Task("Build")
+    .Description("Builds all the different parts of the project.")
+    .IsDependentOn("Clean")
+    .IsDependentOn("Restore")
+	.IsDependentOn("SetVersion")
+    .Does(() =>
+{
+	Information("Building {0}", _solution);
+	MSBuild(_solution, settings =>
+		settings.SetPlatformTarget(PlatformTarget.MSIL)
+			.SetMSBuildPlatform(MSBuildPlatform.x64)
+			.UseToolVersion(MSBuildToolVersion.VS2019)
+			.WithTarget("Build")
+			.SetConfiguration(configuration));
+});
 
 // Task("Test")
 	// .IsDependentOn("Build")
@@ -208,7 +208,7 @@ Task("SetVersion")
 
 Task("Default")
     .Description("This is the default task which will be ran if no specific target is passed in.")
-    .IsDependentOn("SetVersion");
+    .IsDependentOn("Build");
 
 ///////////////////////////////////////////////////////////////////////////////
 // EXECUTION
