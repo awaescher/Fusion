@@ -66,10 +66,8 @@ Task("SetVersion")
 		Information($"AppVersion:\t{_appVersion}");
 		Information($"FullVersion:\t{fullVersion}");
 
-		ReplaceRegexInFiles("./**/AssemblyInfo.*", "(?<=AssemblyBuildDate\\(\")([0-9\\-\\:T]+)(?=\"\\))", DateTime.Now.ToString("s"));
-		ReplaceRegexInFiles("./**/*.csproj", "(?<=<ReleaseVersion>).*?(?=</ReleaseVersion>)", _appVersion);
-		ReplaceRegexInFiles("./**/*.csproj", "(?<=<Version>).*?(?=</Version>)", fullVersion);
-
+		ReplaceRegexInFiles("./**/AssemblyInfo.cs", @"(?<=AssemblyVersion\s?\(\s?\"").*?(?=\"")", fullVersion);
+		ReplaceRegexInFiles("./**/AssemblyInfo.cs", @"(?<=AssemblyFileVersion\s?\(\s?\"").*?(?=\"")", fullVersion);
 	});
 
 // Task("Build")
