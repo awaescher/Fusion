@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>fusionplusplus</id>
+    <title>Fusion++</title>
+    <version>{PRODUCT_VERSION}</version>
+    <authors>Andreas Wäscher</authors>
+    <owners>Andreas Wäscher</owners>
+    <summary>A modern alternative to the Microsoft Assembly Binding Log Viewer (FUSLOGVW.exe)</summary>
+    <projectUrl>https://github.com/awaescher/Fusion</projectUrl>
+    <packageSourceUrl>https://github.com/awaescher/Fusion</packageSourceUrl>
+	<iconUrl>https://raw.githubusercontent.com/awaescher/Fusion/master/_res/app256.png</iconUrl>
+	<releaseNotes>https://github.com/awaescher/Fusion/releases</releaseNotes>
+	<licenseUrl>https://github.com/awaescher/Fusion/blob/master/LICENSE</licenseUrl>
+    <description>
+Fusion++ is for anyone feeling uncomfortable using the default Assembly Binding Log Viewer from the Windows SDK: FUSLOGVW.exe.
+Did you know what "Enable immersive logging" means? Or why you should separate log categories from "Default" and "Native Images"? Did you ever forget to disable the log again and wondered why every .NET application is that slow and your disk runs out of space?
+That's where Fusion++ comes in: Just hit "Record" to capture your assembly logs. If you are done, click "Stop" again and investigate binding errors in a beautiful UI. Fusion++ takes care of anything else in the background.
+	</description>
+  </metadata>
+  <files>
+	<file src="tools\**" target="tools" />
+    <file src="..\_output\**" target="tools" />
+  </files>
+</package>

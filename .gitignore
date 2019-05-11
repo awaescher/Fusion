@@ -261,6 +261,7 @@ __pycache__/
 *.pyc
 /tools
 /_output
+/_testOutput
 
 # Mac
 .DS_Store

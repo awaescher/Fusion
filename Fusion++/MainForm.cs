@@ -46,7 +46,7 @@ namespace FusionPlusPlus
 			_overlays[OverlayState.Recording].BringToFront();
 
 			var name = this.GetType().Assembly.GetName();
-			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}";
+			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}" + (name.Version.Build == 0 ? "" : $".{name.Version.Build}");
 
 			base.OnShown(e);
 
@@ -58,8 +58,6 @@ namespace FusionPlusPlus
 			_loading = true;
 
 			var parser = new LogFileParser(new LogFileService(store), new LogItemParser(), new FileReader());
-
-			var sw = Stopwatch.StartNew();
 
 			var logs = parser.Parse();
 

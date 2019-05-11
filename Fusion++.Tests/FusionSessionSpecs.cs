@@ -12,10 +12,12 @@ namespace FusionPlusPlus.Tests
 		[Test]
 		public void Session_Sets_Own_Configuration_On_Start_And_Resets_On_End()
 		{
-			var service = new TransparentFusionService();
-			service.Immersive = false;
-			service.LogPath = "old-path";
-			service.Mode = LogMode.Disabled;
+			var service = new TransparentFusionService
+			{
+				Immersive = false,
+				LogPath = "old-path",
+				Mode = LogMode.Disabled
+			};
 
 			var store = new TransparentLogStore("new-path");
 
