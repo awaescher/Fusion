@@ -1,8 +1,7 @@
 #addin "Cake.FileHelpers"
-#addin "Cake.Git"
 #tool "nuget:?package=OpenCover"
 #tool "nuget:?package=NUnit.ConsoleRunner"
-#tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
+#tool "nuget:?package=GitVersion.CommandLine&version=4.0.0"
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -52,23 +51,16 @@ Task("SetVersion")
 	.IsDependentOn("Restore")
    	.Does(() => 
 	{
-		// var gitVersion = GitVersion(new GitVersionSettings
-		// {
-			// UpdateAssemblyInfo = false
-		// });
-
-		// _appVersion = $"{gitVersion.Major}.{gitVersion.Minor}"; + Build if not 0?
-		// var fullVersion = gitVersion.AssemblySemVer;
+		var gitVersion = GitVersion(new GitVersionSettings
+		{
+			UpdateAssemblyInfo = true
+		});
 		
-		// TODO
-		_appVersion = "0.8.1";
-		var fullVersion = "0.8.1.0"; 
+		_appVersion = $"{gitVersion.Major}.{gitVersion.Minor}" + (gitVersion.Patch == 0 ? "" : $".{gitVersion.Patch}");
+		var fullVersion = gitVersion.AssemblySemVer;
 		
 		Information($"AppVersion:\t{_appVersion}");
 		Information($"FullVersion:\t{fullVersion}");
-
-		ReplaceRegexInFiles("./**/AssemblyInfo.cs", @"(?<=AssemblyVersion\s?\(\s?\"").*?(?=\"")", fullVersion);
-		ReplaceRegexInFiles("./**/AssemblyInfo.cs", @"(?<=AssemblyFileVersion\s?\(\s?\"").*?(?=\"")", fullVersion);
 	});
 
 Task("Build")
