@@ -20,6 +20,6 @@ That's where Fusion++ comes in: Just hit "Record" to capture your assembly logs.
   </metadata>
   <files>
 	<file src="tools\**" target="tools" />
-    <file src="..\Fusion++\bin\Release" target="tools" />
+    <file src="..\_output\**" target="tools" />
   </files>
 </package>
