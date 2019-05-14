@@ -25,9 +25,10 @@ namespace FusionPlusPlus
 		private bool _loading = false;
 		private RegistryFusionService _fusionService;
 		private List<AggregateLogItem> _logs;
+		private string _lastLogPath;
 		private string _lastUsedFilePath;
 		private FusionSession _session;
-        private Dictionary<OverlayState, Control> _overlays;
+		private Dictionary<OverlayState, Control> _overlays;
 		private System.Threading.Timer _updateTimer;
 
 		public MainForm()
@@ -39,8 +40,8 @@ namespace FusionPlusPlus
 
 		protected override void OnShown(EventArgs e)
 		{
-            _overlays = new Dictionary<OverlayState, Control>();
-            _overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
+			_overlays = new Dictionary<OverlayState, Control>();
+			_overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
 			_overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
 			var recordingOverlay = RecordingOverlay.PutOn(this);
 			recordingOverlay.StopRequested += btnRecord_Click;
@@ -57,7 +58,8 @@ namespace FusionPlusPlus
 
 			base.OnShown(e);
 
-			LoadLogs();
+			SetControlVisiblityByContext();
+			SetOverlayState(OverlayState.Empty);
 		}
 
 		private List<LogItem> ReadLogs(ILogStore store)
@@ -79,39 +81,40 @@ namespace FusionPlusPlus
 
 		private void LoadLogs(string path) => LoadLogs(new TransparentLogStore(path));
 
-        private enum OverlayState
-        {
-            None,
-            Empty,
-            Recording,
-            Loading
-        }
+		private enum OverlayState
+		{
+			None,
+			Empty,
+			Recording,
+			Loading
+		}
 
-        private void SetOverlayState(OverlayState state)
-        {
-            foreach (var pair in _overlays)
-                pair.Value.Visible = pair.Key == state;
+		private void SetOverlayState(OverlayState state)
+		{
+			foreach (var pair in _overlays)
+				pair.Value.Visible = pair.Key == state;
 
-            var loadingOverlay = (_overlays[OverlayState.Recording] as RecordingOverlay);
-            if (state == OverlayState.Recording)
-                loadingOverlay.StartTimer();
-            else
-                loadingOverlay.StopTimer();
+			var loadingOverlay = (_overlays[OverlayState.Recording] as RecordingOverlay);
+			if (state == OverlayState.Recording)
+				loadingOverlay.StartTimer();
+			else
+				loadingOverlay.StopTimer();
 
-            this.Refresh();
-        }
+			this.Refresh();
+		}
 
 		private void LoadLogs(ILogStore logStore)
 		{
-            var hasPath = !string.IsNullOrEmpty(logStore.Path);
-            if (hasPath)
-                SetOverlayState(OverlayState.Loading);
+			var hasPath = !string.IsNullOrEmpty(logStore.Path);
+			if (hasPath)
+				SetOverlayState(OverlayState.Loading);
 
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
 
 			var logs = ReadLogs(logStore);
 			_logs = aggregator.Aggregate(logs);
+			_lastLogPath = logStore.Path;
 
 			// Generate a data table and bind the date-time client to it.
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
@@ -123,18 +126,22 @@ namespace FusionPlusPlus
 
 			gridLog.DataSource = _logs;
 
+			SetControlVisiblityByContext();
 
-			var hasData = _logs.Any();
+			if (_logs.Any())
+				SetOverlayState(OverlayState.None);
+			else
+				SetOverlayState(OverlayState.Empty);
+		}
+
+		private void SetControlVisiblityByContext()
+		{
+			var hasData = _logs?.Any() ?? false;
 			gridLog.Visible = hasData;
 			rangeData.Visible = hasData;
-			btnOpen.Enabled = true;
-			btnSave.Enabled = hasData && !string.IsNullOrEmpty(logStore.Path);
-			btnSave.Tag = logStore.Path;
-
-            if (hasData)
-                SetOverlayState(OverlayState.None);
-            else
-                SetOverlayState(OverlayState.Empty);
+			btnImport.Enabled = true;
+			btnExport.Enabled = hasData && !string.IsNullOrEmpty(_lastLogPath);
+			btnExport.Tag = _lastLogPath;
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
@@ -200,15 +207,15 @@ namespace FusionPlusPlus
 
 			if (_session == null)
 			{
-                ClearLogs();
+				ClearLogs();
 
-                SetOverlayState(OverlayState.Recording);
+				SetOverlayState(OverlayState.Recording);
 
 				_session = new FusionSession(_fusionService);
 				_session.Start();
 
-                btnOpen.Enabled = false;
-                btnSave.Enabled = false;
+				btnImport.Enabled = false;
+				btnExport.Enabled = false;
 			}
 			else
 			{
@@ -222,7 +229,7 @@ namespace FusionPlusPlus
 			btnRecord.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
 		}
 
-		private void btnOpen_Click(object sender, EventArgs e)
+		private void btnImport_Click(object sender, EventArgs e)
 		{
 			ImportWithDirectoryDialog();
 		}
@@ -243,9 +250,9 @@ namespace FusionPlusPlus
 			LoadLogs(directory);
 		}
 
-		private void btnSave_Click(object sender, EventArgs e)
+		private void btnExport_Click(object sender, EventArgs e)
 		{
-			var currentPath = btnSave.Tag.ToString();
+			var currentPath = btnExport.Tag.ToString();
 
 			if (!Directory.Exists(currentPath))
 				return;

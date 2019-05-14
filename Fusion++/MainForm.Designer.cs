@@ -44,14 +44,14 @@
             this.colAppName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnRecord = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOpen = new DevExpress.XtraEditors.DropDownButton();
+            this.btnImport = new DevExpress.XtraEditors.DropDownButton();
             this.popupLastSessions = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -192,18 +192,18 @@
             this.btnRecord.Text = "Record";
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
-            // btnOpen
+            // btnImport
             // 
-            this.btnOpen.AllowFocus = false;
-            this.btnOpen.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.SplitButton;
-            this.btnOpen.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
-            this.btnOpen.DropDownControl = this.popupLastSessions;
-            this.btnOpen.Location = new System.Drawing.Point(12, 89);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(60, 25);
-            this.btnOpen.TabIndex = 5;
-            this.btnOpen.Text = "Import";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnImport.AllowFocus = false;
+            this.btnImport.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.SplitButton;
+            this.btnImport.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
+            this.btnImport.DropDownControl = this.popupLastSessions;
+            this.btnImport.Location = new System.Drawing.Point(12, 89);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(60, 25);
+            this.btnImport.TabIndex = 5;
+            this.btnImport.Text = "Import";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // popupLastSessions
             // 
@@ -251,15 +251,15 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 746);
             // 
-            // btnSave
+            // btnExport
             // 
-            this.btnSave.AllowFocus = false;
-            this.btnSave.Location = new System.Drawing.Point(73, 89);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(48, 25);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Export";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnExport.AllowFocus = false;
+            this.btnExport.Location = new System.Drawing.Point(73, 89);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(48, 25);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "Export";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // MainForm
             // 
@@ -267,8 +267,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 746);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnRecord);
             this.Controls.Add(this.gridLog);
             this.Controls.Add(this.rangeData);
@@ -307,8 +307,8 @@
 		private DevExpress.XtraEditors.RangeControl rangeData;
 		private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
 		private DevExpress.XtraEditors.SimpleButton btnRecord;
-		private DevExpress.XtraEditors.DropDownButton btnOpen;
-		private DevExpress.XtraEditors.SimpleButton btnSave;
+		private DevExpress.XtraEditors.DropDownButton btnImport;
+		private DevExpress.XtraEditors.SimpleButton btnExport;
 		private DevExpress.XtraBars.PopupMenu popupLastSessions;
 		private DevExpress.XtraBars.BarManager barManager1;
 		private DevExpress.XtraBars.BarDockControl barDockControlTop;
