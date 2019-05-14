@@ -291,7 +291,8 @@ namespace FusionPlusPlus
 		{
 			popupLastSessions.ClearLinks();
 
-			var topLevelPath = new TemporaryLogStore().TopLevelPath;
+			var store = new TemporaryLogStore();
+			var topLevelPath = store.TopLevelPath;
 
 			if (!Directory.Exists(topLevelPath))
 				return;
@@ -299,7 +300,7 @@ namespace FusionPlusPlus
 			foreach (var sessionPath in Directory.GetDirectories(topLevelPath).OrderByDescending(dir => dir))
 			{
 				var button = new BarButtonItem();
-				button.Caption = Path.GetFileName(sessionPath);
+				button.Caption = store.GetLogName(sessionPath);
 				button.ItemClick += (s, e) => ImportFromDirectory(sessionPath);
 				popupLastSessions.AddItem(button);
 			}

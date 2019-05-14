@@ -17,6 +17,8 @@ namespace FusionPlusPlus
 			Prepared = true;
 		}
 
+		public string GetLogName(string path) => path;
+
 		public string Path { get; set; }
 
 		public bool Prepared { get; private set; }

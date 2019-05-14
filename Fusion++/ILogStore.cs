@@ -13,5 +13,7 @@ namespace FusionPlusPlus
 		void Prepare();
 
 		string Path { get; }
+
+		string GetLogName(string path);
 	}
 }
