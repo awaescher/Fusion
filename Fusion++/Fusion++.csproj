@@ -102,6 +102,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -165,6 +167,7 @@
     <Compile Include="Services\RegistryFusionService.cs" />
     <Compile Include="Model\TreeLogItem.cs" />
     <Compile Include="TemporaryLogStore.cs" />
+    <Compile Include="TinySoup.cs" />
     <Compile Include="TransparentLogStore.cs" />
     <EmbeddedResource Include="ItemDetailForm.resx">
       <DependentUpon>ItemDetailForm.cs</DependentUpon>

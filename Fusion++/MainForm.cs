@@ -13,6 +13,10 @@ using System.Drawing;
 using System.IO;
 using DevExpress.XtraBars;
 using FusionPlusPlus.Controls;
+using System.Threading;
+using System.Threading.Tasks;
+using TinySoup.Model;
+using TinySoup;
 
 namespace FusionPlusPlus
 {
@@ -24,6 +28,7 @@ namespace FusionPlusPlus
 		private string _lastUsedFilePath;
 		private FusionSession _session;
         private Dictionary<OverlayState, Control> _overlays;
+		private System.Threading.Timer _updateTimer;
 
 		public MainForm()
 		{
@@ -44,6 +49,8 @@ namespace FusionPlusPlus
 			_overlays[OverlayState.Empty].SendToBack();
 			_overlays[OverlayState.Loading].BringToFront();
 			_overlays[OverlayState.Recording].BringToFront();
+
+			_updateTimer = new System.Threading.Timer(async state => await CheckForUpdatesAsync(), null, 5000, Timeout.Infinite);
 
 			var name = this.GetType().Assembly.GetName();
 			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}" + (name.Version.Build == 0 ? "" : $".{name.Version.Build}");
@@ -248,6 +255,24 @@ namespace FusionPlusPlus
 				if (dialog.ShowDialog() == DialogResult.OK)
 					DirectoryCloner.Clone(currentPath, dialog.SelectedPath);
 			}
+		}
+
+		private async Task CheckForUpdatesAsync()
+		{
+			_updateTimer.Change(Timeout.Infinite, Timeout.Infinite);
+
+			var request = new UpdateRequest()
+				.WithNameAndVersionFromEntryAssembly()
+				.AsAnonymousClient()
+				.OnChannel("stable")
+				.OnPlatform(new OperatingSystemIdentifier());
+
+			var client = new WebSoupClient();
+			var updates = await client.CheckForUpdatesAsync(request);
+
+			var availableUpdate = updates.FirstOrDefault();
+			if (availableUpdate != null)
+				this.Invoke((Action)(() => this.Text += $"  »  Version {availableUpdate.ShortestVersionString} available."));
 		}
 
 		private void popupLastSessions_BeforePopup(object sender, System.ComponentModel.CancelEventArgs e)
