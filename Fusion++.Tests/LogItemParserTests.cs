@@ -75,6 +75,32 @@ namespace FusionPlusPlus.Tests
 				item.PrivatePath.Should().Be("");
 				item.TimeStampUtc.ToLocalTime().Should().Be(new DateTime(2018, 06, 26, 18, 09, 20));
 			}
+
+			/// <summary>
+			/// This dump has no ERR tags but shows an english message "The operation failed.",
+			/// which should be recognized as error as well
+			/// </summary>
+			[Test]
+			public void Returns_Error_For_Hanselman_Dump_Without_ERR_Tag()
+			{
+				var log = DumpReader.Read("ScottHanselmanLogExample.txt");
+				var item = _parser.Parse(log);
+
+				item.AccumulatedState.Should().Be(LogItem.State.Error);
+			}
+
+			/// <summary>
+			/// This dump has no ERR tags but shows a german message "Fehler bei diesem Vorgang.",
+			/// which should be recognized as error as well
+			/// </summary>
+			[Test]
+			public void Returns_Error_For_German_Dump_Without_ERR_Tag()
+			{
+				var log = DumpReader.Read("GermanFailedTextWithoutERRTag.txt");
+				var item = _parser.Parse(log);
+
+				item.AccumulatedState.Should().Be(LogItem.State.Error);
+			}
 		}
 	}
 }

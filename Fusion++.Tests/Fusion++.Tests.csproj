@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateLogItemTests.cs" />
+    <EmbeddedResource Include="Dumps\ScottHanselmanLogExample.txt" />
+    <EmbeddedResource Include="Dumps\GermanFailedTextWithoutERRTag.txt" />
     <Compile Include="FusionSessionSpecs.cs" />
     <Compile Include="LogItemTests.cs" />
     <Compile Include="PathAsContentRoutingFileReader.cs" />

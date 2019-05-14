@@ -30,6 +30,9 @@ namespace FusionPlusPlus.Parser
 				AddValueIfRelevant(line, "Calling Assembly", s => result.CallingAssembly = s);
 				AddValueIfRelevant(line, "Aufruf von Assembly", s => result.CallingAssembly = s);
 
+				if (line.Contains("The operation failed.") || line.Contains("Fehler bei diesem Vorgang."))
+					result.AccumulatedState = LogItem.State.Error;
+
 				if (result.AccumulatedState == LogItem.State.Error)
 					continue;
 

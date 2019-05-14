@@ -1,0 +1,28 @@
+﻿The operation failed.
+Bind result: hr = 0x80070002. The system cannot find the file specified. 
+
+Assembly manager loaded from:  C:\Windows\Microsoft.NET\Framework\v4.0.xxxxx\clr.dll
+Running under executable  C:\Users\Scott\Desktop\TechEd09\FX4\Demo 5 - DLR\Two.IronPythonInterop\bin\Debug\Two.IronPythonInterop.exe
+--- A detailed error log follows. 
+
+=== Pre-bind state information ===
+LOG: User = HANSELMAN-DEV10\Scott
+LOG: DisplayName = System.Dynamic, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+LOG: Appbase = file:///C:/Users/Scott/Desktop/TechEd09/FX4/Demo 5 - DLR/Two.IronPythonInterop/bin/Debug/
+LOG: Initial PrivatePath = NULL
+LOG: Dynamic Base = NULL
+LOG: Cache Base = NULL
+LOG: AppName = Two.IronPythonInterop.exe
+Calling assembly : IronPython, Version=2.6.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35.
+===
+LOG: This bind starts in default load context.
+LOG: No application configuration file found.
+LOG: Using host configuration file: 
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.xxxxx\config\machine.config.
+LOG: Post-policy reference: System.Dynamic, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+LOG: GAC Lookup was unsuccessful.
+LOG: Attempting download of new URL file:///C:/Users/Scott/Desktop/TechEd09/FX4/Demo 5 - DLR/Two.IronPythonInterop/bin/Debug/System.Dynamic.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Scott/Desktop/TechEd09/FX4/Demo 5 - DLR/Two.IronPythonInterop/bin/Debug/System.Dynamic/System.Dynamic.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Scott/Desktop/TechEd09/FX4/Demo 5 - DLR/Two.IronPythonInterop/bin/Debug/System.Dynamic.EXE.
+LOG: Attempting download of new URL file:///C:/Users/Scott/Desktop/TechEd09/FX4/Demo 5 - DLR/Two.IronPythonInterop/bin/Debug/System.Dynamic/System.Dynamic.EXE.
+LOG: All probing URLs attempted and failed. 

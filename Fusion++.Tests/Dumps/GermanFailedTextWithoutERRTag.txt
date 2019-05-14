@@ -1,0 +1,31 @@
+﻿*** Protokolleintrag für Assembly-Binder  (14.05.2019 @ 22:17:58) ***
+
+Fehler bei diesem Vorgang.
+Ergebnis der Bindung: hr = 0x80070002. Das System kann die angegebene Datei nicht finden.
+
+Der Assemblymanager wurde geladen aus:  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\clr.dll
+Als EXE-Datei ausgeführt.  D:\Develop\sodacore studios\SODACORE_DEV\Develop\Windows\LifesignMonitor\LifesignMonitor\bin\Debug\kk\LifesignMonitor.exe
+--- Ein detailliertes Fehlerprotokoll folgt. 
+
+=== Zustandsinformationen vor Bindung ===
+LOG: DisplayName = DevExpress.Mvvm.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+ (Fully-specified)
+LOG: Appbase = file:///D:/Develop/sodacore studios/SODACORE_DEV/Develop/Windows/LifesignMonitor/LifesignMonitor/bin/Debug/kk/
+LOG: Ursprünglicher PrivatePath = NULL
+LOG: DynamicBase = NULL
+LOG: CacheBase = NULL
+LOG: AppName = LifesignMonitor.exe
+Aufruf von Assembly : DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a.
+===
+LOG: Diese Bindung startet im default-Load-Kontext.
+LOG: Die Anwendungskonfigurationsdatei wird verwendet: D:\Develop\sodacore studios\SODACORE_DEV\Develop\Windows\LifesignMonitor\LifesignMonitor\bin\Debug\kk\LifesignMonitor.exe.Config
+LOG: Die Hostkonfigurationsdatei wird verwendet: 
+LOG: Die Computerkonfigurationsdatei von C:\Windows\Microsoft.NET\Framework64\v4.0.30319\config\machine.config wird verwendet.
+LOG: Verweis nach der Richtlinie: DevExpress.Mvvm.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+LOG: Die Suche im GAC war nicht erfolgreich.
+LOG: Download von neuem URL file:///D:/Develop/sodacore studios/SODACORE_DEV/Develop/Windows/LifesignMonitor/LifesignMonitor/bin/Debug/kk/DevExpress.Mvvm.v17.1.DLL.
+LOG: Download von neuem URL file:///D:/Develop/sodacore studios/SODACORE_DEV/Develop/Windows/LifesignMonitor/LifesignMonitor/bin/Debug/kk/DevExpress.Mvvm.v17.1/DevExpress.Mvvm.v17.1.DLL.
+LOG: Download von neuem URL file:///D:/Develop/sodacore studios/SODACORE_DEV/Develop/Windows/LifesignMonitor/LifesignMonitor/bin/Debug/kk/DevExpress.Mvvm.v17.1.EXE.
+LOG: Download von neuem URL file:///D:/Develop/sodacore studios/SODACORE_DEV/Develop/Windows/LifesignMonitor/LifesignMonitor/bin/Debug/kk/DevExpress.Mvvm.v17.1/DevExpress.Mvvm.v17.1.EXE.
+LOG: Fehler bei allen Such-URLs.
+
