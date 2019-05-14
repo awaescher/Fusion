@@ -303,6 +303,14 @@ namespace FusionPlusPlus
 				button.ItemClick += (s, e) => ImportFromDirectory(sessionPath);
 				popupLastSessions.AddItem(button);
 			}
+
+			if (popupLastSessions.ItemLinks.Count > 0)
+			{
+				var topLevelButton = new BarButtonItem();
+				topLevelButton.Caption = "Locate logs";
+				topLevelButton.ItemClick += (s, e) => Process.Start(topLevelPath);
+				popupLastSessions.AddItem(topLevelButton).BeginGroup = true;
+			}
 		}
 	}
 }
