@@ -31,6 +31,7 @@ namespace FusionPlusPlus
 		private FusionSession _session;
 		private Dictionary<OverlayState, Control> _overlays;
 		private System.Threading.Timer _updateTimer;
+		private LoadingOverlay _loadingOverlay;
 
 		public MainForm()
 		{
@@ -41,12 +42,12 @@ namespace FusionPlusPlus
 
 		protected override void OnShown(EventArgs e)
 		{
-			var loadingOverlay = LoadingOverlay.PutOn(this);
-			loadingOverlay.CancelRequested += LoadingOverlay_CancelRequested;
+			_loadingOverlay = LoadingOverlay.PutOn(this);
+			_loadingOverlay.CancelRequested += LoadingOverlay_CancelRequested;
 
 			_overlays = new Dictionary<OverlayState, Control>();
 			_overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
-			_overlays[OverlayState.Loading] = loadingOverlay;
+			_overlays[OverlayState.Loading] = _loadingOverlay;
 			var recordingOverlay = RecordingOverlay.PutOn(this);
 			recordingOverlay.StopRequested += btnRecord_Click;
 			_overlays[OverlayState.Recording] = recordingOverlay;
@@ -59,7 +60,7 @@ namespace FusionPlusPlus
 
 			_parser = new LogFileParser(new LogItemParser(), new FileReader(), null)
 			{
-				Progress = (current, total) => this.Invoke((Action)(() => this.Text = $"{current}/{total}"))
+				Progress = (current, total) => _loadingOverlay.SetProgress(current, total)
 			};
 
 			var name = this.GetType().Assembly.GetName();
@@ -118,7 +119,13 @@ namespace FusionPlusPlus
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
 
-			var logs = await ReadLogsAsync(logStore);
+			List<LogItem> logs = null;
+			
+			await Task.Run(async () => logs = await ReadLogsAsync(logStore).ConfigureAwait(false));
+
+			while (logs == null)
+				Thread.Sleep(50);
+
 			_logs = aggregator.Aggregate(logs);
 			_lastLogPath = logStore.Path;
 
@@ -126,25 +133,25 @@ namespace FusionPlusPlus
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
 
 			// Specify data members to bind the client.
-			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(SourceItem.TimeStampLocal);
-			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(SourceItem.ItemCount);
-			dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(SourceItem.State);
+			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(RangeDatasourceItem.TimeStampLocal);
+			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(RangeDatasourceItem.ItemCount);
+			dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(RangeDatasourceItem.State);
 			dateTimeChartRangeControlClient1.DataProvider.TemplateView = new BarChartRangeControlClientView() { };
 			dateTimeChartRangeControlClient1.PaletteName = "Solstice";
 
 			var allStates = Enum.GetValues(typeof(LogItem.State)).OfType<LogItem.State>().ToArray();
-			var stamps = logs.Select(l => l.TimeStampLocal).Distinct();
-			var source = stamps.SelectMany(stamp =>
+			var timestamps = logs.Select(l => l.TimeStampLocal).Distinct();
+			var rangeSource = timestamps.SelectMany(stamp =>
 			{
-				return allStates.Select(state => new SourceItem
+				return allStates.Select(state => new RangeDatasourceItem
 				{
 					TimeStampLocal = stamp,
 					State = state,
-					ItemCount = _logs.Where(l => l.TimeStampLocal == stamp && l.AccumulatedState >= state).Sum(l => /*l.ItemCount*/ 1)
+					ItemCount = _logs.Count(l => l.TimeStampLocal == stamp && l.AccumulatedState >= state)
 				});
 			});
 
-			dateTimeChartRangeControlClient1.DataProvider.DataSource = source;
+			dateTimeChartRangeControlClient1.DataProvider.DataSource = rangeSource;
 
 			SetControlVisiblityByContext();
 
@@ -152,13 +159,6 @@ namespace FusionPlusPlus
 				SetOverlayState(OverlayState.None);
 			else
 				SetOverlayState(OverlayState.Empty);
-		}
-
-		private class SourceItem
-		{
-			public DateTime TimeStampLocal { get; set; }
-			public LogItem.State State { get; set; }
-			public int? ItemCount { get; set; }
 		}
 
 		private void SetControlVisiblityByContext()
@@ -345,6 +345,13 @@ namespace FusionPlusPlus
 				topLevelButton.ItemClick += (s, e) => Process.Start(topLevelPath);
 				popupLastSessions.AddItem(topLevelButton).BeginGroup = true;
 			}
+		}
+
+		private class RangeDatasourceItem
+		{
+			public DateTime TimeStampLocal { get; set; }
+			public LogItem.State State { get; set; }
+			public int? ItemCount { get; set; }
 		}
 	}
 }

@@ -54,7 +54,7 @@ namespace FusionPlusPlus.Parser
 			if (_cancelRequested)
 				return new List<LogItem>();
 
-			Progress.Invoke(++_current, _total);
+			Progress?.Invoke(++_current, _total);
 
 			var content = FileReader.Read(file);
 

@@ -40,5 +40,15 @@ namespace FusionPlusPlus.Controls
 		{
 			CancelRequested?.Invoke(sender, e);
 		}
+
+		internal void SetProgress(int current, int total)
+		{
+			Invoke((Action)(() =>
+			{
+				progress.Properties.Maximum = total;
+				progress.EditValue = current;
+				progress.Visible = current > 0 && current < total;
+			}));
+		}
 	}
 }

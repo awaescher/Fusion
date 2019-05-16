@@ -28,50 +28,53 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmptyOverlay));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkCopyright = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1081, 718);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // linkCopyright
-            // 
-            this.linkCopyright.BackColor = System.Drawing.Color.Transparent;
-            this.linkCopyright.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkCopyright.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.linkCopyright.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.linkCopyright.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(200)))), ((int)(((byte)(165)))));
-            this.linkCopyright.Location = new System.Drawing.Point(0, 677);
-            this.linkCopyright.Name = "linkCopyright";
-            this.linkCopyright.Size = new System.Drawing.Size(1081, 41);
-            this.linkCopyright.TabIndex = 2;
-            this.linkCopyright.Text = "Icon made by Freepik from Flaticon is licensed by Creative Commons BY 3.0\r\nThanks" +
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmptyOverlay));
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.linkCopyright = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(1200, 600);
+			this.pictureBox1.TabIndex = 1;
+			this.pictureBox1.TabStop = false;
+			// 
+			// linkCopyright
+			// 
+			this.linkCopyright.BackColor = System.Drawing.Color.Transparent;
+			this.linkCopyright.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.linkCopyright.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.linkCopyright.Font = new System.Drawing.Font("Tahoma", 9F);
+			this.linkCopyright.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(200)))), ((int)(((byte)(165)))));
+			this.linkCopyright.Location = new System.Drawing.Point(0, 550);
+			this.linkCopyright.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.linkCopyright.Name = "linkCopyright";
+			this.linkCopyright.Size = new System.Drawing.Size(1200, 50);
+			this.linkCopyright.TabIndex = 2;
+			this.linkCopyright.Text = "Icon made by Freepik from Flaticon is licensed by Creative Commons BY 3.0\r\nThanks" +
     " mates ♥";
-            this.linkCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkCopyright.Click += new System.EventHandler(this.linkCopyright_Click);
-            // 
-            // EmptyOverlay
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(227)))));
-            this.Controls.Add(this.linkCopyright);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "EmptyOverlay";
-            this.Size = new System.Drawing.Size(1081, 718);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+			this.linkCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.linkCopyright.Click += new System.EventHandler(this.linkCopyright_Click);
+			// 
+			// EmptyOverlay
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(227)))));
+			this.Controls.Add(this.linkCopyright);
+			this.Controls.Add(this.pictureBox1);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Name = "EmptyOverlay";
+			this.Size = new System.Drawing.Size(1200, 600);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.ResumeLayout(false);
 
 		}
 

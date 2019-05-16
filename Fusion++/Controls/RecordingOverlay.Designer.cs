@@ -36,13 +36,13 @@
 			// lblRecording
 			// 
 			this.lblRecording.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lblRecording.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+			this.lblRecording.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
 			this.lblRecording.Appearance.Options.UseFont = true;
 			this.lblRecording.Appearance.Options.UseTextOptions = true;
 			this.lblRecording.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.lblRecording.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
 			this.lblRecording.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-			this.lblRecording.Location = new System.Drawing.Point(584, 283);
+			this.lblRecording.Location = new System.Drawing.Point(523, 217);
 			this.lblRecording.Margin = new System.Windows.Forms.Padding(4);
 			this.lblRecording.Name = "lblRecording";
 			this.lblRecording.Size = new System.Drawing.Size(155, 54);
@@ -58,7 +58,7 @@
 			this.lblDuration.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.lblDuration.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.lblDuration.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblDuration.Location = new System.Drawing.Point(584, 336);
+			this.lblDuration.Location = new System.Drawing.Point(523, 270);
 			this.lblDuration.Margin = new System.Windows.Forms.Padding(4);
 			this.lblDuration.Name = "lblDuration";
 			this.lblDuration.Padding = new System.Windows.Forms.Padding(0, 6, 0, 15);
@@ -80,7 +80,7 @@
 			this.lblStop.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.lblStop.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
 			this.lblStop.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-			this.lblStop.Location = new System.Drawing.Point(588, 396);
+			this.lblStop.Location = new System.Drawing.Point(527, 330);
 			this.lblStop.Margin = new System.Windows.Forms.Padding(4);
 			this.lblStop.Name = "lblStop";
 			this.lblStop.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -98,7 +98,7 @@
 			this.Controls.Add(this.lblRecording);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "RecordingOverlay";
-			this.Size = new System.Drawing.Size(1323, 733);
+			this.Size = new System.Drawing.Size(1200, 600);
 			this.ResumeLayout(false);
 
 		}
