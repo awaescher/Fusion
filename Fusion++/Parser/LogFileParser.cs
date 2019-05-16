@@ -1,27 +1,40 @@
 ﻿using FusionPlusPlus.IO;
 using FusionPlusPlus.Model;
 using FusionPlusPlus.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace FusionPlusPlus.Parser
 {
 	internal class LogFileParser
 	{
-		public LogFileParser(ILogFileService fileService, LogItemParser itemParser, IFileReader fileReader)
+		private int _current;
+		private int _total;
+		private bool _cancelRequested;
+
+		public LogFileParser(LogItemParser itemParser, IFileReader fileReader, ILogFileService fileService)
 		{
-			FileService = fileService ?? throw new System.ArgumentNullException(nameof(fileService));
 			ItemParser = itemParser ?? throw new System.ArgumentNullException(nameof(itemParser));
 			FileReader = fileReader ?? throw new System.ArgumentNullException(nameof(fileReader));
+			FileService = fileService;
 		}
 
-		internal List<LogItem> Parse()
+		internal async Task<List<LogItem>> ParseAsync()
 		{
-			var defaultLogs = Parse(FileService.Get(LogSource.Default));
-			var nativeLogs = Parse(FileService.Get(LogSource.NativeImage));
+			var defaultFiles = FileService.Get(LogSource.Default);
+			var nativeImageFiles = FileService.Get(LogSource.NativeImage);
+
+			_cancelRequested = false;
+			_current = 0;
+			_total = defaultFiles.Length + nativeImageFiles.Length;
+
+			var defaultLogs = await ParseAsync(defaultFiles);
+			var nativeLogs = await ParseAsync(nativeImageFiles);
 
 			defaultLogs.ForEach(l => l.Source = LogSource.Default);
 			nativeLogs.ForEach(l => l.Source = LogSource.NativeImage);
@@ -29,13 +42,20 @@ namespace FusionPlusPlus.Parser
 			return defaultLogs.Union(nativeLogs).ToList();
 		}
 
-		private List<LogItem> Parse(string[] files)
+		private async Task<List<LogItem>> ParseAsync(string[] files)
 		{
-			return files.SelectMany(Parse).ToList();
+			List<LogItem> result = await Task.FromResult(files.SelectMany(Parse).ToList());
+
+			return result;
 		}
 
 		private List<LogItem> Parse(string file)
 		{
+			if (_cancelRequested)
+				return new List<LogItem>();
+
+			Progress.Invoke(++_current, _total);
+
 			var content = FileReader.Read(file);
 
 			var logBlocks = Regex
@@ -51,10 +71,17 @@ namespace FusionPlusPlus.Parser
 				.ToList();
 		}
 
-		public ILogFileService FileService { get; }
+		public void Cancel()
+		{
+			_cancelRequested = true;
+		}
+
+		public ILogFileService FileService { get; set; }
 
 		public LogItemParser ItemParser { get; }
 
 		public IFileReader FileReader { get; }
+
+		public Action<int, int> Progress { get; set; }
 	}
 }

@@ -23,6 +23,7 @@ namespace FusionPlusPlus
 	public partial class MainForm : XtraForm
 	{
 		private bool _loading = false;
+		private LogFileParser _parser;
 		private RegistryFusionService _fusionService;
 		private List<AggregateLogItem> _logs;
 		private string _lastLogPath;
@@ -40,9 +41,12 @@ namespace FusionPlusPlus
 
 		protected override void OnShown(EventArgs e)
 		{
+			var loadingOverlay = LoadingOverlay.PutOn(this);
+			loadingOverlay.CancelRequested += LoadingOverlay_CancelRequested;
+
 			_overlays = new Dictionary<OverlayState, Control>();
 			_overlays[OverlayState.Empty] = EmptyOverlay.PutOn(this);
-			_overlays[OverlayState.Loading] = LoadingOverlay.PutOn(this);
+			_overlays[OverlayState.Loading] = loadingOverlay;
 			var recordingOverlay = RecordingOverlay.PutOn(this);
 			recordingOverlay.StopRequested += btnRecord_Click;
 			_overlays[OverlayState.Recording] = recordingOverlay;
@@ -53,6 +57,11 @@ namespace FusionPlusPlus
 
 			_updateTimer = new System.Threading.Timer(async state => await CheckForUpdatesAsync(), null, 5000, Timeout.Infinite);
 
+			_parser = new LogFileParser(new LogItemParser(), new FileReader(), null)
+			{
+				Progress = (current, total) => this.Invoke((Action)(() => this.Text = $"{current}/{total}"))
+			};
+
 			var name = this.GetType().Assembly.GetName();
 			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}" + (name.Version.Build == 0 ? "" : $".{name.Version.Build}");
 
@@ -61,25 +70,22 @@ namespace FusionPlusPlus
 			SetControlVisiblityByContext();
 			SetOverlayState(OverlayState.Empty);
 		}
-
-		private List<LogItem> ReadLogs(ILogStore store)
+		
+		private async Task<List<LogItem>> ReadLogsAsync(ILogStore store)
 		{
 			_loading = true;
 
-			var parser = new LogFileParser(new LogFileService(store), new LogItemParser(), new FileReader());
-
-			var logs = parser.Parse();
+			_parser.FileService = new LogFileService(store);
+			var logs = await _parser.ParseAsync();
 
 			_loading = false;
 
 			return logs;
 		}
 
-		private void ClearLogs() => LoadLogs("");
+		private async Task ClearLogsAsync() => await LoadLogsAsync("");
 
-		private void LoadLogs() => LoadLogs(_fusionService.LogPath);
-
-		private void LoadLogs(string path) => LoadLogs(new TransparentLogStore(path));
+		private async Task LoadLogsAsync(string path) => await LoadLogsAsync(new TransparentLogStore(path));
 
 		private enum OverlayState
 		{
@@ -103,7 +109,7 @@ namespace FusionPlusPlus
 			this.Refresh();
 		}
 
-		private void LoadLogs(ILogStore logStore)
+		private async Task LoadLogsAsync(ILogStore logStore)
 		{
 			var hasPath = !string.IsNullOrEmpty(logStore.Path);
 			if (hasPath)
@@ -112,7 +118,7 @@ namespace FusionPlusPlus
 			var aggregator = new LogAggregator();
 			var treeBuilder = new LogTreeBuilder();
 
-			var logs = ReadLogs(logStore);
+			var logs = await ReadLogsAsync(logStore);
 			_logs = aggregator.Aggregate(logs);
 			_lastLogPath = logStore.Path;
 
@@ -120,11 +126,25 @@ namespace FusionPlusPlus
 			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
 
 			// Specify data members to bind the client.
-			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(AggregateLogItem.TimeStampLocal);
-			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(AggregateLogItem.ItemCount);
-			//dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(AggregateLogItem.AppName);
+			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(SourceItem.TimeStampLocal);
+			dateTimeChartRangeControlClient1.DataProvider.ValueDataMember = nameof(SourceItem.ItemCount);
+			dateTimeChartRangeControlClient1.DataProvider.SeriesDataMember = nameof(SourceItem.State);
+			dateTimeChartRangeControlClient1.DataProvider.TemplateView = new BarChartRangeControlClientView() { };
+			dateTimeChartRangeControlClient1.PaletteName = "Solstice";
 
-			gridLog.DataSource = _logs;
+			var allStates = Enum.GetValues(typeof(LogItem.State)).OfType<LogItem.State>().ToArray();
+			var stamps = logs.Select(l => l.TimeStampLocal).Distinct();
+			var source = stamps.SelectMany(stamp =>
+			{
+				return allStates.Select(state => new SourceItem
+				{
+					TimeStampLocal = stamp,
+					State = state,
+					ItemCount = _logs.Where(l => l.TimeStampLocal == stamp && l.AccumulatedState >= state).Sum(l => /*l.ItemCount*/ 1)
+				});
+			});
+
+			dateTimeChartRangeControlClient1.DataProvider.DataSource = source;
 
 			SetControlVisiblityByContext();
 
@@ -132,6 +152,13 @@ namespace FusionPlusPlus
 				SetOverlayState(OverlayState.None);
 			else
 				SetOverlayState(OverlayState.Empty);
+		}
+
+		private class SourceItem
+		{
+			public DateTime TimeStampLocal { get; set; }
+			public LogItem.State State { get; set; }
+			public int? ItemCount { get; set; }
 		}
 
 		private void SetControlVisiblityByContext()
@@ -158,21 +185,21 @@ namespace FusionPlusPlus
 				e.Effect = DragDropEffects.Copy;
 		}
 
-		private void MainForm_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+		private async void MainForm_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
 		{
 			var files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
 			if (files.Length == 1)
 			{
 				_lastUsedFilePath = files[0];
-				LoadLogs(files[0]);
+				await LoadLogsAsync(files[0]);
 			}
 		}
 
-		private void MainForm_KeyDown(object sender, KeyEventArgs e)
+		private async void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.I && e.Control)
-				ImportWithDirectoryDialog();
+				await ImportWithDirectoryDialogAsync();
 		}
 
 		private void viewLog_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -200,14 +227,14 @@ namespace FusionPlusPlus
 			form.Show(this);
 		}
 
-		private void btnRecord_Click(object sender, EventArgs e)
+		private async void btnRecord_Click(object sender, EventArgs e)
 		{
 			if (_fusionService == null || _loading)
 				return;
 
 			if (_session == null)
 			{
-				ClearLogs();
+				await ClearLogsAsync();
 
 				SetOverlayState(OverlayState.Recording);
 
@@ -220,7 +247,7 @@ namespace FusionPlusPlus
 			else
 			{
 				_session.End();
-				LoadLogs(_session.Store.Path);
+				await LoadLogsAsync(_session.Store.Path);
 				_session = null;
 
 			}
@@ -229,25 +256,25 @@ namespace FusionPlusPlus
 			btnRecord.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
 		}
 
-		private void btnImport_Click(object sender, EventArgs e)
+		private async void btnImport_Click(object sender, EventArgs e)
 		{
-			ImportWithDirectoryDialog();
+			await ImportWithDirectoryDialogAsync();
 		}
 
-		private void ImportWithDirectoryDialog()
+		private async Task ImportWithDirectoryDialogAsync()
 		{
 			using (var dialog = new FolderBrowserDialog())
 			{
 				dialog.SelectedPath = _lastUsedFilePath ?? new TemporaryLogStore().TopLevelPath ?? "";
 				if (dialog.ShowDialog() == DialogResult.OK)
-					ImportFromDirectory(dialog.SelectedPath);
+					await ImportFromDirectoryAsync(dialog.SelectedPath);
 			}
 		}
 
-		private void ImportFromDirectory(string directory)
+		private async Task ImportFromDirectoryAsync(string directory)
 		{
 			_lastUsedFilePath = directory;
-			LoadLogs(directory);
+			await LoadLogsAsync(directory);
 		}
 
 		private void btnExport_Click(object sender, EventArgs e)
@@ -282,6 +309,12 @@ namespace FusionPlusPlus
 				this.Invoke((Action)(() => this.Text += $"  »  Version {availableUpdate.ShortestVersionString} available."));
 		}
 
+
+		private void LoadingOverlay_CancelRequested(object sender, EventArgs e)
+		{
+			_parser?.Cancel();
+		}
+
 		private void popupLastSessions_BeforePopup(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			PopulateLastSessions();
@@ -301,7 +334,7 @@ namespace FusionPlusPlus
 			{
 				var button = new BarButtonItem();
 				button.Caption = store.GetLogName(sessionPath);
-				button.ItemClick += (s, e) => ImportFromDirectory(sessionPath);
+				button.ItemClick += async (s, e) => await ImportFromDirectoryAsync(sessionPath);
 				popupLastSessions.AddItem(button);
 			}
 

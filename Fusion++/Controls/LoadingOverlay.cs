@@ -12,6 +12,8 @@ namespace FusionPlusPlus.Controls
 {
 	public partial class LoadingOverlay : UserControl
 	{
+		public event EventHandler CancelRequested;
+
 		public LoadingOverlay()
 		{
 			InitializeComponent();
@@ -32,6 +34,11 @@ namespace FusionPlusPlus.Controls
 		public void Remove()
 		{
 			Parent.Controls.Remove(this);
+		}
+
+		private void LblCancel_Click(object sender, EventArgs e)
+		{
+			CancelRequested?.Invoke(sender, e);
 		}
 	}
 }
