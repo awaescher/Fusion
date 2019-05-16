@@ -29,35 +29,38 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemDetailForm));
-			this.memoItems = new DevExpress.XtraEditors.MemoEdit();
-			((System.ComponentModel.ISupportInitialize)(this.memoItems.Properties)).BeginInit();
+			this.memoItems = new EasyScintilla.SimpleEditor();
 			this.SuspendLayout();
 			// 
 			// memoItems
 			// 
+			this.memoItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.memoItems.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoItems.IndentationGuides = ScintillaNET.IndentView.LookBoth;
 			this.memoItems.Location = new System.Drawing.Point(0, 0);
+			this.memoItems.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.memoItems.Name = "memoItems";
-			this.memoItems.Size = new System.Drawing.Size(800, 450);
+			this.memoItems.Size = new System.Drawing.Size(933, 554);
+			this.memoItems.Styler = null;
 			this.memoItems.TabIndex = 0;
 			// 
 			// ItemDetailForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(933, 554);
 			this.Controls.Add(this.memoItems);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "ItemDetailForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "Detail";
-			((System.ComponentModel.ISupportInitialize)(this.memoItems.Properties)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private DevExpress.XtraEditors.MemoEdit memoItems;
+		private EasyScintilla.SimpleEditor memoItems;
 	}
 }
