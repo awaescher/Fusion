@@ -118,19 +118,15 @@
             this.colAppName,
             this.colDisplayName});
             this.viewLog.DetailHeight = 284;
-            gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Column = this.colState;
             gridFormatRule1.Name = "Highlight Warnings";
-            formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            formatConditionRuleValue1.Appearance.Options.UseBackColor = true;
+			formatConditionRuleValue1.PredefinedName = "Yellow Fill, Yellow Text";
             formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
             formatConditionRuleValue1.Value1 = FusionPlusPlus.Model.LogItem.State.Warning;
             gridFormatRule1.Rule = formatConditionRuleValue1;
-            gridFormatRule2.ApplyToRow = true;
             gridFormatRule2.Column = this.colState;
             gridFormatRule2.Name = "Highlight Errors";
-            formatConditionRuleValue2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            formatConditionRuleValue2.Appearance.Options.UseBackColor = true;
+			formatConditionRuleValue2.PredefinedName = "Red Fill, Red Text";
             formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
             formatConditionRuleValue2.Value1 = FusionPlusPlus.Model.LogItem.State.Error;
             gridFormatRule2.Rule = formatConditionRuleValue2;

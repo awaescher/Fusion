@@ -74,6 +74,7 @@ namespace FusionPlusPlus.Parser
 		public void Cancel()
 		{
 			_cancelRequested = true;
+			Progress?.Invoke(0, 1);
 		}
 
 		public ILogFileService FileService { get; set; }
