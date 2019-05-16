@@ -14,8 +14,7 @@ namespace FusionPlusPlus
 		[STAThread]
 		static void Main()
 		{
-			UserLookAndFeel.Default.SetSkinStyle(SkinStyle.Bezier);
-			//UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.Bezier.OfficeBlack);
+			UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.Bezier.OfficeBlack);
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
