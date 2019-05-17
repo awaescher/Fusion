@@ -241,13 +241,16 @@ namespace FusionPlusPlus
 		{
 			const int FORM_Y_OFFSET = 30;
 
-			var form = new ItemDetailForm();
-			form.Item = item;
-			form.Height = this.Height - FORM_Y_OFFSET;
-			form.Top = this.Top + FORM_Y_OFFSET;
+			var form = new ItemDetailForm
+			{
+				Item = item,
+				Height = this.Height - FORM_Y_OFFSET,
+				Top = this.Top + FORM_Y_OFFSET
+			};
+			form.Width = Math.Max(form.Width, this.Width / 2);
 			form.Left = this.Left + ((this.Width - form.Width) / 2);
 
-			form.Show(this);
+			form.ShowDialog(this);
 		}
 
 		private async void btnRecord_Click(object sender, EventArgs e)

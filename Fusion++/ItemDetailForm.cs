@@ -25,8 +25,6 @@ namespace FusionPlusPlus
 		{
 			base.OnLoad(e);
 
-			memoItems.Styler = new FusionLogStyler();
-
 			if (Item != null)
 				Text = Item.ShortAssemblyName;
 		}
@@ -43,54 +41,14 @@ namespace FusionPlusPlus
 			}
 		}
 
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			base.OnKeyDown(e);
+
+			if (e.KeyCode == Keys.Escape)
+				this.Close();
+		}
+
 		public AggregateLogItem Item { get; set; }
-	}
-
-	public class FusionLogStyler : ScintillaStyler
-	{
-		public FusionLogStyler()
-			: base(Lexer.Null)
-		{
-		}
-
-
-		public override void ApplyStyle(ScintillaNET.Scintilla scintilla)
-		{
-			// Comments begin with ***, === or ---
-
-
-
-			var backColor = Color.FromArgb(30, 30, 30);
-			var foreColor = Color.FromArgb(220, 220, 220);
-
-			foreach (var style in scintilla.Styles)
-			{
-				style.BackColor = backColor;
-				style.ForeColor = foreColor;
-			}
-
-			scintilla.Styles[Style.IndentGuide].ForeColor = Color.FromArgb(105, 105, 105);
-			scintilla.Styles[Style.LineNumber].ForeColor = Color.FromArgb(146, 206, 255); // Bright Blue
-			scintilla.Styles[Style.Cpp.Word].BackColor = Color.DarkOrange;
-			scintilla.Styles[Style.Cpp.Word2].BackColor = Color.DarkRed;
-
-			scintilla.CaretForeColor = foreColor;
-
-			scintilla.SetFoldMarginHighlightColor(true, backColor);
-			scintilla.SetFoldMarginColor(true, backColor);
-
-			scintilla.SetSelectionBackColor(true, Color.FromArgb(38, 79, 120));
-		}
-
-		public override void RemoveStyle(ScintillaNET.Scintilla scintilla)
-		{
-		}
-
-		public override void SetKeywords(ScintillaNET.Scintilla scintilla)
-		{
-			// TODO case-insensitive
-			scintilla.SetKeywords(0, "WRN warning warnung");
-			scintilla.SetKeywords(1, "ERR error failed fail Fehler");
-		}
 	}
 }

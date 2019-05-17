@@ -60,6 +60,7 @@
 			// progress
 			// 
 			this.progress.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.progress.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.progress.Location = new System.Drawing.Point(547, 278);
 			this.progress.Margin = new System.Windows.Forms.Padding(4);
 			this.progress.Name = "progress";
