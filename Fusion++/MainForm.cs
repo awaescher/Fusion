@@ -78,7 +78,11 @@ namespace FusionPlusPlus
 			_loading = true;
 
 			_parser.FileService = new LogFileService(store);
+
+			var watch = Stopwatch.StartNew();
 			var logs = await _parser.ParseAsync();
+			watch.Stop();
+			Debug.WriteLine("Finished parsing in " + watch.Elapsed);
 
 			_loading = false;
 
@@ -142,13 +146,13 @@ namespace FusionPlusPlus
 
 			var allStates = Enum.GetValues(typeof(LogItem.State)).OfType<LogItem.State>().ToArray();
 			var timestamps = logs.Select(l => l.TimeStampLocal).Distinct();
-			var rangeSource = timestamps.SelectMany(stamp =>
+			var rangeSource = timestamps.SelectMany(localTime =>
 			{
 				return allStates.Select(state => new RangeDatasourceItem
 				{
-					TimeStampLocal = stamp,
+					TimeStampLocal = localTime,
 					State = state,
-					ItemCount = _logs.Count(l => l.TimeStampLocal == stamp && l.AccumulatedState >= state)
+					ItemCount = _logs.Count(l => l.TimeStampLocal == localTime && l.AccumulatedState >= state)
 				});
 			});
 

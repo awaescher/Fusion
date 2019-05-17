@@ -44,9 +44,7 @@ namespace FusionPlusPlus.Parser
 
 		private async Task<List<LogItem>> ParseAsync(string[] files)
 		{
-			List<LogItem> result = await Task.FromResult(files.SelectMany(Parse).ToList());
-
-			return result;
+			return await Task.FromResult(files.AsParallel().SelectMany(Parse).ToList());
 		}
 
 		private List<LogItem> Parse(string file)

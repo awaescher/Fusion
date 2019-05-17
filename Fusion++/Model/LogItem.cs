@@ -6,6 +6,7 @@ namespace FusionPlusPlus.Model
 	public class LogItem
 	{
 		private string _displayName = "";
+		private DateTime _timeStampUtc;
 
 		public string DisplayName
 		{
@@ -40,9 +41,17 @@ namespace FusionPlusPlus.Model
 
 		public State AccumulatedState { get; set; }
 
-		public DateTime TimeStampUtc { get; set; }
+		public DateTime TimeStampUtc
+		{
+			get => _timeStampUtc;
+			set
+			{
+				_timeStampUtc = value;
+				TimeStampLocal = value.ToLocalTime();
+			}
+		}
 
-		public DateTime TimeStampLocal => TimeStampUtc.ToLocalTime();
+		public DateTime TimeStampLocal { get; private set; }
 
 		public bool IsValid => !string.IsNullOrEmpty(DisplayName);
 

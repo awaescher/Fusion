@@ -49,16 +49,37 @@ namespace FusionPlusPlus
 	public class FusionLogStyler : ScintillaStyler
 	{
 		public FusionLogStyler()
-			: base(Lexer.Cpp)
+			: base(Lexer.Null)
 		{
 		}
+
 
 		public override void ApplyStyle(ScintillaNET.Scintilla scintilla)
 		{
 			// Comments begin with ***, === or ---
 
-			scintilla.Styles[Style.Cpp.Word].BackColor = Color.Orange;
-			scintilla.Styles[Style.Cpp.Word2].BackColor = Color.Red;
+
+
+			var backColor = Color.FromArgb(30, 30, 30);
+			var foreColor = Color.FromArgb(220, 220, 220);
+
+			foreach (var style in scintilla.Styles)
+			{
+				style.BackColor = backColor;
+				style.ForeColor = foreColor;
+			}
+
+			scintilla.Styles[Style.IndentGuide].ForeColor = Color.FromArgb(105, 105, 105);
+			scintilla.Styles[Style.LineNumber].ForeColor = Color.FromArgb(146, 206, 255); // Bright Blue
+			scintilla.Styles[Style.Cpp.Word].BackColor = Color.DarkOrange;
+			scintilla.Styles[Style.Cpp.Word2].BackColor = Color.DarkRed;
+
+			scintilla.CaretForeColor = foreColor;
+
+			scintilla.SetFoldMarginHighlightColor(true, backColor);
+			scintilla.SetFoldMarginColor(true, backColor);
+
+			scintilla.SetSelectionBackColor(true, Color.FromArgb(38, 79, 120));
 		}
 
 		public override void RemoveStyle(ScintillaNET.Scintilla scintilla)
