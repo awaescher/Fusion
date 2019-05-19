@@ -19,6 +19,9 @@ Fusion++ then parses all the log files for you. It will try to find warnings and
 
 Fusion++ makes sure that all the assembly logs are routed to the Windows TEMP folder so that they can be cleaned up with the default Windows tools. On top of that it builds an intelligent session management so that you can separate recorded sessions from each other and check them again later.
 
+
+📦  [Check the Releases page](https://github.com/awaescher/Fusion/releases) to **download** the latest version and see **what's new**!
+
 \* *Similar assembly bindings which happened at the same time (within 3 seconds tolerance) are automatically aggregated to keep the assembly list short.*
 
 #### Maybe most important:
