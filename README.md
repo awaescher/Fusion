@@ -1,4 +1,4 @@
-> Dev tools and great UX doesn’t have to be mutually exclusive
+> Dev tools and great UX don’t have to be mutually exclusive
 >
 >[![image](https://user-images.githubusercontent.com/3630638/57975256-b85afe00-79c5-11e9-87e7-1ae0236aab2d.png)](https://twitter.com/bitbonk)
 
