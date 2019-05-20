@@ -22,7 +22,9 @@ Fusion++ makes sure that all the assembly logs are routed to the Windows TEMP fo
 
 📦  [Check the Releases page](https://github.com/awaescher/Fusion/releases) to **download** the latest version and see **what's new**!
 
-\* *Similar assembly bindings which happened at the same time (within 3 seconds tolerance) are automatically aggregated to keep the assembly list short.*
+🍫 Available on **chocolatey** as well, just use `choco install fusionplusplus`.
+
+<sup> \* *Similar assembly bindings which happened at the same time (within 3 seconds tolerance) are automatically aggregated to keep the assembly list short.* <sup>
 
 #### Maybe most important:
 
