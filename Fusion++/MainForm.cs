@@ -33,6 +33,7 @@ namespace FusionPlusPlus
 		private Dictionary<OverlayState, Control> _overlays;
 		private System.Threading.Timer _updateTimer;
 		private LoadingOverlay _loadingOverlay;
+		private ItemDetailForm _detailForm;
 
 		public MainForm()
 		{
@@ -241,16 +242,18 @@ namespace FusionPlusPlus
 		{
 			const int FORM_Y_OFFSET = 30;
 
-			var form = new ItemDetailForm
-			{
-				Item = item,
-				Height = this.Height - FORM_Y_OFFSET,
-				Top = this.Top + FORM_Y_OFFSET
-			};
-			form.Width = Math.Max(form.Width, this.Width / 2);
-			form.Left = this.Left + ((this.Width - form.Width) / 2);
+			if (_detailForm == null)
+				_detailForm = new ItemDetailForm();
 
-			form.ShowDialog(this);
+			_detailForm.Bounds = new Rectangle(
+				this.Left + ((this.Width - _detailForm.Width) / 2),
+				this.Top + FORM_Y_OFFSET,
+				Math.Max(_detailForm.Width, this.Width / 2),
+				this.Height - FORM_Y_OFFSET);
+
+			_detailForm.Item = item;
+
+			_detailForm.ShowDialog(this);
 		}
 
 		private async void btnRecord_Click(object sender, EventArgs e)

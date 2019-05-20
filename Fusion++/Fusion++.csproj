@@ -168,6 +168,7 @@
     <Compile Include="Services\LogTreeBuilder.cs" />
     <Compile Include="Services\RegistryFusionService.cs" />
     <Compile Include="Model\TreeLogItem.cs" />
+    <Compile Include="Syntax\FusionLogSyntaxHighlightService.cs" />
     <Compile Include="TemporaryLogStore.cs" />
     <Compile Include="TinySoup.cs" />
     <Compile Include="TransparentLogStore.cs" />

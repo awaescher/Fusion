@@ -1,6 +1,8 @@
 ﻿using DevExpress.Office.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Services;
 using FusionPlusPlus.Model;
+using FusionPlusPlus.Syntax;
 using System;
 using System.Data;
 using System.Drawing;
@@ -14,16 +16,9 @@ namespace FusionPlusPlus
 		public ItemDetailForm()
 		{
 			InitializeComponent();
+			richLog.ReplaceService<ISyntaxHighlightService>(new FusionLogSyntaxHighlightService(richLog.Document));
 		}
-
-		protected override void OnLoad(EventArgs e)
-		{
-			base.OnLoad(e);
-
-			if (Item != null)
-				Text = Item.ShortAssemblyName;
-		}
-
+		
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
@@ -32,6 +27,7 @@ namespace FusionPlusPlus
 			{
 				var itemBreak = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
 				richLog.Text = string.Join(itemBreak, Item.Items.Select(i => i.FullMessage));
+				Text = Item.ShortAssemblyName;
 			}
 		}
 
@@ -53,10 +49,10 @@ namespace FusionPlusPlus
 			{
 				document.DefaultCharacterProperties.FontName = "Consolas";
 				document.DefaultCharacterProperties.FontSize = 9;
-				document.Sections[0].Page.Width = Units.InchesToDocumentsF(100);
+				document.Sections[0].Page.Width = Units.InchesToDocumentsF(50);
 				document.Sections[0].LineNumbering.CountBy = 1;
 				document.Sections[0].LineNumbering.RestartType = DevExpress.XtraRichEdit.API.Native.LineNumberingRestart.Continuous;
-				document.CharacterStyles["Line Number"].ForeColor = Color.SkyBlue;
+				document.CharacterStyles["Line Number"].ForeColor = Color.DeepSkyBlue;
 			}
 			finally
 			{
