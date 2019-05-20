@@ -238,6 +238,35 @@ namespace FusionPlusPlus
 			}
 		}
 
+		private void ViewLog_CustomScrollAnnotation(object sender, DevExpress.XtraGrid.Views.Grid.GridCustomScrollAnnotationsEventArgs e)
+		{
+			if (e.Annotations == null)
+				e.Annotations = new List<DevExpress.XtraGrid.Views.Grid.GridScrollAnnotationInfo>();
+			else
+				e.Annotations.Clear();
+
+			if (_logs == null)
+				return;
+
+			SetRowAnnotations(e, LogItem.State.Error, Color.Red);
+			SetRowAnnotations(e, LogItem.State.Warning, Color.Orange);
+		}
+
+		private void SetRowAnnotations(DevExpress.XtraGrid.Views.Grid.GridCustomScrollAnnotationsEventArgs e, LogItem.State state, Color color)
+		{
+			var errorDatasourceIndexes = _logs
+				.Where(l => l.AccumulatedState == state)
+				.Select(l => _logs.IndexOf(l))
+				.ToArray();
+
+			var errorRowHandles = errorDatasourceIndexes
+				.Select(i => viewLog.GetRowHandle(i))
+				.Select(h => new DevExpress.XtraGrid.Views.Grid.GridScrollAnnotationInfo() { Color = color, RowHandle = h })
+				.ToArray();
+
+			e.Annotations.AddRange(errorRowHandles);
+		}
+
 		private void ShowDetailForm(AggregateLogItem item)
 		{
 			const int FORM_Y_OFFSET = 30;
@@ -337,7 +366,6 @@ namespace FusionPlusPlus
 			if (availableUpdate != null)
 				this.Invoke((Action)(() => this.Text += $"  »  Version {availableUpdate.ShortestVersionString} available."));
 		}
-
 
 		private void LoadingOverlay_CancelRequested(object sender, EventArgs e)
 		{
