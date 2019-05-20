@@ -21,7 +21,7 @@ namespace FusionPlusPlus.Syntax
 
 		readonly string[] infoKeywords = new string[] { "LOG" };
 		readonly string[] warningKeywords = new string[] { "WARNUNG", "WRN" };
-		readonly string[] errorKeywords = new string[] { "FAIL", "FAILED", "ERROR", "ERR", "The operation failed", "Fehler bei diesem Vorgang" };
+		readonly string[] errorKeywords = new string[] { "ERR", "The operation failed", "Fehler bei diesem Vorgang" };
 
 		public FusionLogSyntaxHighlightService(Document document)
 		{
