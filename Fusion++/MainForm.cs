@@ -74,7 +74,7 @@ namespace FusionPlusPlus
 			SetControlVisiblityByContext();
 			SetOverlayState(OverlayState.Empty);
 		}
-		
+
 		private async Task<List<LogItem>> ReadLogsAsync(ILogStore store)
 		{
 			_loading = true;
@@ -127,7 +127,7 @@ namespace FusionPlusPlus
 			var treeBuilder = new LogTreeBuilder();
 
 			List<LogItem> logs = null;
-			
+
 			await Task.Run(async () => logs = await ReadLogsAsync(logStore).ConfigureAwait(false));
 
 			while (logs == null)
@@ -207,24 +207,6 @@ namespace FusionPlusPlus
 		{
 			if (e.KeyCode == Keys.I && e.Control)
 				await ImportWithDirectoryDialogAsync();
-
-			if (e.KeyCode == Keys.F12)
-			{
-				if (e.Control)
-				{
-					using (var dialog = new DevExpress.Customization.SvgSkinPaletteSelector(this))
-					{
-						dialog.ShowDialog();
-					}
-				}
-				else
-				{
-					if (UserLookAndFeel.Default.ActiveSvgPaletteName == "")
-						UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.Bezier.OfficeBlack);
-					else
-						UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.Bezier.Default);
-				}
-			}
 		}
 
 		private void viewLog_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -366,7 +348,7 @@ namespace FusionPlusPlus
 			var availableUpdate = updates.FirstOrDefault();
 			if (availableUpdate != null)
 			{
-				this.Invoke((Action)(() => 
+				this.Invoke((Action)(() =>
 					{
 						biUpdate.Visibility = BarItemVisibility.Always;
 						biUpdate.Hint = $"Version {availableUpdate.ShortestVersionString} is available.";

@@ -229,6 +229,10 @@
 			// 
 			// barManager1
 			// 
+			this.barManager1.AllowCustomization = false;
+			this.barManager1.AllowGlyphSkinning = true;
+			this.barManager1.AllowMoveBarOnToolbar = false;
+			this.barManager1.AllowQuickCustomization = false;
 			this.barManager1.DockControls.Add(this.barDockControlTop);
 			this.barManager1.DockControls.Add(this.barDockControlBottom);
 			this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -298,6 +302,8 @@
 			// 
 			// toolbarFormManager1
 			// 
+			this.toolbarFormManager1.AllowCustomization = false;
+			this.toolbarFormManager1.AllowGlyphSkinning = true;
 			this.toolbarFormManager1.DockControls.Add(this.barDockControl1);
 			this.toolbarFormManager1.DockControls.Add(this.barDockControl2);
 			this.toolbarFormManager1.DockControls.Add(this.barDockControl3);
