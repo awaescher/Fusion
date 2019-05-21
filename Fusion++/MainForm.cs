@@ -18,10 +18,11 @@ using System.Threading.Tasks;
 using TinySoup.Model;
 using TinySoup;
 using DevExpress.LookAndFeel;
+using DevExpress.XtraBars.ToolbarForm;
 
 namespace FusionPlusPlus
 {
-	public partial class MainForm : XtraForm
+	public partial class MainForm : ToolbarForm
 	{
 		private bool _loading = false;
 		private LogFileParser _parser;

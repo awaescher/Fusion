@@ -217,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="Resources\Twitter.svg" />
     <None Include="Resources\Stop.svg" />
     <None Include="Resources\Capture.svg" />
   </ItemGroup>
