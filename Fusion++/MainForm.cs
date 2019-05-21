@@ -365,7 +365,14 @@ namespace FusionPlusPlus
 
 			var availableUpdate = updates.FirstOrDefault();
 			if (availableUpdate != null)
-				this.Invoke((Action)(() => this.Text += $"  »  Version {availableUpdate.ShortestVersionString} available."));
+			{
+				this.Invoke((Action)(() => 
+					{
+						biUpdate.Visibility = BarItemVisibility.Always;
+						biUpdate.Hint = $"Version {availableUpdate.ShortestVersionString} is available.";
+						biUpdate.Tag = availableUpdate.Url;
+					}));
+			}
 		}
 
 		private void LoadingOverlay_CancelRequested(object sender, EventArgs e)
@@ -403,6 +410,28 @@ namespace FusionPlusPlus
 				topLevelButton.ItemClick += (s, e) => Process.Start(topLevelPath);
 				popupLastSessions.AddItem(topLevelButton).BeginGroup = true;
 			}
+		}
+
+		private void BiGitHub_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			Navigate("https://github.com/awaescher/Fusion");
+		}
+
+		private void BiTwitter_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			Navigate("https://twitter.com/Waescher");
+		}
+
+		private void BiUpdate_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			var url = biUpdate.Tag?.ToString() ?? "";
+			if (!string.IsNullOrEmpty(url))
+				Navigate(url);
+		}
+
+		private void Navigate(string url)
+		{
+			Process.Start(url);
 		}
 
 		private class RangeDatasourceItem

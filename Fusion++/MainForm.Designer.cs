@@ -58,8 +58,9 @@
 			this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-			this.biTheme = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+			this.biTwitter = new DevExpress.XtraBars.BarButtonItem();
+			this.biGitHub = new DevExpress.XtraBars.BarButtonItem();
+			this.biUpdate = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -76,7 +77,7 @@
 			this.rangeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.rangeData.Client = this.dateTimeChartRangeControlClient1;
-			this.rangeData.Location = new System.Drawing.Point(127, 40);
+			this.rangeData.Location = new System.Drawing.Point(148, 49);
 			this.rangeData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.rangeData.Name = "rangeData";
 			rangeControlRange1.Maximum = new System.DateTime(2018, 7, 5, 0, 0, 0, 0);
@@ -84,7 +85,7 @@
 			rangeControlRange1.Owner = this.rangeData;
 			this.rangeData.SelectedRange = rangeControlRange1;
 			this.rangeData.SelectionType = DevExpress.XtraEditors.RangeControlSelectionType.ThumbAndFlag;
-			this.rangeData.Size = new System.Drawing.Size(1125, 98);
+			this.rangeData.Size = new System.Drawing.Size(1312, 121);
 			this.rangeData.TabIndex = 2;
 			this.rangeData.Text = "rangeControl1";
 			this.rangeData.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
@@ -96,11 +97,12 @@
 			// 
 			this.colState.Caption = "State";
 			this.colState.FieldName = "AccumulatedState";
+			this.colState.MinWidth = 23;
 			this.colState.Name = "colState";
 			this.colState.OptionsColumn.FixedWidth = true;
 			this.colState.Visible = true;
 			this.colState.VisibleIndex = 1;
-			this.colState.Width = 100;
+			this.colState.Width = 117;
 			// 
 			// gridLog
 			// 
@@ -109,11 +111,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.gridLog.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.gridLog.Location = new System.Drawing.Point(12, 142);
+			this.gridLog.Location = new System.Drawing.Point(14, 175);
 			this.gridLog.MainView = this.viewLog;
 			this.gridLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridLog.Name = "gridLog";
-			this.gridLog.Size = new System.Drawing.Size(1240, 593);
+			this.gridLog.Size = new System.Drawing.Size(1447, 730);
 			this.gridLog.TabIndex = 0;
 			this.gridLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewLog});
@@ -127,7 +129,6 @@
             this.colState,
             this.colAppName,
             this.colDisplayName});
-			this.viewLog.DetailHeight = 284;
 			gridFormatRule1.Column = this.colState;
 			gridFormatRule1.Name = "Highlight Warnings";
 			formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
@@ -167,37 +168,41 @@
 			this.colTimeStamp.DisplayFormat.FormatString = "G";
 			this.colTimeStamp.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colTimeStamp.FieldName = "TimeStampLocal";
+			this.colTimeStamp.MinWidth = 23;
 			this.colTimeStamp.Name = "colTimeStamp";
 			this.colTimeStamp.OptionsColumn.FixedWidth = true;
 			this.colTimeStamp.Visible = true;
 			this.colTimeStamp.VisibleIndex = 0;
-			this.colTimeStamp.Width = 150;
+			this.colTimeStamp.Width = 175;
 			// 
 			// colAppName
 			// 
 			this.colAppName.FieldName = "AppName";
+			this.colAppName.MinWidth = 23;
 			this.colAppName.Name = "colAppName";
 			this.colAppName.OptionsColumn.FixedWidth = true;
 			this.colAppName.Visible = true;
 			this.colAppName.VisibleIndex = 2;
-			this.colAppName.Width = 200;
+			this.colAppName.Width = 233;
 			// 
 			// colDisplayName
 			// 
 			this.colDisplayName.FieldName = "DisplayName";
+			this.colDisplayName.MinWidth = 23;
 			this.colDisplayName.Name = "colDisplayName";
 			this.colDisplayName.Visible = true;
 			this.colDisplayName.VisibleIndex = 3;
-			this.colDisplayName.Width = 558;
+			this.colDisplayName.Width = 651;
 			// 
 			// btnRecord
 			// 
 			this.btnRecord.AllowFocus = false;
 			this.btnRecord.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
 			this.btnRecord.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Capture;
-			this.btnRecord.Location = new System.Drawing.Point(12, 40);
+			this.btnRecord.Location = new System.Drawing.Point(14, 49);
+			this.btnRecord.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnRecord.Name = "btnRecord";
-			this.btnRecord.Size = new System.Drawing.Size(109, 72);
+			this.btnRecord.Size = new System.Drawing.Size(127, 89);
 			this.btnRecord.TabIndex = 5;
 			this.btnRecord.Text = "Record";
 			this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
@@ -208,9 +213,10 @@
 			this.btnImport.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.SplitButton;
 			this.btnImport.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
 			this.btnImport.DropDownControl = this.popupLastSessions;
-			this.btnImport.Location = new System.Drawing.Point(12, 113);
+			this.btnImport.Location = new System.Drawing.Point(14, 139);
+			this.btnImport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnImport.Name = "btnImport";
-			this.btnImport.Size = new System.Drawing.Size(60, 25);
+			this.btnImport.Size = new System.Drawing.Size(70, 31);
 			this.btnImport.TabIndex = 5;
 			this.btnImport.Text = "Import";
 			this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
@@ -233,40 +239,45 @@
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-			this.barDockControlTop.Location = new System.Drawing.Point(0, 27);
+			this.barDockControlTop.Location = new System.Drawing.Point(0, 30);
 			this.barDockControlTop.Manager = this.barManager1;
-			this.barDockControlTop.Size = new System.Drawing.Size(1264, 0);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControlTop.Size = new System.Drawing.Size(1475, 0);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 746);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 918);
 			this.barDockControlBottom.Manager = this.barManager1;
-			this.barDockControlBottom.Size = new System.Drawing.Size(1264, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1475, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
 			this.barDockControlLeft.Manager = this.barManager1;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 719);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 888);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1264, 27);
+			this.barDockControlRight.Location = new System.Drawing.Point(1475, 30);
 			this.barDockControlRight.Manager = this.barManager1;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 719);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 888);
 			// 
 			// btnExport
 			// 
 			this.btnExport.AllowFocus = false;
-			this.btnExport.Location = new System.Drawing.Point(73, 113);
+			this.btnExport.Location = new System.Drawing.Point(85, 139);
+			this.btnExport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnExport.Name = "btnExport";
-			this.btnExport.Size = new System.Drawing.Size(48, 25);
+			this.btnExport.Size = new System.Drawing.Size(56, 31);
 			this.btnExport.TabIndex = 5;
 			this.btnExport.Text = "Export";
 			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -275,12 +286,14 @@
 			// 
 			this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
 			this.toolbarFormControl1.Manager = this.toolbarFormManager1;
+			this.toolbarFormControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.toolbarFormControl1.Name = "toolbarFormControl1";
-			this.toolbarFormControl1.Size = new System.Drawing.Size(1264, 27);
+			this.toolbarFormControl1.Size = new System.Drawing.Size(1475, 30);
 			this.toolbarFormControl1.TabIndex = 10;
 			this.toolbarFormControl1.TabStop = false;
-			this.toolbarFormControl1.TitleItemLinks.Add(this.biTheme);
-			this.toolbarFormControl1.TitleItemLinks.Add(this.barButtonItem1);
+			this.toolbarFormControl1.TitleItemLinks.Add(this.biGitHub);
+			this.toolbarFormControl1.TitleItemLinks.Add(this.biTwitter);
+			this.toolbarFormControl1.TitleItemLinks.Add(this.biUpdate);
 			this.toolbarFormControl1.ToolbarForm = this;
 			// 
 			// toolbarFormManager1
@@ -291,66 +304,85 @@
 			this.toolbarFormManager1.DockControls.Add(this.barDockControl4);
 			this.toolbarFormManager1.Form = this;
 			this.toolbarFormManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.biTheme,
-            this.barButtonItem1});
-			this.toolbarFormManager1.MaxItemId = 2;
+            this.biTwitter,
+            this.biGitHub,
+            this.biUpdate});
+			this.toolbarFormManager1.MaxItemId = 4;
 			// 
 			// barDockControl1
 			// 
 			this.barDockControl1.CausesValidation = false;
 			this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.barDockControl1.Location = new System.Drawing.Point(0, 27);
+			this.barDockControl1.Location = new System.Drawing.Point(0, 30);
 			this.barDockControl1.Manager = this.toolbarFormManager1;
-			this.barDockControl1.Size = new System.Drawing.Size(1264, 0);
+			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControl1.Size = new System.Drawing.Size(1475, 0);
 			// 
 			// barDockControl2
 			// 
 			this.barDockControl2.CausesValidation = false;
 			this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControl2.Location = new System.Drawing.Point(0, 746);
+			this.barDockControl2.Location = new System.Drawing.Point(0, 918);
 			this.barDockControl2.Manager = this.toolbarFormManager1;
-			this.barDockControl2.Size = new System.Drawing.Size(1264, 0);
+			this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControl2.Size = new System.Drawing.Size(1475, 0);
 			// 
 			// barDockControl3
 			// 
 			this.barDockControl3.CausesValidation = false;
 			this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControl3.Location = new System.Drawing.Point(0, 27);
+			this.barDockControl3.Location = new System.Drawing.Point(0, 30);
 			this.barDockControl3.Manager = this.toolbarFormManager1;
-			this.barDockControl3.Size = new System.Drawing.Size(0, 719);
+			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 888);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(1264, 27);
+			this.barDockControl4.Location = new System.Drawing.Point(1475, 30);
 			this.barDockControl4.Manager = this.toolbarFormManager1;
-			this.barDockControl4.Size = new System.Drawing.Size(0, 719);
+			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 888);
 			// 
-			// biTheme
+			// biTwitter
 			// 
-			this.biTheme.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-			this.biTheme.Id = 0;
-			this.biTheme.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("biTheme.ImageOptions.SvgImage")));
-			this.biTheme.Name = "biTheme";
-			this.biTheme.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+			this.biTwitter.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.biTwitter.Caption = "Follow @Waescher";
+			this.biTwitter.Id = 1;
+			this.biTwitter.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+			this.biTwitter.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Twitter;
+			this.biTwitter.Name = "biTwitter";
+			this.biTwitter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BiTwitter_ItemClick);
 			// 
-			// barButtonItem1
+			// biGitHub
 			// 
-			this.barButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-			this.barButtonItem1.Caption = "@Waescher";
-			this.barButtonItem1.Id = 1;
-			this.barButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-			this.barButtonItem1.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.Twitter;
-			this.barButtonItem1.Name = "barButtonItem1";
-			this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+			this.biGitHub.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.biGitHub.Caption = "Fork me on GitHub";
+			this.biGitHub.Id = 2;
+			this.biGitHub.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+			this.biGitHub.ImageOptions.SvgImage = global::FusionPlusPlus.Properties.Resources.GitHub;
+			this.biGitHub.Name = "biGitHub";
+			this.biGitHub.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BiGitHub_ItemClick);
+			// 
+			// biUpdate
+			// 
+			this.biUpdate.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.biUpdate.Caption = "Update available";
+			this.biUpdate.Id = 3;
+			this.biUpdate.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+			this.biUpdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("biUpdate.ImageOptions.SvgImage")));
+			this.biUpdate.Name = "biUpdate";
+			this.biUpdate.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+			this.biUpdate.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+			this.biUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BiUpdate_ItemClick);
 			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1264, 746);
+			this.ClientSize = new System.Drawing.Size(1475, 918);
 			this.Controls.Add(this.btnExport);
 			this.Controls.Add(this.btnImport);
 			this.Controls.Add(this.btnRecord);
@@ -413,8 +445,9 @@
 		private DevExpress.XtraBars.BarDockControl barDockControl2;
 		private DevExpress.XtraBars.BarDockControl barDockControl3;
 		private DevExpress.XtraBars.BarDockControl barDockControl4;
-		private DevExpress.XtraBars.BarButtonItem biTheme;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+		private DevExpress.XtraBars.BarButtonItem biTwitter;
+		private DevExpress.XtraBars.BarButtonItem biGitHub;
+		private DevExpress.XtraBars.BarButtonItem biUpdate;
 	}
 }
 
