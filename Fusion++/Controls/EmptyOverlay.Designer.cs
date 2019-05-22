@@ -59,8 +59,7 @@
 			this.linkCopyright.Name = "linkCopyright";
 			this.linkCopyright.Size = new System.Drawing.Size(1200, 50);
 			this.linkCopyright.TabIndex = 2;
-			this.linkCopyright.Text = "Icon made by Freepik from Flaticon is licensed by Creative Commons BY 3.0\r\nThanks" +
-    " mates ♥";
+			this.linkCopyright.Text = "Icons made by Freepik from Flaticon are licensed by Creative Commons BY 3.0\r\nThanks mates ♥";
 			this.linkCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.linkCopyright.Click += new System.EventHandler(this.linkCopyright_Click);
 			// 

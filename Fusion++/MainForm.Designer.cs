@@ -44,14 +44,13 @@
 			this.colAppName = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.btnRecord = new DevExpress.XtraEditors.SimpleButton();
-			this.btnImport = new DevExpress.XtraEditors.DropDownButton();
+			this.btnSession = new DevExpress.XtraEditors.DropDownButton();
 			this.popupLastSessions = new DevExpress.XtraBars.PopupMenu(this.components);
 			this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
 			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-			this.btnExport = new DevExpress.XtraEditors.SimpleButton();
 			this.toolbarFormControl1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
 			this.toolbarFormManager1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
 			this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -77,7 +76,7 @@
 			this.rangeData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.rangeData.Client = this.dateTimeChartRangeControlClient1;
-			this.rangeData.Location = new System.Drawing.Point(148, 49);
+			this.rangeData.Location = new System.Drawing.Point(140, 49);
 			this.rangeData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.rangeData.Name = "rangeData";
 			rangeControlRange1.Maximum = new System.DateTime(2018, 7, 5, 0, 0, 0, 0);
@@ -85,8 +84,8 @@
 			rangeControlRange1.Owner = this.rangeData;
 			this.rangeData.SelectedRange = rangeControlRange1;
 			this.rangeData.SelectionType = DevExpress.XtraEditors.RangeControlSelectionType.ThumbAndFlag;
-			this.rangeData.Size = new System.Drawing.Size(1312, 121);
-			this.rangeData.TabIndex = 2;
+			this.rangeData.Size = new System.Drawing.Size(1436, 121);
+			this.rangeData.TabIndex = 3;
 			this.rangeData.Text = "rangeControl1";
 			this.rangeData.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
 			this.rangeData.RangeChanged += new DevExpress.XtraEditors.RangeChangedEventHandler(this.rangeData_RangeChanged);
@@ -115,8 +114,8 @@
 			this.gridLog.MainView = this.viewLog;
 			this.gridLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridLog.Name = "gridLog";
-			this.gridLog.Size = new System.Drawing.Size(1447, 730);
-			this.gridLog.TabIndex = 0;
+			this.gridLog.Size = new System.Drawing.Size(1562, 807);
+			this.gridLog.TabIndex = 4;
 			this.gridLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewLog});
 			this.gridLog.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
@@ -202,24 +201,24 @@
 			this.btnRecord.Location = new System.Drawing.Point(14, 49);
 			this.btnRecord.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnRecord.Name = "btnRecord";
-			this.btnRecord.Size = new System.Drawing.Size(127, 89);
-			this.btnRecord.TabIndex = 5;
+			this.btnRecord.Size = new System.Drawing.Size(120, 87);
+			this.btnRecord.TabIndex = 0;
 			this.btnRecord.Text = "Record";
 			this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
 			// 
-			// btnImport
+			// btnSession
 			// 
-			this.btnImport.AllowFocus = false;
-			this.btnImport.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.SplitButton;
-			this.btnImport.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
-			this.btnImport.DropDownControl = this.popupLastSessions;
-			this.btnImport.Location = new System.Drawing.Point(14, 139);
-			this.btnImport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.btnImport.Name = "btnImport";
-			this.btnImport.Size = new System.Drawing.Size(70, 31);
-			this.btnImport.TabIndex = 5;
-			this.btnImport.Text = "Import";
-			this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+			this.btnSession.AllowFocus = false;
+			this.btnSession.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Show;
+			this.btnSession.DropDownButtonPadding = new System.Windows.Forms.Padding(-4, 0, -4, 0);
+			this.btnSession.DropDownControl = this.popupLastSessions;
+			this.btnSession.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+			this.btnSession.Location = new System.Drawing.Point(14, 139);
+			this.btnSession.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnSession.Name = "btnSession";
+			this.btnSession.Size = new System.Drawing.Size(120, 31);
+			this.btnSession.TabIndex = 1;
+			this.btnSession.Text = "Recent sessions";
 			// 
 			// popupLastSessions
 			// 
@@ -246,16 +245,16 @@
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 30);
 			this.barDockControlTop.Manager = this.barManager1;
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControlTop.Size = new System.Drawing.Size(1475, 0);
+			this.barDockControlTop.Size = new System.Drawing.Size(1590, 0);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 918);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 995);
 			this.barDockControlBottom.Manager = this.barManager1;
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControlBottom.Size = new System.Drawing.Size(1475, 0);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1590, 0);
 			// 
 			// barDockControlLeft
 			// 
@@ -264,27 +263,16 @@
 			this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
 			this.barDockControlLeft.Manager = this.barManager1;
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 888);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 965);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(1475, 30);
+			this.barDockControlRight.Location = new System.Drawing.Point(1590, 30);
 			this.barDockControlRight.Manager = this.barManager1;
 			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 888);
-			// 
-			// btnExport
-			// 
-			this.btnExport.AllowFocus = false;
-			this.btnExport.Location = new System.Drawing.Point(85, 139);
-			this.btnExport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.btnExport.Name = "btnExport";
-			this.btnExport.Size = new System.Drawing.Size(56, 31);
-			this.btnExport.TabIndex = 5;
-			this.btnExport.Text = "Export";
-			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 965);
 			// 
 			// toolbarFormControl1
 			// 
@@ -292,7 +280,7 @@
 			this.toolbarFormControl1.Manager = this.toolbarFormManager1;
 			this.toolbarFormControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.toolbarFormControl1.Name = "toolbarFormControl1";
-			this.toolbarFormControl1.Size = new System.Drawing.Size(1475, 30);
+			this.toolbarFormControl1.Size = new System.Drawing.Size(1590, 30);
 			this.toolbarFormControl1.TabIndex = 10;
 			this.toolbarFormControl1.TabStop = false;
 			this.toolbarFormControl1.TitleItemLinks.Add(this.biGitHub);
@@ -322,16 +310,16 @@
 			this.barDockControl1.Location = new System.Drawing.Point(0, 30);
 			this.barDockControl1.Manager = this.toolbarFormManager1;
 			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControl1.Size = new System.Drawing.Size(1475, 0);
+			this.barDockControl1.Size = new System.Drawing.Size(1590, 0);
 			// 
 			// barDockControl2
 			// 
 			this.barDockControl2.CausesValidation = false;
 			this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControl2.Location = new System.Drawing.Point(0, 918);
+			this.barDockControl2.Location = new System.Drawing.Point(0, 995);
 			this.barDockControl2.Manager = this.toolbarFormManager1;
 			this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControl2.Size = new System.Drawing.Size(1475, 0);
+			this.barDockControl2.Size = new System.Drawing.Size(1590, 0);
 			// 
 			// barDockControl3
 			// 
@@ -340,16 +328,16 @@
 			this.barDockControl3.Location = new System.Drawing.Point(0, 30);
 			this.barDockControl3.Manager = this.toolbarFormManager1;
 			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControl3.Size = new System.Drawing.Size(0, 888);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 965);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(1475, 30);
+			this.barDockControl4.Location = new System.Drawing.Point(1590, 30);
 			this.barDockControl4.Manager = this.toolbarFormManager1;
 			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.barDockControl4.Size = new System.Drawing.Size(0, 888);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 965);
 			// 
 			// biTwitter
 			// 
@@ -388,9 +376,8 @@
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1475, 918);
-			this.Controls.Add(this.btnExport);
-			this.Controls.Add(this.btnImport);
+			this.ClientSize = new System.Drawing.Size(1590, 995);
+			this.Controls.Add(this.btnSession);
 			this.Controls.Add(this.btnRecord);
 			this.Controls.Add(this.gridLog);
 			this.Controls.Add(this.rangeData);
@@ -437,8 +424,7 @@
 		private DevExpress.XtraEditors.RangeControl rangeData;
 		private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
 		private DevExpress.XtraEditors.SimpleButton btnRecord;
-		private DevExpress.XtraEditors.DropDownButton btnImport;
-		private DevExpress.XtraEditors.SimpleButton btnExport;
+		private DevExpress.XtraEditors.DropDownButton btnSession;
 		private DevExpress.XtraBars.PopupMenu popupLastSessions;
 		private DevExpress.XtraBars.BarManager barManager1;
 		private DevExpress.XtraBars.BarDockControl barDockControlTop;

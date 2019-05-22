@@ -121,7 +121,6 @@
     <Compile Include="ColorService.cs" />
     <Compile Include="FusionSession.cs" />
     <Compile Include="ILogStore.cs" />
-    <Compile Include="IO\DirectoryCloner.cs" />
     <Compile Include="ItemDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,7 +219,6 @@
     <Content Include="app.ico" />
     <None Include="Resources\GitHub.svg" />
     <None Include="Resources\Twitter.svg" />
-    <None Include="Resources\Stop.svg" />
     <None Include="Resources\Capture.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

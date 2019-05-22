@@ -173,9 +173,7 @@ namespace FusionPlusPlus
 			var hasData = _logs?.Any() ?? false;
 			gridLog.Visible = hasData;
 			rangeData.Visible = hasData;
-			btnImport.Enabled = true;
-			btnExport.Enabled = hasData && !string.IsNullOrEmpty(_lastLogPath);
-			btnExport.Tag = _lastLogPath;
+			btnSession.Enabled = true;
 		}
 
 		private void rangeData_RangeChanged(object sender, RangeControlRangeEventArgs range)
@@ -285,8 +283,7 @@ namespace FusionPlusPlus
 				_session = new FusionSession(_fusionService);
 				_session.Start();
 
-				btnImport.Enabled = false;
-				btnExport.Enabled = false;
+				btnSession.Enabled = false;
 			}
 			else
 			{
@@ -295,14 +292,6 @@ namespace FusionPlusPlus
 				_session = null;
 
 			}
-
-			btnRecord.Text = _session == null ? "Record" : "Stop";
-			btnRecord.ImageOptions.SvgImage = _session == null ? Properties.Resources.Capture : Properties.Resources.Stop;
-		}
-
-		private async void btnImport_Click(object sender, EventArgs e)
-		{
-			await ImportWithDirectoryDialogAsync();
 		}
 
 		private async Task ImportWithDirectoryDialogAsync()
@@ -319,20 +308,6 @@ namespace FusionPlusPlus
 		{
 			_lastUsedFilePath = directory;
 			await LoadLogsAsync(directory);
-		}
-
-		private void btnExport_Click(object sender, EventArgs e)
-		{
-			var currentPath = btnExport.Tag.ToString();
-
-			if (!Directory.Exists(currentPath))
-				return;
-
-			using (var dialog = new FolderBrowserDialog())
-			{
-				if (dialog.ShowDialog() == DialogResult.OK)
-					DirectoryCloner.Clone(currentPath, dialog.SelectedPath);
-			}
 		}
 
 		private async Task CheckForUpdatesAsync()
@@ -377,10 +352,27 @@ namespace FusionPlusPlus
 			var store = new TemporaryLogStore();
 			var topLevelPath = store.TopLevelPath;
 
-			if (!Directory.Exists(topLevelPath))
-				return;
+			string[] sessionPaths = null;
 
-			foreach (var sessionPath in Directory.GetDirectories(topLevelPath).OrderByDescending(dir => dir))
+			if (Directory.Exists(topLevelPath))
+			{
+				sessionPaths = Directory
+					.GetDirectories(topLevelPath)
+					.OrderByDescending(dir => dir)
+					.Take(20) // limit to max to keep the menu fast
+					.ToArray();
+			}
+
+			if ((sessionPaths?.Length ?? 0) == 0)
+			{
+				var button = new BarButtonItem();
+				button.Caption = "(no sessions yet)";
+				button.Enabled = false;
+				popupLastSessions.AddItem(button);
+				return;
+			}
+
+			foreach (var sessionPath in sessionPaths)
 			{
 				var button = new BarButtonItem();
 				button.Caption = store.GetLogName(sessionPath);
@@ -391,10 +383,15 @@ namespace FusionPlusPlus
 			if (popupLastSessions.ItemLinks.Count > 0)
 			{
 				var topLevelButton = new BarButtonItem();
-				topLevelButton.Caption = "Locate logs";
+				topLevelButton.Caption = "Show in Windows Explorer";
 				topLevelButton.ItemClick += (s, e) => Process.Start(topLevelPath);
 				popupLastSessions.AddItem(topLevelButton).BeginGroup = true;
 			}
+
+			var importButton = new BarButtonItem();
+			importButton.Caption = "Import from folder";
+			importButton.ItemClick += async (s, e) => await ImportWithDirectoryDialogAsync();
+			popupLastSessions.AddItem(importButton).BeginGroup = true;
 		}
 
 		private void BiGitHub_ItemClick(object sender, ItemClickEventArgs e)
