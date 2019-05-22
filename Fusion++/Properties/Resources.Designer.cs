@@ -79,17 +79,7 @@ namespace FusionPlusPlus.Properties {
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
-        /// </summary>
-        internal static DevExpress.Utils.Svg.SvgImage Stop {
-            get {
-                object obj = ResourceManager.GetObject("Stop", resourceCulture);
-                return ((DevExpress.Utils.Svg.SvgImage)(obj));
-            }
-        }
-        
+                
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
