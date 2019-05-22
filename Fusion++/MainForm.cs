@@ -252,7 +252,7 @@ namespace FusionPlusPlus
 
 		private void ShowDetailForm(AggregateLogItem item)
 		{
-			const int FORM_Y_OFFSET = 30;
+			const int FORM_Y_OFFSET = 5;
 
 			if (_detailForm == null)
 				_detailForm = new ItemDetailForm();
@@ -261,9 +261,12 @@ namespace FusionPlusPlus
 				this.Left + ((this.Width - _detailForm.Width) / 2),
 				this.Top + FORM_Y_OFFSET,
 				Math.Max(_detailForm.Width, this.Width / 2),
-				this.Height - FORM_Y_OFFSET);
+				this.Height - FORM_Y_OFFSET * 2);
 
 			_detailForm.Item = item;
+			_detailForm.FormBorderEffect = FormBorderEffect.Glow;
+			_detailForm.InactiveGlowColor = ColorService.GetColor(item.AccumulatedState);
+			_detailForm.ActiveGlowColor = _detailForm.InactiveGlowColor;
 
 			_detailForm.ShowDialog(this);
 		}

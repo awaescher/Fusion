@@ -14,9 +14,9 @@ namespace FusionPlusPlus.Syntax
 	{
 		readonly Document document;
 		readonly SyntaxHighlightProperties defaultSettings = new SyntaxHighlightProperties() { ForeColor = Color.White };
-		readonly SyntaxHighlightProperties infoKeywordSettings = new SyntaxHighlightProperties() { ForeColor = Color.SkyBlue };
-		readonly SyntaxHighlightProperties warningKeywordSettings = new SyntaxHighlightProperties() { ForeColor = Color.Orange };
-		readonly SyntaxHighlightProperties errorKeywordSettings = new SyntaxHighlightProperties() { ForeColor = Color.Red };
+		readonly SyntaxHighlightProperties infoKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Information) };
+		readonly SyntaxHighlightProperties warningKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Warning) };
+		readonly SyntaxHighlightProperties errorKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Error) };
 		readonly SyntaxHighlightProperties commentSettings = new SyntaxHighlightProperties() { ForeColor = Color.LimeGreen };
 
 		readonly string[] infoKeywords = new string[] { "LOG" };
@@ -31,21 +31,11 @@ namespace FusionPlusPlus.Syntax
 		private List<SyntaxHighlightToken> ParseTokens()
 		{
 			var tokens = new List<SyntaxHighlightToken>();
-			DocumentRange[] ranges;
 
-			var enclosingAsterisksRegex = @"\*\*\*.*\*\*\*";
-			var enclosingEqualSignsRegex = @"===.*===";
-			var equalSignsRegex = @"===";
-			var minusesRegex = @"---";
-
-			var regex = new Regex($"({string.Join("|", enclosingAsterisksRegex,	enclosingEqualSignsRegex, equalSignsRegex, minusesRegex)})", RegexOptions.CultureInvariant);
-			ranges = document.FindAll(regex);
-			for (int i = 0; i < ranges.Length; i++)
-				tokens.Add(new SyntaxHighlightToken(ranges[i].Start.ToInt(), ranges[i].End.ToInt() - ranges[i].Start.ToInt(), commentSettings));
-
-			AddKeyWords(tokens, infoKeywords, infoKeywordSettings);
-			AddKeyWords(tokens, warningKeywords, warningKeywordSettings);
-			AddKeyWords(tokens, errorKeywords, errorKeywordSettings);
+			AddTokensByRegexPattern(tokens, @"(\*\*\*|===|---).*", commentSettings);
+			AddTokensByRegexPattern(tokens, "LOG:.*", infoKeywordSettings);
+			AddTokensByRegexPattern(tokens, "WRN:.*", warningKeywordSettings);
+			AddTokensByRegexPattern(tokens, "(ERR:|The operation failed|Fehler bei diesem Vorgang).*", errorKeywordSettings);
 
 			// order tokens by their start position
 			tokens.Sort(new SyntaxHighlightTokenComparer());
@@ -56,18 +46,12 @@ namespace FusionPlusPlus.Syntax
 			return tokens;
 		}
 
-		private void AddKeyWords(List<SyntaxHighlightToken> tokens, string[] keywords, SyntaxHighlightProperties keywordSettings)
+		private void AddTokensByRegexPattern(List<SyntaxHighlightToken> tokens, string regexPattern, SyntaxHighlightProperties settings)
 		{
-			for (int i = 0; i < keywords.Length; i++)
-			{
-				var ranges = document.FindAll(keywords[i], SearchOptions.WholeWord);
-
-				for (int j = 0; j < ranges.Length; j++)
-				{
-					if (!IsRangeInTokens(ranges[j], tokens))
-						tokens.Add(new SyntaxHighlightToken(ranges[j].Start.ToInt(), ranges[j].Length, keywordSettings));
-				}
-			}
+			var regex = new Regex(regexPattern, RegexOptions.CultureInvariant);
+			var ranges = document.FindAll(regex);
+			for (int i = 0; i < ranges.Length; i++)
+				tokens.Add(new SyntaxHighlightToken(ranges[i].Start.ToInt(), ranges[i].End.ToInt() - ranges[i].Start.ToInt(), settings));
 		}
 
 		private void AddPlainTextTokens(List<SyntaxHighlightToken> tokens)

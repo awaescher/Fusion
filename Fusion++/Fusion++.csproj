@@ -118,6 +118,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorService.cs" />
     <Compile Include="FusionSession.cs" />
     <Compile Include="ILogStore.cs" />
     <Compile Include="IO\DirectoryCloner.cs" />

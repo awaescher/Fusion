@@ -35,9 +35,11 @@
 			// richLog
 			// 
 			this.richLog.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft;
+			this.richLog.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.richLog.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.richLog.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
 			this.richLog.Location = new System.Drawing.Point(0, 0);
+			this.richLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.richLog.Name = "richLog";
 			this.richLog.Options.AutoCorrect.ReplaceTextAsYouType = false;
 			this.richLog.Options.Behavior.CreateNew = DevExpress.XtraRichEdit.DocumentCapability.Hidden;
@@ -68,7 +70,8 @@
 			this.richLog.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
 			this.richLog.Options.SpellChecker.AutoDetectDocumentCulture = false;
 			this.richLog.Options.VerticalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
-			this.richLog.Size = new System.Drawing.Size(933, 554);
+			this.richLog.ReadOnly = true;
+			this.richLog.Size = new System.Drawing.Size(800, 450);
 			this.richLog.TabIndex = 0;
 			this.richLog.Views.DraftView.AdjustColorsToSkins = true;
 			this.richLog.Views.DraftView.AllowDisplayLineNumbers = true;
@@ -77,13 +80,12 @@
 			// 
 			// ItemDetailForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(933, 554);
+			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.richLog);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
-			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "ItemDetailForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "Detail";
