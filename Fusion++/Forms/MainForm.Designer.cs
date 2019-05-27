@@ -1,4 +1,4 @@
-﻿namespace FusionPlusPlus
+﻿namespace FusionPlusPlus.Forms
 {
 	partial class MainForm
 	{

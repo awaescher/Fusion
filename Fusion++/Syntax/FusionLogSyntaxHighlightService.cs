@@ -1,12 +1,10 @@
 ﻿using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraRichEdit.Services;
-using System;
+using FusionPlusPlus.Helper;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace FusionPlusPlus.Syntax
 {

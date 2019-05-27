@@ -1,7 +1,6 @@
 ﻿using DevExpress.LookAndFeel;
-
+using FusionPlusPlus.Forms;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace FusionPlusPlus

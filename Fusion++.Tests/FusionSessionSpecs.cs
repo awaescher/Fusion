@@ -3,7 +3,8 @@ using FusionPlusPlus.Parser;
 using NUnit.Framework;
 using FluentAssertions;
 using System;
-using FusionPlusPlus.Services;
+using FusionPlusPlus.Fusion;
+using FusionPlusPlus.IO;
 
 namespace FusionPlusPlus.Tests
 {

@@ -1,10 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using System;
+using FusionPlusPlus.Fusion;
 using FusionPlusPlus.IO;
 using FusionPlusPlus.Model;
 using FusionPlusPlus.Parser;
-using FusionPlusPlus.Services;
-using DevExpress.XtraGrid.Columns;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +16,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using TinySoup.Model;
 using TinySoup;
-using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.ToolbarForm;
+using FusionPlusPlus.Helper;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Forms
 {
 	public partial class MainForm : ToolbarForm
 	{
@@ -253,7 +252,13 @@ namespace FusionPlusPlus
 			const int FORM_Y_OFFSET = 5;
 
 			if (_detailForm == null)
-				_detailForm = new ItemDetailForm();
+			{
+				using (var hint = HintForm.Show(this, "Initializing Editor ..."))
+				{
+					_detailForm = new ItemDetailForm();
+					hint.Close();
+				}
+			}
 
 			_detailForm.Bounds = new Rectangle(
 				this.Left + ((this.Width - _detailForm.Width) / 2),

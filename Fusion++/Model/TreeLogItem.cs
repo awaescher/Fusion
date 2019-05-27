@@ -1,5 +1,4 @@
-﻿using FusionPlusPlus.Model;
-using System;
+﻿using System;
 
 namespace FusionPlusPlus.Model
 {

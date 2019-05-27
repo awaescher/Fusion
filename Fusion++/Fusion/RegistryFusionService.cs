@@ -2,7 +2,7 @@
 using Microsoft.Win32;
 using System;
 
-namespace FusionPlusPlus.Services
+namespace FusionPlusPlus.Fusion
 {
 	internal class RegistryFusionService : IFusionService
 	{

@@ -1,9 +1,4 @@
-﻿using FusionPlusPlus.Model;
-using FusionPlusPlus.Parser;
-using System;
-using FusionPlusPlus.Services;
-
-namespace FusionPlusPlus
+﻿namespace FusionPlusPlus.IO
 {
 	internal class TransparentLogStore : ILogStore
 	{

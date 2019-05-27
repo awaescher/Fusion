@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.Forms
 {
 	public partial class ItemDetailForm : XtraForm
 	{

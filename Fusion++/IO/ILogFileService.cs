@@ -1,6 +1,6 @@
 ﻿using FusionPlusPlus.Model;
 
-namespace FusionPlusPlus.Services
+namespace FusionPlusPlus.IO
 {
 	internal interface ILogFileService
 	{

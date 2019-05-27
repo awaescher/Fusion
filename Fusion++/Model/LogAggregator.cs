@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FusionPlusPlus.Model;
 
-namespace FusionPlusPlus.Services
+namespace FusionPlusPlus.Model
 {
 	internal class LogAggregator
 	{

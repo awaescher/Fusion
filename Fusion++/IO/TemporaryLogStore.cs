@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FusionPlusPlus
+namespace FusionPlusPlus.IO
 {
 	internal class TemporaryLogStore : ILogStore
 	{
