@@ -11,7 +11,7 @@ Did you ever **forget to disable the log again** and wondered why every .NET app
 
 ## Introducing Fusion++
 
-![Fusion++](_doc/Fusion++.png)
+![Fusion++](_doc/Fusion++NoDetail.png)
 
 ### Forget all the setup upfront - just hit "Record" to capture your assembly logs. If you are done, click "Stop" again. That's it.
 
