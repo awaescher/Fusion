@@ -67,6 +67,18 @@ namespace FusionPlusPlus.Forms
 			ItemNavigator.MoveNext();
 		}
 
+		private void UpdateGlowColor()
+		{
+			var glowColor = ColorService.GetColor(_item?.AccumulatedState ?? LogItem.State.Information);
+
+			if (glowColor != ActiveGlowColor)
+			{
+				FormBorderEffect = FormBorderEffect.None;
+				ActiveGlowColor = InactiveGlowColor = glowColor;
+				FormBorderEffect = FormBorderEffect.Glow;
+			}
+		}
+
 		public AggregateLogItem Item
 		{
 			get => _item;
@@ -86,7 +98,7 @@ namespace FusionPlusPlus.Forms
 					Text = "";
 				}
 
-				ActiveGlowColor = InactiveGlowColor = ColorService.GetColor(_item?.AccumulatedState ?? LogItem.State.Information);
+				UpdateGlowColor();
 			}
 		}
 

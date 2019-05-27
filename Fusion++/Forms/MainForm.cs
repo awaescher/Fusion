@@ -269,7 +269,6 @@ namespace FusionPlusPlus.Forms
 				using (var hint = HintForm.Show(this, "Initializing Editor ..."))
 				{
 					_detailForm = new ItemDetailForm();
-					_detailForm.FormBorderEffect = FormBorderEffect.Glow;
 					hint.Close();
 				}
 			}
