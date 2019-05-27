@@ -21,7 +21,7 @@ using FusionPlusPlus.Helper;
 
 namespace FusionPlusPlus.Forms
 {
-	public partial class MainForm : ToolbarForm
+	public partial class MainForm : ToolbarForm, ILogItemNavigator
 	{
 		private bool _loading = false;
 		private LogFileParser _parser;
@@ -218,6 +218,19 @@ namespace FusionPlusPlus.Forms
 			}
 		}
 
+
+		private void ViewLog_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Return)
+			{
+				if (viewLog.IsDataRow(viewLog.FocusedRowHandle))
+				{
+					var item = (AggregateLogItem)viewLog.GetFocusedRow();
+					ShowDetailForm(item);
+				}
+			}
+		}
+
 		private void ViewLog_CustomScrollAnnotation(object sender, DevExpress.XtraGrid.Views.Grid.GridCustomScrollAnnotationsEventArgs e)
 		{
 			if (e.Annotations == null)
@@ -256,6 +269,7 @@ namespace FusionPlusPlus.Forms
 				using (var hint = HintForm.Show(this, "Initializing Editor ..."))
 				{
 					_detailForm = new ItemDetailForm();
+					_detailForm.FormBorderEffect = FormBorderEffect.Glow;
 					hint.Close();
 				}
 			}
@@ -267,9 +281,7 @@ namespace FusionPlusPlus.Forms
 				this.Height - FORM_Y_OFFSET * 2);
 
 			_detailForm.Item = item;
-			_detailForm.FormBorderEffect = FormBorderEffect.Glow;
-			_detailForm.InactiveGlowColor = ColorService.GetColor(item.AccumulatedState);
-			_detailForm.ActiveGlowColor = _detailForm.InactiveGlowColor;
+			_detailForm.ItemNavigator = this;
 
 			_detailForm.ShowDialog(this);
 		}
@@ -419,6 +431,22 @@ namespace FusionPlusPlus.Forms
 		private void Navigate(string url)
 		{
 			Process.Start(url);
+		}
+
+		public void MovePrevious()
+		{
+			viewLog.MovePrev();
+
+			if (viewLog.GetFocusedRow() is AggregateLogItem item && item != _detailForm?.Item)
+				_detailForm.Item = item;
+		}
+
+		public void MoveNext()
+		{
+			viewLog.MoveNext();
+
+			if (viewLog.GetFocusedRow() is AggregateLogItem item && item != _detailForm?.Item)
+				_detailForm.Item = item;
 		}
 
 		private class RangeDatasourceItem

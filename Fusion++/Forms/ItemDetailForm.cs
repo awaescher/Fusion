@@ -1,6 +1,8 @@
 ﻿using DevExpress.Office.Utils;
+using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Services;
+using FusionPlusPlus.Helper;
 using FusionPlusPlus.Model;
 using FusionPlusPlus.Syntax;
 using System;
@@ -11,24 +13,20 @@ using System.Windows.Forms;
 
 namespace FusionPlusPlus.Forms
 {
-	public partial class ItemDetailForm : XtraForm
+	public partial class ItemDetailForm : ToolbarForm
 	{
+		private AggregateLogItem _item;
+
 		public ItemDetailForm()
 		{
 			InitializeComponent();
 			richLog.ReplaceService<ISyntaxHighlightService>(new FusionLogSyntaxHighlightService(richLog.Document));
 		}
-		
+
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
 
-			if (Item != null)
-			{
-				var itemBreak = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
-				richLog.Text = string.Join(itemBreak, Item.Items.Select(i => i.FullMessage));
-				Text = Item.ShortAssemblyName;
-			}
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)
@@ -39,7 +37,6 @@ namespace FusionPlusPlus.Forms
 				this.Close();
 		}
 
-		public AggregateLogItem Item { get; set; }
 
 		private void RichLog_InitializeDocument(object sender, EventArgs e)
 		{
@@ -59,5 +56,40 @@ namespace FusionPlusPlus.Forms
 				document.EndUpdate();
 			}
 		}
+
+		private void BiPrevious_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			ItemNavigator.MovePrevious();
+		}
+
+		private void BiNext_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			ItemNavigator.MoveNext();
+		}
+
+		public AggregateLogItem Item
+		{
+			get => _item;
+			set
+			{
+				_item = value;
+
+				if (_item != null)
+				{
+					var itemBreak = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+					richLog.Text = string.Join(itemBreak, _item.Items.Select(i => i.FullMessage));
+					Text = _item.ShortAssemblyName;
+				}
+				else
+				{
+					richLog.Text = "";
+					Text = "";
+				}
+
+				ActiveGlowColor = InactiveGlowColor = ColorService.GetColor(_item?.AccumulatedState ?? LogItem.State.Information);
+			}
+		}
+
+		public ILogItemNavigator ItemNavigator { get; set; }
 	}
 }

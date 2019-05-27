@@ -123,6 +123,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Fusion\FusionSession.cs" />
+    <Compile Include="Helper\ILogItemNavigator.cs" />
     <Compile Include="IO\ILogStore.cs" />
     <Compile Include="Forms\ItemDetailForm.cs">
       <SubType>Form</SubType>

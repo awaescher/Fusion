@@ -160,6 +160,7 @@
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colTimeStamp, DevExpress.Data.ColumnSortOrder.Ascending)});
 			this.viewLog.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.viewLog_RowClick);
 			this.viewLog.CustomScrollAnnotation += new System.EventHandler<DevExpress.XtraGrid.Views.Grid.GridCustomScrollAnnotationsEventArgs>(this.ViewLog_CustomScrollAnnotation);
+			this.viewLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ViewLog_KeyDown);
 			// 
 			// colTimeStamp
 			// 
