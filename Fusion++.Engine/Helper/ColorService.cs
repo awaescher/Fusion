@@ -1,7 +1,7 @@
-﻿using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.Model;
 using System.Drawing;
 
-namespace FusionPlusPlus.Helper
+namespace FusionPlusPlus.Engine.Helper
 {
 	public class ColorService
 	{

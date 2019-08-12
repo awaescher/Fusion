@@ -1,10 +1,10 @@
-﻿using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.IO;
+using FusionPlusPlus.Engine.Model;
 using System;
 
-namespace FusionPlusPlus.Fusion
+namespace FusionPlusPlus.Engine.Fusion
 {
-	internal class FusionSession
+	public class FusionSession
 	{
 		private bool _priorSettingImmerisve;
 		private string _priorSettingLogPath;

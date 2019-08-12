@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace FusionPlusPlus.IO
+namespace FusionPlusPlus.Engine.IO
 {
-	internal class TemporaryLogStore : ILogStore
+	public class TemporaryLogStore : ILogStore
 	{
 		private const string UTC_DATE_FORMAT = "yyyy.MM.dd.HH.mm.ss.ffff";
 

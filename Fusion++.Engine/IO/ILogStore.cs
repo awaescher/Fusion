@@ -1,7 +1,7 @@
-﻿namespace FusionPlusPlus.IO
+﻿namespace FusionPlusPlus.Engine.IO
 {
 
-	internal interface ILogStore
+	public interface ILogStore
 	{
 		void Prepare();
 

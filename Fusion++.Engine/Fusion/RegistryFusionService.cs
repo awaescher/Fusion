@@ -1,10 +1,10 @@
-﻿using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.Model;
 using Microsoft.Win32;
 using System;
 
-namespace FusionPlusPlus.Fusion
+namespace FusionPlusPlus.Engine.Fusion
 {
-	internal class RegistryFusionService : IFusionService
+	public class RegistryFusionService : IFusionService
 	{
 		private const string FUSION_REGISTRY_PATH = @"SOFTWARE\Microsoft\Fusion";
 

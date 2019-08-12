@@ -102,9 +102,18 @@
     <Reference Include="DevExpress.XtraWizard.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpress.Win.19.1.3\lib\net452\DevExpress.XtraWizard.v19.1.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -118,13 +127,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\ColorService.cs" />
     <Compile Include="Forms\HintForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fusion\FusionSession.cs" />
-    <Compile Include="Helper\ILogItemNavigator.cs" />
-    <Compile Include="IO\ILogStore.cs" />
     <Compile Include="Forms\ItemDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,33 +154,16 @@
     <Compile Include="Controls\LoadingOverlay.Designer.cs">
       <DependentUpon>LoadingOverlay.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO\FileReader.cs" />
-    <Compile Include="IO\IFileReader.cs" />
-    <Compile Include="Model\AggregateLogItem.cs" />
-    <Compile Include="Model\LogAggregator.cs" />
-    <Compile Include="Fusion\IFusionService.cs" />
-    <Compile Include="IO\ILogFileService.cs" />
-    <Compile Include="Model\LogItem.cs" />
-    <Compile Include="Parser\LogFileParser.cs" />
-    <Compile Include="IO\LogFileService.cs" />
-    <Compile Include="Model\LogMode.cs" />
-    <Compile Include="Model\LogSource.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parser\LogItemParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\LogTreeBuilder.cs" />
-    <Compile Include="Fusion\RegistryFusionService.cs" />
-    <Compile Include="Model\TreeLogItem.cs" />
     <Compile Include="Syntax\FusionLogSyntaxHighlightService.cs" />
-    <Compile Include="IO\TemporaryLogStore.cs" />
     <Compile Include="TinySoup.cs" />
-    <Compile Include="IO\TransparentLogStore.cs" />
     <EmbeddedResource Include="Forms\ItemDetailForm.resx">
       <DependentUpon>ItemDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +212,12 @@
     <None Include="Resources\GitHub.svg" />
     <None Include="Resources\Twitter.svg" />
     <None Include="Resources\Capture.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fusion++.Engine\Fusion++.Engine.csproj">
+      <Project>{3e6295af-98d2-4266-9415-5b222b685d59}</Project>
+      <Name>Fusion++.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

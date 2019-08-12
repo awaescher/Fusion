@@ -2,8 +2,8 @@
 using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Services;
-using FusionPlusPlus.Helper;
-using FusionPlusPlus.Model;
+using FusionPlusPlus.Engine.Helper;
+using FusionPlusPlus.Engine.Model;
 using FusionPlusPlus.Syntax;
 using System;
 using System.Data;

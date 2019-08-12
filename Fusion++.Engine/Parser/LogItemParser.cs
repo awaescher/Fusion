@@ -1,12 +1,12 @@
-﻿using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.Model;
 using System;
 using System.Text.RegularExpressions;
 
-namespace FusionPlusPlus.Parser
+namespace FusionPlusPlus.Engine.Parser
 {
-	internal class LogItemParser
+	public class LogItemParser
 	{
-		internal LogItem Parse(string value)
+		public LogItem Parse(string value)
 		{
 			value = value.Trim(new char[] { '\r', '\n' });
 

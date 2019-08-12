@@ -1,4 +1,4 @@
-﻿namespace FusionPlusPlus.Model
+﻿namespace FusionPlusPlus.Engine.Model
 {
 	public enum LogSource
 	{

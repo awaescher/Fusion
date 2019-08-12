@@ -1,9 +1,9 @@
-﻿using FusionPlusPlus.Model;
-using FusionPlusPlus.Parser;
+﻿using FusionPlusPlus.Engine.Model;
+using FusionPlusPlus.Engine.Parser;
 using NUnit.Framework;
 using FluentAssertions;
 using System;
-using FusionPlusPlus.Fusion;
+using FusionPlusPlus.Engine.Fusion;
 
 namespace FusionPlusPlus.Tests
 {

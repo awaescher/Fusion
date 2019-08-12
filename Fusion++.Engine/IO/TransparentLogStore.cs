@@ -1,6 +1,6 @@
-﻿namespace FusionPlusPlus.IO
+﻿namespace FusionPlusPlus.Engine.IO
 {
-	internal class TransparentLogStore : ILogStore
+	public class TransparentLogStore : ILogStore
 	{
 		public TransparentLogStore(string path)
 		{

@@ -1,5 +1,5 @@
-﻿using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.IO;
+using FusionPlusPlus.Engine.Model;
 
 namespace FusionPlusPlus.Tests
 {

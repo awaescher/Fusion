@@ -1,9 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using FusionPlusPlus.Fusion;
-using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
-using FusionPlusPlus.Parser;
+using FusionPlusPlus.Engine.Fusion;
+using FusionPlusPlus.Engine.IO;
+using FusionPlusPlus.Engine.Model;
+using FusionPlusPlus.Engine.Parser;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 using TinySoup.Model;
 using TinySoup;
 using DevExpress.XtraBars.ToolbarForm;
-using FusionPlusPlus.Helper;
+using FusionPlusPlus.Engine.Helper;
 
 namespace FusionPlusPlus.Forms
 {
