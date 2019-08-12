@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using FusionPlusPlus.Model;
+using FusionPlusPlus.Engine.Model;
 
-namespace FusionPlusPlus.Model
+namespace FusionPlusPlus.Engine.Model
 {
 	[System.Diagnostics.DebuggerDisplay("{DisplayName}; ItemCount: {Items.Count}")]
 	public class AggregateLogItem

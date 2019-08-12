@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FusionPlusPlus.Model
+namespace FusionPlusPlus.Engine.Model
 {
 	[System.Diagnostics.DebuggerDisplay("{DisplayName}")]
 	public class LogItem

@@ -1,11 +1,11 @@
-﻿using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.IO;
+using FusionPlusPlus.Engine.Model;
 using System;
 using System.IO;
 
-namespace FusionPlusPlus.IO
+namespace FusionPlusPlus.Engine.IO
 {
-	internal class LogFileService : ILogFileService
+	public class LogFileService : ILogFileService
 	{
 		public LogFileService(ILogStore store)
 		{

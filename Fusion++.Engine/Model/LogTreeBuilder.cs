@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FusionPlusPlus.Model
+namespace FusionPlusPlus.Engine.Model
 {
-	internal class LogTreeBuilder
+	public class LogTreeBuilder
 	{
 		public List<TreeLogItem> Build(List<AggregateLogItem> logItems)
 		{

@@ -132,13 +132,13 @@
 			gridFormatRule1.Name = "Highlight Warnings";
 			formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
 			formatConditionRuleValue1.PredefinedName = "Yellow Fill, Yellow Text";
-			formatConditionRuleValue1.Value1 = FusionPlusPlus.Model.LogItem.State.Warning;
+			formatConditionRuleValue1.Value1 = FusionPlusPlus.Engine.Model.LogItem.State.Warning;
 			gridFormatRule1.Rule = formatConditionRuleValue1;
 			gridFormatRule2.Column = this.colState;
 			gridFormatRule2.Name = "Highlight Errors";
 			formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
 			formatConditionRuleValue2.PredefinedName = "Red Fill, Red Text";
-			formatConditionRuleValue2.Value1 = FusionPlusPlus.Model.LogItem.State.Error;
+			formatConditionRuleValue2.Value1 = FusionPlusPlus.Engine.Model.LogItem.State.Error;
 			gridFormatRule2.Rule = formatConditionRuleValue2;
 			this.viewLog.FormatRules.Add(gridFormatRule1);
 			this.viewLog.FormatRules.Add(gridFormatRule2);

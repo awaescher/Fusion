@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraRichEdit.Services;
-using FusionPlusPlus.Helper;
+using FusionPlusPlus.Engine.Helper;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,9 +12,9 @@ namespace FusionPlusPlus.Syntax
 	{
 		readonly Document document;
 		readonly SyntaxHighlightProperties defaultSettings = new SyntaxHighlightProperties() { ForeColor = Color.White };
-		readonly SyntaxHighlightProperties infoKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Information) };
-		readonly SyntaxHighlightProperties warningKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Warning) };
-		readonly SyntaxHighlightProperties errorKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Model.LogItem.State.Error) };
+		readonly SyntaxHighlightProperties infoKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Engine.Model.LogItem.State.Information) };
+		readonly SyntaxHighlightProperties warningKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Engine.Model.LogItem.State.Warning) };
+		readonly SyntaxHighlightProperties errorKeywordSettings = new SyntaxHighlightProperties() { ForeColor = ColorService.GetColor(Engine.Model.LogItem.State.Error) };
 		readonly SyntaxHighlightProperties commentSettings = new SyntaxHighlightProperties() { ForeColor = Color.LimeGreen };
 
 		readonly string[] infoKeywords = new string[] { "LOG" };

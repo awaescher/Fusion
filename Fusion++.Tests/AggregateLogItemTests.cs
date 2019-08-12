@@ -1,5 +1,5 @@
-﻿using FusionPlusPlus.Model;
-using FusionPlusPlus.Parser;
+﻿using FusionPlusPlus.Engine.Model;
+using FusionPlusPlus.Engine.Parser;
 using NUnit.Framework;
 using FluentAssertions;
 using System;

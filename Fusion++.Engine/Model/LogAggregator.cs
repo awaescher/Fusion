@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace FusionPlusPlus.Model
+namespace FusionPlusPlus.Engine.Model
 {
-	internal class LogAggregator
+	public class LogAggregator
 	{
-		internal List<AggregateLogItem> Aggregate(List<LogItem> logs)
+		public List<AggregateLogItem> Aggregate(List<LogItem> logs)
 		{
 			var result = new List<AggregateLogItem>();
 

@@ -1,5 +1,5 @@
-﻿using FusionPlusPlus.IO;
-using FusionPlusPlus.Model;
+﻿using FusionPlusPlus.Engine.IO;
+using FusionPlusPlus.Engine.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,9 +8,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FusionPlusPlus.Parser
+namespace FusionPlusPlus.Engine.Parser
 {
-	internal class LogFileParser
+	public class LogFileParser
 	{
 		private int _current;
 		private int _total;
@@ -23,7 +23,7 @@ namespace FusionPlusPlus.Parser
 			FileService = fileService;
 		}
 
-		internal async Task<List<LogItem>> ParseAsync()
+		public async Task<List<LogItem>> ParseAsync()
 		{
 			var defaultFiles = FileService.Get(LogSource.Default);
 			var nativeImageFiles = FileService.Get(LogSource.NativeImage);
