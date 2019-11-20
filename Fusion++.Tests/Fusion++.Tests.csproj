@@ -80,7 +80,7 @@
       <Project>{3e6295af-98d2-4266-9415-5b222b685d59}</Project>
       <Name>Fusion++.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fusion++\Fusion++.csproj">
+    <ProjectReference Include="..\Fusion++.FullFramework\Fusion++.FullFramework.csproj">
       <Project>{a82f3b70-b2e4-4ea5-a2df-77751a9816c6}</Project>
       <Name>Fusion++</Name>
     </ProjectReference>

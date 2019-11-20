@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -35,9 +28,12 @@ namespace FusionPlusPlus.Controls
 			Parent.Controls.Remove(this);
 		}
 
-        private void linkCopyright_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://www.flaticon.com/free-icon/hills_119582");
-        }
-    }
+		private void linkCopyright_Click(object sender, EventArgs e)
+		{
+			Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icon/hills_119582")
+			{
+				UseShellExecute = true
+			});
+		}
+	}
 }

@@ -218,7 +218,6 @@ namespace FusionPlusPlus.Forms
 			}
 		}
 
-
 		private void ViewLog_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Return)
@@ -400,7 +399,7 @@ namespace FusionPlusPlus.Forms
 			{
 				var topLevelButton = new BarButtonItem();
 				topLevelButton.Caption = "Show in Windows Explorer";
-				topLevelButton.ItemClick += (s, e) => Process.Start(topLevelPath);
+				topLevelButton.ItemClick += (s, e) => Process.Start("explorer.exe", topLevelPath);
 				popupLastSessions.AddItem(topLevelButton).BeginGroup = true;
 			}
 
@@ -429,7 +428,10 @@ namespace FusionPlusPlus.Forms
 
 		private void Navigate(string url)
 		{
-			Process.Start(url);
+			Process.Start(new ProcessStartInfo(url)
+			{
+				UseShellExecute = true
+			});
 		}
 
 		public void MovePrevious()
