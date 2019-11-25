@@ -72,6 +72,8 @@ namespace FusionPlusPlus.Forms
 
 			SetControlVisiblityByContext();
 			SetOverlayState(OverlayState.Empty);
+
+			ShowSocialFlyout();
 		}
 
 		private async Task<List<LogItem>> ReadLogsAsync(ILogStore store)
@@ -448,6 +450,23 @@ namespace FusionPlusPlus.Forms
 
 			if (viewLog.GetFocusedRow() is AggregateLogItem item && item != _detailForm?.Item)
 				_detailForm.Item = item;
+		}
+
+		private void ShowSocialFlyout()
+		{
+			var socialScreenBounds = biTwitter.Links[0].ScreenBounds;
+			socialScreenBounds.Width += biGitHub.Links[0].ScreenBounds.Width;
+
+			var flyout = new DevExpress.Utils.FlyoutPanel { OwnerControl = this };
+			flyout.Controls.Add(beakPanel);
+			flyout.Size = beakPanel.Size;
+			beakPanel.Dock = DockStyle.Fill;
+			flyout.OptionsBeakPanel.BorderColor = Color.FromArgb(214, 255, 241);
+			labelControl1.ForeColor = flyout.OptionsBeakPanel.BorderColor;
+			svgSocial.ItemAppearance.Normal.FillColor = flyout.OptionsBeakPanel.BorderColor;
+			beakPanel.Show();
+			flyout.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
+			flyout.ShowBeakForm(socialScreenBounds);
 		}
 
 		private class RangeDatasourceItem

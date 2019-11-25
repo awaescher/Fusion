@@ -60,6 +60,9 @@
 			this.biTwitter = new DevExpress.XtraBars.BarButtonItem();
 			this.biGitHub = new DevExpress.XtraBars.BarButtonItem();
 			this.biUpdate = new DevExpress.XtraBars.BarButtonItem();
+			this.beakPanel = new DevExpress.XtraEditors.PanelControl();
+			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+			this.svgSocial = new DevExpress.XtraEditors.SvgImageBox();
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -68,6 +71,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.beakPanel)).BeginInit();
+			this.beakPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.svgSocial)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// rangeData
@@ -358,12 +364,53 @@
 			this.biUpdate.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 			this.biUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BiUpdate_ItemClick);
 			// 
+			// beakPanel
+			// 
+			this.beakPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+			this.beakPanel.Controls.Add(this.labelControl1);
+			this.beakPanel.Controls.Add(this.svgSocial);
+			this.beakPanel.Location = new System.Drawing.Point(627, 348);
+			this.beakPanel.Name = "beakPanel";
+			this.beakPanel.Size = new System.Drawing.Size(228, 96);
+			this.beakPanel.TabIndex = 13;
+			this.beakPanel.Visible = false;
+			// 
+			// labelControl1
+			// 
+			this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+			this.labelControl1.Appearance.Options.UseFont = true;
+			this.labelControl1.Appearance.Options.UseTextOptions = true;
+			this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+			this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+			this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelControl1.Location = new System.Drawing.Point(49, 0);
+			this.labelControl1.Name = "labelControl1";
+			this.labelControl1.Padding = new System.Windows.Forms.Padding(6, 12, 12, 12);
+			this.labelControl1.Size = new System.Drawing.Size(179, 96);
+			this.labelControl1.TabIndex = 0;
+			this.labelControl1.Text = "Please consider getting involved if you enjoy using Fusion++";
+			// 
+			// svgSocial
+			// 
+			this.svgSocial.Dock = System.Windows.Forms.DockStyle.Left;
+			this.svgSocial.Location = new System.Drawing.Point(0, 0);
+			this.svgSocial.Name = "svgSocial";
+			this.svgSocial.Padding = new System.Windows.Forms.Padding(12, 0, 0, 4);
+			this.svgSocial.Size = new System.Drawing.Size(49, 96);
+			this.svgSocial.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
+			this.svgSocial.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgSocial.SvgImage")));
+			this.svgSocial.TabIndex = 1;
+			this.svgSocial.Text = "svgImageBox1";
+			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1363, 808);
+			this.Controls.Add(this.beakPanel);
 			this.Controls.Add(this.btnSession);
 			this.Controls.Add(this.btnRecord);
 			this.Controls.Add(this.gridLog);
@@ -382,9 +429,9 @@
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Text = "Fusion++";
 			this.ToolbarFormControl = this.toolbarFormControl1;
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
 			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
@@ -396,6 +443,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.beakPanel)).EndInit();
+			this.beakPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.svgSocial)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -428,6 +478,9 @@
 		private DevExpress.XtraBars.BarButtonItem biTwitter;
 		private DevExpress.XtraBars.BarButtonItem biGitHub;
 		private DevExpress.XtraBars.BarButtonItem biUpdate;
+		private DevExpress.XtraEditors.PanelControl beakPanel;
+		private DevExpress.XtraEditors.LabelControl labelControl1;
+		private DevExpress.XtraEditors.SvgImageBox svgSocial;
 	}
 }
 
