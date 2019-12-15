@@ -74,36 +74,13 @@ namespace TinySoup
 		{
 			try
 			{
-				HttpClient client;
 				var targetUri = new Uri($"{URL}?method={method}&{parameterString}");
 				var serializer = new DataContractJsonSerializer(typeof(List<AvailableVersion>));
 
-#if NETCOREAPP
-
 				var handler = new HttpClientHandler();
 				handler.DefaultProxyCredentials = CredentialCache.DefaultCredentials;
-				client = new HttpClient(handler);
-#else
+				var client = new HttpClient(handler, disposeHandler: true);
 
-				var proxyUri = new Uri(WebRequest.DefaultWebProxy.GetProxy(targetUri).AbsoluteUri);
-				var directAccess = proxyUri?.Authority?.Equals(targetUri.Authority) == true;
-
-				if (directAccess)
-				{
-					client = new HttpClient();
-				}
-				else
-				{
-					var proxy = new WebProxy()
-					{
-						Address = proxyUri,
-						BypassProxyOnLocal = false,
-						UseDefaultCredentials = true
-					};
-					var httpClientHandler = new HttpClientHandler() { Proxy = proxy };
-					client = new HttpClient(handler: httpClientHandler, disposeHandler: true);
-				}
-#endif
 				return serializer.ReadObject(await client.GetStreamAsync(targetUri).ConfigureAwait(false)) as List<AvailableVersion>;
 			}
 			catch (Exception ex)
