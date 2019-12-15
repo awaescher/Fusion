@@ -413,7 +413,7 @@ namespace FusionPlusPlus.Forms
 
 		private void BiGitHub_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			Navigate("https://github.com/awaescher/Fusion");
+			Navigate("https://fusionproject.sodacore.net");
 		}
 
 		private void BiTwitter_ItemClick(object sender, ItemClickEventArgs e)
