@@ -127,7 +127,6 @@ Task("Publish")
 	.IsDependentOn("Test")
 	.Does(() => 
 {
-		// publish netcore apps
 	var settings = new DotNetCorePublishSettings
 	{
 		Framework = netcoreTargetFramework,
@@ -137,12 +136,8 @@ Task("Publish")
 	};
 	DotNetCorePublish("./Fusion++/Fusion++.csproj", settings);
 
-	// files are published to Fusion++\bin\Release\netcoreapp3.1\win-x64
-	var artefactPath = (settings.SelfContained ?? false)
-				? $"./Fusion++/bin/{configuration}/{netcoreTargetFramework}/{settings.Runtime}/**/*"
-				: $"./Fusion++/bin/{configuration}/{netcoreTargetFramework}/{settings.Runtime}/publish/**/*";
-
-	CopyFiles(artefactPath, _outputDir, true);
+	// files are published to Fusion++\bin\Release\netcoreapp3.1\win-x64\publish
+	CopyFiles($"./Fusion++/bin/{configuration}/{netcoreTargetFramework}/{settings.Runtime}/publish/**/*", _outputDir, true);
 	
 	foreach (var extension in new string[]{"pdb", "config", "xml"})
 		DeleteFiles(_outputDir.Path + "/*." + extension);
