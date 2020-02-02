@@ -2,5 +2,12 @@
   <Settings>
     <AutoEnable>True</AutoEnable>
     <CurrentEngineMode>Run all tests automatically [Global]</CurrentEngineMode>
+    <TestsWindowMenuOptions>
+      <VerticalSplitMenuOption>false</VerticalSplitMenuOption>
+      <ShowPassingTestsMenuOption>false</ShowPassingTestsMenuOption>
+      <ShowFailingTestsMenuOption>true</ShowFailingTestsMenuOption>
+      <ShowUnexecutedTestsMenuOption>true</ShowUnexecutedTestsMenuOption>
+      <ShowIgnoredTestsMenuOption>false</ShowIgnoredTestsMenuOption>
+    </TestsWindowMenuOptions>
   </Settings>
 </SolutionConfiguration>

@@ -9,6 +9,7 @@
 
 var target = Argument<string>("target", "Default");
 var configuration = Argument<string>("configuration", "Release");
+var netcoreTargetFramework = Argument<string>("targetFrameworkNetCore", "netcoreapp3.1");
 
 ///////////////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
@@ -70,7 +71,9 @@ Task("Build")
 	.IsDependentOn("SetVersion")
     .Does(() =>
 {
-	Information("Building {0}", _solution);
+	Information("Building {0} for tests", _solution);
+
+	// just for tests, not the app itself
 	MSBuild(_solution, settings =>
 		settings.SetPlatformTarget(PlatformTarget.MSIL)
 			.SetMSBuildPlatform(MSBuildPlatform.x64)
@@ -124,7 +127,17 @@ Task("Publish")
 	.IsDependentOn("Test")
 	.Does(() => 
 {
-	CopyFiles($"./Fusion++/bin/{configuration}/**/*", _outputDir, true);
+	var settings = new DotNetCorePublishSettings
+	{
+		Framework = netcoreTargetFramework,
+		Configuration = configuration,
+		Runtime = "win-x64",
+		SelfContained = false
+	};
+	DotNetCorePublish("./Fusion++/Fusion++.csproj", settings);
+
+	// files are published to Fusion++\bin\Release\netcoreapp3.1\win-x64\publish
+	CopyFiles($"./Fusion++/bin/{configuration}/{netcoreTargetFramework}/{settings.Runtime}/publish/**/*", _outputDir, true);
 	
 	foreach (var extension in new string[]{"pdb", "config", "xml"})
 		DeleteFiles(_outputDir.Path + "/*." + extension);
