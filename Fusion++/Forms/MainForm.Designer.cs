@@ -369,28 +369,29 @@
 			this.beakPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.beakPanel.Controls.Add(this.labelControl1);
 			this.beakPanel.Controls.Add(this.svgSocial);
-			this.beakPanel.Location = new System.Drawing.Point(627, 348);
+			this.beakPanel.Location = new System.Drawing.Point(1, 1);
 			this.beakPanel.Name = "beakPanel";
-			this.beakPanel.Size = new System.Drawing.Size(228, 96);
+			this.beakPanel.Size = new System.Drawing.Size(260, 120);
 			this.beakPanel.TabIndex = 13;
 			this.beakPanel.Visible = false;
 			// 
 			// labelControl1
 			// 
-			this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+			this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.25F);
 			this.labelControl1.Appearance.Options.UseFont = true;
 			this.labelControl1.Appearance.Options.UseTextOptions = true;
 			this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
 			this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+			this.labelControl1.AllowHtmlString = true;
 			this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelControl1.Location = new System.Drawing.Point(49, 0);
 			this.labelControl1.Name = "labelControl1";
 			this.labelControl1.Padding = new System.Windows.Forms.Padding(6, 12, 12, 12);
 			this.labelControl1.Size = new System.Drawing.Size(179, 96);
 			this.labelControl1.TabIndex = 0;
-			this.labelControl1.Text = "Please consider getting involved if you enjoy using Fusion++";
+			this.labelControl1.Text = "Please help to gain more visibility if you like Fusion++.\n\nTweet about it, recommend it to colleagues or join in on GitHub.\n\nThank you.";
 			// 
 			// svgSocial
 			// 
@@ -403,6 +404,7 @@
 			this.svgSocial.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgSocial.SvgImage")));
 			this.svgSocial.TabIndex = 1;
 			this.svgSocial.Text = "svgImageBox1";
+			this.svgSocial.Visible = false;
 			// 
 			// MainForm
 			// 
