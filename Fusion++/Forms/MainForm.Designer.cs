@@ -62,7 +62,6 @@
 			this.biUpdate = new DevExpress.XtraBars.BarButtonItem();
 			this.beakPanel = new DevExpress.XtraEditors.PanelControl();
 			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-			this.svgSocial = new DevExpress.XtraEditors.SvgImageBox();
 			((System.ComponentModel.ISupportInitialize)(this.rangeData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
@@ -73,7 +72,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.beakPanel)).BeginInit();
 			this.beakPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.svgSocial)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// rangeData
@@ -345,7 +343,7 @@
 			// biGitHub
 			// 
 			this.biGitHub.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-			this.biGitHub.Caption = "Fork me on GitHub";
+			this.biGitHub.Caption = "Star me on GitHub";
 			this.biGitHub.Id = 2;
 			this.biGitHub.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
 			this.biGitHub.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("biGitHub.ImageOptions.SvgImage")));
@@ -368,10 +366,9 @@
 			// 
 			this.beakPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.beakPanel.Controls.Add(this.labelControl1);
-			this.beakPanel.Controls.Add(this.svgSocial);
 			this.beakPanel.Location = new System.Drawing.Point(1, 1);
 			this.beakPanel.Name = "beakPanel";
-			this.beakPanel.Size = new System.Drawing.Size(260, 120);
+			this.beakPanel.Size = new System.Drawing.Size(200, 80);
 			this.beakPanel.TabIndex = 13;
 			this.beakPanel.Visible = false;
 			// 
@@ -391,20 +388,7 @@
 			this.labelControl1.Padding = new System.Windows.Forms.Padding(6, 12, 12, 12);
 			this.labelControl1.Size = new System.Drawing.Size(179, 96);
 			this.labelControl1.TabIndex = 0;
-			this.labelControl1.Text = "Please help to gain more visibility if you like Fusion++.\n\nTweet about it, recommend it to colleagues or join in on GitHub.\n\nThank you.";
-			// 
-			// svgSocial
-			// 
-			this.svgSocial.Dock = System.Windows.Forms.DockStyle.Left;
-			this.svgSocial.Location = new System.Drawing.Point(0, 0);
-			this.svgSocial.Name = "svgSocial";
-			this.svgSocial.Padding = new System.Windows.Forms.Padding(12, 0, 0, 4);
-			this.svgSocial.Size = new System.Drawing.Size(49, 96);
-			this.svgSocial.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
-			this.svgSocial.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgSocial.SvgImage")));
-			this.svgSocial.TabIndex = 1;
-			this.svgSocial.Text = "svgImageBox1";
-			this.svgSocial.Visible = false;
+			this.labelControl1.Text = "Please help to gain more visibility if you like Fusion++\n\n<b>Thank you \u2665</b>";
 			// 
 			// MainForm
 			// 
@@ -447,7 +431,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.beakPanel)).EndInit();
 			this.beakPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.svgSocial)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -482,7 +465,6 @@
 		private DevExpress.XtraBars.BarButtonItem biUpdate;
 		private DevExpress.XtraEditors.PanelControl beakPanel;
 		private DevExpress.XtraEditors.LabelControl labelControl1;
-		private DevExpress.XtraEditors.SvgImageBox svgSocial;
 	}
 }
 

@@ -463,7 +463,6 @@ namespace FusionPlusPlus.Forms
 			beakPanel.Dock = DockStyle.Fill;
 			flyout.OptionsBeakPanel.BorderColor = Color.FromArgb(214, 255, 241);
 			labelControl1.ForeColor = flyout.OptionsBeakPanel.BorderColor;
-			svgSocial.ItemAppearance.Normal.FillColor = flyout.OptionsBeakPanel.BorderColor;
 			beakPanel.Show();
 			flyout.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
 			flyout.ShowBeakForm(socialScreenBounds);
