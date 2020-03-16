@@ -31,9 +31,6 @@ Fusion++ makes sure that all the assembly logs are routed to the Windows TEMP fo
 Fusion++ uses the same settings as the "Assembly Binding Log Viewer", so it uses the built-in .NET log functionality. It will back up your "Assembly Binding Log Viewer" settings as long as it is executed. As soon as you close it, it will re-apply them to make the application as transparent as possible. 
 But as long you are executing Fusion++, it automatically takes care of all the stuff for you. No radio buttons, no custom log paths, no files you have to go through.
 
-## Dependencies ⚠︎
-Some user [reported crashes at program start](https://github.com/awaescher/Fusion/issues/8). Please make sure to install the [.NET Framework Runtime v4.7.2](http://go.microsoft.com/fwlink/?LinkId=863262) if you experience similar issues.
-
 ## Building
 Note that you need to have a valid [DevExpress WinForms subscripton](https://www.devexpress.com/products/net/controls/winforms/) to build Fusion++ by yourself.
 If you do not have a subscription, you are limited to use the precompiled versions from the releases tab.
