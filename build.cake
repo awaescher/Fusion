@@ -60,6 +60,10 @@ Task("SetVersion")
 		_appVersion = $"{gitVersion.Major}.{gitVersion.Minor}" + (gitVersion.Patch == 0 ? "" : $".{gitVersion.Patch}");
 		var fullVersion = gitVersion.AssemblySemVer;
 		
+		ReplaceRegexInFiles("./**/*.csproj", "(?<=<AssemblyVersion>).*?(?=</AssemblyVersion>)", _appVersion);
+		ReplaceRegexInFiles("./**/*.csproj", "(?<=<Version>).*?(?=</Version>)", fullVersion);
+		ReplaceRegexInFiles("./**/*.csproj", "(?<=<FileVersion>).*?(?=</FileVersion>)", fullVersion);
+
 		Information($"AppVersion:\t{_appVersion}");
 		Information($"FullVersion:\t{fullVersion}");
 	});
@@ -138,7 +142,7 @@ Task("Publish")
 
 	// files are published to Fusion++\bin\Release\netcoreapp3.1\win-x64\publish
 	CopyFiles($"./Fusion++/bin/{configuration}/{netcoreTargetFramework}/{settings.Runtime}/publish/**/*", _outputDir, true);
-	
+
 	foreach (var extension in new string[]{"pdb", "config", "xml"})
 		DeleteFiles(_outputDir.Path + "/*." + extension);
 });

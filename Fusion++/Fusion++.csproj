@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,13 +6,15 @@
     <RootNamespace>FusionPlusPlus</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <Version>1.1.0</Version>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.2</AssemblyVersion>
+    <Version>1.2.0.0</Version>
+    <FileVersion>1.2.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="19.2.6-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.Bars" Version="19.2.6-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.Grid" Version="19.2.6-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.RichEdit" Version="19.2.6-ctp" />
   </ItemGroup>
 
   <ItemGroup>
