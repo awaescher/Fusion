@@ -368,7 +368,7 @@
 			this.beakPanel.Controls.Add(this.labelControl1);
 			this.beakPanel.Location = new System.Drawing.Point(1, 1);
 			this.beakPanel.Name = "beakPanel";
-			this.beakPanel.Size = new System.Drawing.Size(200, 80);
+			this.beakPanel.Size = new System.Drawing.Size(300, 100);
 			this.beakPanel.TabIndex = 13;
 			this.beakPanel.Visible = false;
 			// 
@@ -388,7 +388,7 @@
 			this.labelControl1.Padding = new System.Windows.Forms.Padding(6, 12, 12, 12);
 			this.labelControl1.Size = new System.Drawing.Size(179, 96);
 			this.labelControl1.TabIndex = 0;
-			this.labelControl1.Text = "Please help to gain more visibility if you like Fusion++\n\n<b>Thank you \u2665</b>";
+			this.labelControl1.Text = "Please help to introduce Fusion++ to other<br>developers if you find it useful.\n\n<b>Thank you \u2665</b>";
 			// 
 			// MainForm
 			// 
