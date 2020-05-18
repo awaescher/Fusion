@@ -26,7 +26,7 @@ namespace FusionPlusPlus.Forms
 		private bool _loading = false;
 		private LogFileParser _parser;
 		private RegistryFusionService _fusionService;
-		private List<AggregateLogItem> _logs;
+		private List<AggregateLogItem> _aggregatedLogs;
 		private string _lastLogPath;
 		private string _lastUsedFilePath;
 		private FusionSession _session;
@@ -134,11 +134,15 @@ namespace FusionPlusPlus.Forms
 			while (logs == null)
 				Thread.Sleep(50);
 
-			_logs = aggregator.Aggregate(logs);
+			var success = Validate(logs);
+			if (!success)
+				logs.Clear();
+
+			_aggregatedLogs = aggregator.Aggregate(logs);
 			_lastLogPath = logStore.Path;
 
 			// Generate a data table and bind the date-time client to it.
-			dateTimeChartRangeControlClient1.DataProvider.DataSource = _logs;
+			dateTimeChartRangeControlClient1.DataProvider.DataSource = _aggregatedLogs;
 
 			// Specify data members to bind the client.
 			dateTimeChartRangeControlClient1.DataProvider.ArgumentDataMember = nameof(RangeDatasourceItem.TimeStampLocal);
@@ -155,7 +159,7 @@ namespace FusionPlusPlus.Forms
 				{
 					TimeStampLocal = localTime,
 					State = state,
-					ItemCount = _logs.Count(l => l.TimeStampLocal == localTime && l.AccumulatedState >= state)
+					ItemCount = _aggregatedLogs.Count(l => l.TimeStampLocal == localTime && l.AccumulatedState >= state)
 				});
 			});
 
@@ -163,15 +167,36 @@ namespace FusionPlusPlus.Forms
 
 			SetControlVisiblityByContext();
 
-			if (_logs.Any())
+			if (_aggregatedLogs.Any())
 				SetOverlayState(OverlayState.None);
 			else
 				SetOverlayState(OverlayState.Empty);
 		}
 
+		private bool Validate(IEnumerable<LogItem> logs)
+		{
+			var logWitoutDate = logs.FirstOrDefault(l => !l.HasTimeStamp);
+			if (logWitoutDate != null)
+			{
+				var message = "I'm sorry but I could not parse the date format of the assembly binding logs" + Environment.NewLine +
+					"with the current Windows date format settings and 'en-US' as fallback." + Environment.NewLine;
+
+				if (!string.IsNullOrEmpty(logWitoutDate.FullMessage))
+				{
+					var details = logWitoutDate.FullMessage.Length > 200 ? logWitoutDate.FullMessage.Substring(0, 200) + " ..." : logWitoutDate.FullMessage;
+					message += Environment.NewLine + Environment.NewLine + "Example binding log:" + Environment.NewLine + Environment.NewLine + details;
+				}
+
+				XtraMessageBox.Show(this, message, "Parser error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+
+			return true;
+		}
+
 		private void SetControlVisiblityByContext()
 		{
-			var hasData = _logs?.Any() ?? false;
+			var hasData = _aggregatedLogs?.Any() ?? false;
 			gridLog.Visible = hasData;
 			rangeData.Visible = hasData;
 			btnSession.Enabled = true;
@@ -182,7 +207,7 @@ namespace FusionPlusPlus.Forms
 			DateTime from = ((DateTime)range.Range.Minimum).ToUniversalTime();
 			DateTime till = ((DateTime)range.Range.Maximum).ToUniversalTime();
 
-			gridLog.DataSource = _logs?.Where(l => l.TimeStampUtc >= from && l.TimeStampUtc <= till).ToList();
+			gridLog.DataSource = _aggregatedLogs?.Where(l => l.TimeStampUtc >= from && l.TimeStampUtc <= till).ToList();
 		}
 
 		private void MainForm_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
@@ -239,7 +264,7 @@ namespace FusionPlusPlus.Forms
 			else
 				e.Annotations.Clear();
 
-			if (_logs == null)
+			if (_aggregatedLogs == null)
 				return;
 
 			SetRowAnnotations(e, LogItem.State.Error, Color.Red);
@@ -248,9 +273,9 @@ namespace FusionPlusPlus.Forms
 
 		private void SetRowAnnotations(DevExpress.XtraGrid.Views.Grid.GridCustomScrollAnnotationsEventArgs e, LogItem.State state, Color color)
 		{
-			var errorDatasourceIndexes = _logs
+			var errorDatasourceIndexes = _aggregatedLogs
 				.Where(l => l.AccumulatedState == state)
-				.Select(l => _logs.IndexOf(l))
+				.Select(l => _aggregatedLogs.IndexOf(l))
 				.ToArray();
 
 			var errorRowHandles = errorDatasourceIndexes

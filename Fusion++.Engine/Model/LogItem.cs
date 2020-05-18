@@ -55,6 +55,8 @@ namespace FusionPlusPlus.Engine.Model
 
 		public bool IsValid => !string.IsNullOrEmpty(DisplayName);
 
+		public bool HasTimeStamp => TimeStampUtc.Year > 1;
+
 		public string UniqueId => DisplayName
 			+ " @ "
 			+ TimeStampUtc.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK");

@@ -59,5 +59,7 @@ namespace FusionPlusPlus.Engine.Model
 		public List<LogItem> Items { get; }
 
 		public int ItemCount => Items?.Count ?? 0;
+
+		public bool HasTimeStamp => _representative?.HasTimeStamp ?? false;
 	}
 }

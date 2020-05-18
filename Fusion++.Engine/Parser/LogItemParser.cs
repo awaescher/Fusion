@@ -1,11 +1,14 @@
 ﻿using FusionPlusPlus.Engine.Model;
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace FusionPlusPlus.Engine.Parser
 {
 	public class LogItemParser
 	{
+		public static CultureInfo _fallbackFormatProvider = new CultureInfo("en-US");
+
 		public LogItem Parse(string value)
 		{
 			value = value.Trim(new char[] { '\r', '\n' });
@@ -60,16 +63,27 @@ namespace FusionPlusPlus.Engine.Parser
 			}
 		}
 
-		private void FindDate(string content, Action<DateTime> setter)
+		private bool FindDate(string content, Action<DateTime> setter)
 		{
 			var match = Regex.Match(content, @"(?<=\().*?@.*?(?=\))");
 			if (match.Success)
 			{
 				var value = match.Value.Trim().Replace("@", "");
 
-				if (DateTime.TryParse(value, out DateTime result))
+				if (DateTime.TryParse(value, DateTimeFormatInfo.CurrentInfo, DateTimeStyles.AssumeLocal, out DateTime result))
+				{
 					setter(result);
+					return true;
+				}
+
+				if (DateTime.TryParse(value, _fallbackFormatProvider, DateTimeStyles.AssumeLocal, out DateTime fallbackResult))
+				{
+					setter(fallbackResult);
+					return true;
+				}
 			}
+
+			return false;
 		}
 
 		internal string[] LineSeparators { get; } = new string[] { Environment.NewLine, "\n" };
