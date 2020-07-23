@@ -29,7 +29,7 @@ namespace FusionPlusPlus.Engine.IO
 
 				try
 				{
-					SetFullControlPermissions(Path, WellKnownSidType.BuiltinUsersSid, WellKnownSidType.LocalSystemSid);
+					SetFullControlPermissions(Path, WellKnownSidType.BuiltinUsersSid, WellKnownSidType.LocalSystemSid, WellKnownSidType.WorldSid);
 				}
 				catch
 				{
