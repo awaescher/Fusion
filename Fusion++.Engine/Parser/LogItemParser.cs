@@ -24,6 +24,7 @@ namespace FusionPlusPlus.Engine.Parser
 				if (result.TimeStampUtc.Year == 1)
 					FindDate(line, d => result.TimeStampUtc = d.ToUniversalTime());
 
+				AddValueIfRelevant(line, "Where-ref.*", s => result.DisplayName = "Where-ref: " + s); // LOG: Where-ref bind. Location =  // LOG: Where-ref-Bindung. Speicherort = 
 				AddValueIfRelevant(line, "DisplayName", s => result.DisplayName = s);
 				AddValueIfRelevant(line, "AppName", s => result.AppName = s);
 				AddValueIfRelevant(line, "AppBase", s => result.AppBase = s);
