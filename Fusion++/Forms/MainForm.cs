@@ -411,15 +411,16 @@ namespace FusionPlusPlus.Forms
 				button.Caption = "(no sessions yet)";
 				button.Enabled = false;
 				popupLastSessions.AddItem(button);
-				return;
 			}
-
-			foreach (var sessionPath in sessionPaths)
+			else
 			{
-				var button = new BarButtonItem();
-				button.Caption = store.GetLogName(sessionPath);
-				button.ItemClick += async (s, e) => await ImportFromDirectoryAsync(sessionPath);
-				popupLastSessions.AddItem(button);
+				foreach (var sessionPath in sessionPaths)
+				{
+					var button = new BarButtonItem();
+					button.Caption = store.GetLogName(sessionPath);
+					button.ItemClick += async (s, e) => await ImportFromDirectoryAsync(sessionPath);
+					popupLastSessions.AddItem(button);
+				}
 			}
 
 			if (popupLastSessions.ItemLinks.Count > 0)
