@@ -65,8 +65,7 @@ namespace FusionPlusPlus.Forms
 				Progress = (current, total) => _loadingOverlay.SetProgress(current, total)
 			};
 
-			var name = this.GetType().Assembly.GetName();
-			Text = $"{name.Name} {name.Version.Major}.{name.Version.Minor}" + (name.Version.Build == 0 ? "" : $".{name.Version.Build}");
+			Text = GetAppNameWithVersion();
 
 			base.OnShown(e);
 
@@ -74,6 +73,12 @@ namespace FusionPlusPlus.Forms
 			SetOverlayState(OverlayState.Empty);
 
 			ShowSocialFlyout();
+		}
+
+		private string GetAppNameWithVersion()
+		{
+			var name = this.GetType().Assembly.GetName();
+			return $"{name.Name} {name.Version.Major}.{name.Version.Minor}" + (name.Version.Build == 0 ? "" : $".{name.Version.Build}");
 		}
 
 		private async Task<List<LogItem>> ReadLogsAsync(ILogStore store)
@@ -171,6 +176,8 @@ namespace FusionPlusPlus.Forms
 				SetOverlayState(OverlayState.None);
 			else
 				SetOverlayState(OverlayState.Empty);
+
+			Text = $"{logStore.GetLogName(logStore.Path)} - {GetAppNameWithVersion()}";
 		}
 
 		private bool Validate(IEnumerable<LogItem> logs)
