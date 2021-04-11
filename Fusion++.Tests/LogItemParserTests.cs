@@ -101,6 +101,14 @@ namespace FusionPlusPlus.Tests
 
 				item.AccumulatedState.Should().Be(LogItem.State.Error);
 			}
+
+			[TestCase(@"LOG: Where-ref bind. Location = D:\Develop\GitHub\net472\Microsoft.NET.Build.Extensions.Tasks.dll")]
+			[TestCase(@"LOG: Where-ref-Bindung.Speicherort = D:\Develop\GitHub\net472\Microsoft.NET.Build.Extensions.Tasks.dll")]
+			public void Includes_WhereRef_Bindings(string whereRefLine)
+			{
+				var item = _parser.Parse(whereRefLine);
+				item.DisplayName.Should().StartWith("Where-ref");
+			}
 		}
 	}
 }
