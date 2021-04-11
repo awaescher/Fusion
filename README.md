@@ -32,7 +32,7 @@ Fusion++ uses the same settings as the "Assembly Binding Log Viewer", so it uses
 But as long you are executing Fusion++, it automatically takes care of all the stuff for you. No radio buttons, no custom log paths, no files you have to go through.
 
 ## Building
-Note that you need to have a valid [DevExpress WinForms subscripton](https://www.devexpress.com/products/net/controls/winforms/) to build Fusion++ by yourself.
+Note that you need to have a valid [DevExpress WinForms subscription](https://www.devexpress.com/products/net/controls/winforms/) to build Fusion++ by yourself.
 If you do not have a subscription, you are limited to use the precompiled versions from the releases tab.
 
 We're talking about licensing, so I won't give any support to bypass this - please don't open issues about it.
