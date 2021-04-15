@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>FusionPlusPlus</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -12,9 +12,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.Bars" Version="19.2.6-ctp" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.Grid" Version="19.2.6-ctp" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.RichEdit" Version="19.2.6-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.Bars" Version="20.2.5-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.Grid" Version="20.2.5-ctp" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win.RichEdit" Version="20.2.5-ctp" />
   </ItemGroup>
 
   <ItemGroup>

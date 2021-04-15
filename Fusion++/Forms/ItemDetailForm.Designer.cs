@@ -87,7 +87,7 @@
 			this.richLog.TabIndex = 0;
 			this.richLog.Views.DraftView.AdjustColorsToSkins = true;
 			this.richLog.Views.DraftView.AllowDisplayLineNumbers = true;
-			this.richLog.Views.DraftView.Padding = new System.Windows.Forms.Padding(80, 4, 0, 0);
+			this.richLog.Views.DraftView.Padding = new DevExpress.Portable.PortablePadding(80, 4, 0, 0);
 			this.richLog.InitializeDocument += new System.EventHandler(this.RichLog_InitializeDocument);
 			// 
 			// toolbarFormManager1
