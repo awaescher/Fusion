@@ -9,7 +9,7 @@
 
 var target = Argument<string>("target", "Default");
 var configuration = Argument<string>("configuration", "Release");
-var netcoreTargetFramework = Argument<string>("targetFrameworkNetCore", "net5.0-windows");
+var netcoreTargetFramework = Argument<string>("targetFrameworkNetCore", "net6.0-windows");
 
 ///////////////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
