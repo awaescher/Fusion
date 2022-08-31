@@ -37,5 +37,13 @@ If you do not have a subscription, you are limited to use the precompiled versio
 
 We're talking about licensing, so I won't give any support to bypass this - please don't open issues about it.
 
+```powershell
+ # build
+ dotnet cake --target Build
+ 
+ # pack for chocolatey
+ dotnet cake --target Pack
+```
+
 ## Credits
 The app icon was made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
