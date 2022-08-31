@@ -177,7 +177,8 @@ namespace FusionPlusPlus.Forms
 			else
 				SetOverlayState(OverlayState.Empty);
 
-			Text = $"{logStore.GetLogName(logStore.Path)} - {GetAppNameWithVersion()}";
+			var logName = logStore.GetLogName(logStore.Path);
+			Text = string.IsNullOrEmpty(logName) ? GetAppNameWithVersion() : $"{logName} - {GetAppNameWithVersion()}";
 		}
 
 		private bool Validate(IEnumerable<LogItem> logs)
