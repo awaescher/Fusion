@@ -12,9 +12,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.Bars" Version="20.2.5-ctp" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.Grid" Version="20.2.5-ctp" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Win.RichEdit" Version="20.2.5-ctp" />
+    <PackageReference Include="DevExpress.Win.Navigation" Version="22.1.3" />
+    <PackageReference Include="DevExpress.Win.Grid" Version="22.1.3" />
+    <PackageReference Include="DevExpress.Win.RichEdit" Version="22.1.3" />
   </ItemGroup>
 
   <ItemGroup>
