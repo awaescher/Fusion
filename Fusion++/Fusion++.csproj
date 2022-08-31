@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>FusionPlusPlus</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>1.4</AssemblyVersion>
-    <Version>1.4.0.0</Version>
-    <FileVersion>1.4.0.0</FileVersion>
+    <AssemblyVersion>1.5</AssemblyVersion>
+    <Version>1.5.0.0</Version>
+    <FileVersion>1.5.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
