@@ -136,7 +136,7 @@ Task("Publish")
 		Framework = netcoreTargetFramework,
 		Configuration = configuration,
 		Runtime = "win-x64",
-		SelfContained = false
+		SelfContained = true
 	};
 	DotNetCorePublish("./Fusion++/Fusion++.csproj", settings);
 
